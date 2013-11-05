@@ -25,7 +25,7 @@ browsers that do not support pushstate, Lazo falls back to rendering views on th
 reap the SEO benefits of the [traditional web application model](#), while still working in a context with which they are
 familiar, and realizing all SPA model benefits without coding for them.
 
-[**Learn More**](wiki/Overview)
+[**Learn More**](https://github.com/walmartlabs/lazojs/wiki/Overview)
 
 ## Getting Started
 Lazo is a [node module](https://npmjs.org/). Installing and creating a new Lazo application is as easy as uno, dos, tres.
