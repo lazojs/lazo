@@ -1,0 +1,33 @@
+{
+  "name": "lazojs",
+  "version": "0.0.1",
+  "description": "client-server javascript framework",
+  "private": true,
+  "main": "lazo.js",
+  "scripts": {
+    "test": "grunt castle",
+    "postinstall": "./bin/postinstall.js",
+    "start": "node lib/server/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:walmartlabs/lazojs.git"
+  },
+  "author": "@WalmartLabs",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "c707908b545a1f695c4191dfe290d4a4a7beaeeb",
+  "dependencies": {
+    "hapi": "2.6.x",
+    "requirejs": "2.1.x",
+    "handlebars": "1.3.x",
+    "backbone": "git+ssh://git@github.com:amdjs/backbone.git",
+    "underscore": "git+ssh://git@github.com:amdjs/underscore.git",
+    "jquery": "1.11.x"
+  },
+  "devDependencies": {
+    "grunt-contrib-requirejs": "0.4.x",
+    "grunt": "0.4.x",
+    "grunt-castle": "git+ssh://git@github.com:walmartlabs/grunt-castle.git"
+  }
+}
