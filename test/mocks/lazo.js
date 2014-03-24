@@ -19,8 +19,15 @@ define(function () {
 
     };
 
+    var noop = function () {
+
+    };
+
     LAZO.logger = {
-        log: function () {}
+        debug: noop,
+        error: noop,
+        info: noop,
+        warn: noop
     };
 
     return LAZO;
