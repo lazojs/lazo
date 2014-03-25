@@ -2,6 +2,9 @@ describe('logger', function () {
 
     var logger = null;
 
+    var noop = function () {
+    };
+
     before(function (done) {
         Date.prototype.toISOString = function () {
             return '2012-01-27T12:30:00.000Z';
@@ -41,17 +44,18 @@ describe('logger', function () {
     });
 
     it('should format messages correctly', function (done) {
-        var stub = sinon.stub(console, 'log', function () {
-        });
+        var stub = sinon.stub(console, 'log');
 
-        expect(logger.info('Lorem ipsum dolor sit amet')).to.be.equal('2012-01-27T12:30:00.000Z\tINFO\tLorem ipsum dolor sit amet');
-        expect(logger.info('Lorem ipsum dolor sit amet %j', {foo: 123, bar: 456})).to.be.equal('2012-01-27T12:30:00.000Z\tINFO\tLorem ipsum dolor sit amet {"foo":123,"bar":456}');
-        expect(logger.info('Lorem %s dolor %s amet', 'ipsum', 'sit')).to.be.equal('2012-01-27T12:30:00.000Z\tINFO\tLorem ipsum dolor sit amet');
-        expect(logger.info(['TempoAssetUpload.UtilActions', 'upload'], 'Lorem ipsum dolor sit amet')).to.be.equal('2012-01-27T12:30:00.000Z\tINFO\tLorem ipsum dolor sit amet\tTempoAssetUpload.UtilActions.upload');
-        expect(logger.info(['TempoAssetUpload.UtilActions', 'upload'], 'Lorem ipsum dolor sit amet %j', {"foo": 123, "bar": 456})).to.be.equal('2012-01-27T12:30:00.000Z\tINFO\tLorem ipsum dolor sit amet {"foo":123,"bar":456}\tTempoAssetUpload.UtilActions.upload');
+        expect(logger.error('Lorem ipsum dolor sit amet')).to.be.equal('2012-01-27T12:30:00.000Z\tERROR\tLorem ipsum dolor sit amet');
+        expect(logger.error('Lorem ipsum dolor sit amet', {foo: 123, bar: 456})).to.be.equal('2012-01-27T12:30:00.000Z\tERROR\tLorem ipsum dolor sit amet {"foo":123,"bar":456}');
+        expect(logger.error('Lorem %s dolor %s amet', 'ipsum', 'sit')).to.be.equal('2012-01-27T12:30:00.000Z\tERROR\tLorem ipsum dolor sit amet');
+        expect(logger.error('Lorem %s dolor %s amet')).to.be.equal('2012-01-27T12:30:00.000Z\tERROR\tLorem undefined dolor undefined amet');
+        expect(logger.error('Lorem ipsum dolor sit amet %d %f', 3.14159, 3.14159)).to.be.equal('2012-01-27T12:30:00.000Z\tERROR\tLorem ipsum dolor sit amet 3 3.14159');
+        expect(logger.error(['TempoAssetUpload.UtilActions', 'upload'], 'Lorem ipsum dolor sit amet')).to.be.equal('2012-01-27T12:30:00.000Z\tERROR\tLorem ipsum dolor sit amet\tTempoAssetUpload.UtilActions.upload');
+        expect(logger.error(['TempoAssetUpload.UtilActions', 'upload'], 'Lorem ipsum dolor sit amet', {"foo": 123, "bar": 456})).to.be.equal('2012-01-27T12:30:00.000Z\tERROR\tLorem ipsum dolor sit amet {"foo":123,"bar":456}\tTempoAssetUpload.UtilActions.upload');
 
         setTimeout(function () {
-            expect(stub.callCount).to.be.equal(5);
+            expect(console.log.callCount).to.be.equal(7);
             stub.restore();
             done();
         }, 10);
@@ -60,10 +64,11 @@ describe('logger', function () {
     it('should call new registered sink', function (done) {
         var stubSink = sinon.stub();
 
-        expect(logger.getSinks()['console']).to.be.a.function;
         logger.addSink('stub', stubSink);
+
         expect(logger.getSinks()['stub']).to.be.a.function;
-        logger.info('Lorem ipsum dolor sit amet');
+
+        logger.error('Lorem ipsum dolor sit amet');
 
         setTimeout(function () {
             expect(stubSink).to.be.called.once;
