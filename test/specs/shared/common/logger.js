@@ -55,7 +55,7 @@ describe('logger', function () {
         expect(logger.error(['TempoAssetUpload.UtilActions', 'upload'], 'Lorem ipsum dolor sit amet', {"foo": 123, "bar": 456})).to.be.equal('2012-01-27T12:30:00.000Z\tERROR\tLorem ipsum dolor sit amet {"foo":123,"bar":456}\tTempoAssetUpload.UtilActions.upload');
 
         setTimeout(function () {
-            expect(console.log.callCount).to.be.equal(7);
+            expect(stub.callCount).to.be.equal(7);
             stub.restore();
             done();
         }, 10);
