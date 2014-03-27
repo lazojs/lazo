@@ -28,15 +28,6 @@ describe('logger', function () {
         expect(logger.getLevel()).to.be.equal('error');
     });
 
-    it('should change the log level', function () {
-        logger.setLevel('warn');
-        expect(logger.getLevel()).to.be.equal('warn');
-        logger.setLevel('info');
-        expect(logger.getLevel()).to.be.equal('info');
-        logger.setLevel('debug');
-        expect(logger.getLevel()).to.be.equal('debug');
-    });
-
     it('should have console as default sink', function () {
         var sinks = logger.getSinks();
         expect(sinks.console).to.exist;
@@ -44,7 +35,7 @@ describe('logger', function () {
     });
 
     it('should format messages correctly', function (done) {
-        var stub = sinon.stub(console, 'log');
+        sinon.stub(console, 'log');
 
         expect(logger.error('Lorem ipsum dolor sit amet')).to.be.equal('2012-01-27T12:30:00.000Z\tERROR\tLorem ipsum dolor sit amet');
         expect(logger.error('Lorem ipsum dolor sit amet', {foo: 123, bar: 456})).to.be.equal('2012-01-27T12:30:00.000Z\tERROR\tLorem ipsum dolor sit amet {"foo":123,"bar":456}');
@@ -55,10 +46,19 @@ describe('logger', function () {
         expect(logger.error(['TempoAssetUpload.UtilActions', 'upload'], 'Lorem ipsum dolor sit amet', {"foo": 123, "bar": 456})).to.be.equal('2012-01-27T12:30:00.000Z\tERROR\tLorem ipsum dolor sit amet {"foo":123,"bar":456}\tTempoAssetUpload.UtilActions.upload');
 
         setTimeout(function () {
-            expect(stub.callCount).to.be.equal(7);
-            stub.restore();
+            expect(console.log.callCount).to.be.equal(7);
+            console.log.restore();
             done();
-        }, 10);
+        }, 0);
+    });
+
+    it('should change the log level', function () {
+        logger.setLevel('warn');
+        expect(logger.getLevel()).to.be.equal('warn');
+        logger.setLevel('info');
+        expect(logger.getLevel()).to.be.equal('info');
+        logger.setLevel('debug');
+        expect(logger.getLevel()).to.be.equal('debug');
     });
 
     it('should call new registered sink', function (done) {
