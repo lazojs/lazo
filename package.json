@@ -13,6 +13,7 @@
     "dependencies": {
         "crumb": "0.3.x",
         "hapi": "1.8.x",
+        "good": "0.12.3",
         "node-dir": "0.0.3",
         "requirejs": "2.1.8",
         "request": "2.27.0",
