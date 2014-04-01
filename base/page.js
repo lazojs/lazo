@@ -123,6 +123,10 @@ function program14(depth0,data) {
   if (helper = helpers.args) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.args); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += ",\n                files: ";
+  if (helper = helpers.files) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.files); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n            }\n        };\n    </script>\n    <script src=\"/lib/vendor/require.js\"></script>\n    ";
   stack1 = helpers['if'].call(depth0, (depth0 && depth0.lib), {hash:{},inverse:self.program(12, program12, data),fn:self.program(10, program10, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
