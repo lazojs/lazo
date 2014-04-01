@@ -4,28 +4,41 @@
     "description": "Best framework ever.",
     "private": true,
     "scripts": {
-        "start": "lazo"
+        "start": "lazo",
+        "postinstall": "postinstall"
     },
     "main": "index",
     "bin": {
-        "lazo": "lazo.js"
+        "lazo": "lazo.js",
+        "postinstall": "bin/postinstall"
     },
     "dependencies": {
-        "crumb": "0.3.x",
-        "hapi": "1.8.x",
-        "node-dir": "0.0.3",
-        "requirejs": "2.1.8",
+        "crumb": "1.1.x",
         "request": "2.27.0",
         "winston": "0.7.x",
-        "clean-css": "1.0.12",
         "forever": "0.10.8",
         "fs-extra": "0.6.3",
-        "handlebars": "1.0.12",
-        "optimist": "0.6.0"
+        "handlebars": "1.3.x",
+        "optimist": "0.6.0",
+        "node-dir": "0.1.x",
+        "clean-css": "1.0.12",
+
+        "hapi": "3.1.x",
+        "requirejs": "2.1.x",
+        "handlebars": "1.3.x",
+        "backbone": "git+ssh://git@github.com:amdjs/backbone.git",
+        "underscore": "git+ssh://git@github.com:amdjs/underscore.git",
+        "jquery": "1.11.x",
+        "rjs-text": "git+ssh://git@github.com:requirejs/text.git",
+        "hermes": "git+ssh://git@github.com:jstrimpel/hermes.git",
+        "jquery-cookie": "git+ssh://git@github.com:carhartl/jquery-cookie.git",
+        "rjs-json": "git+ssh://git@github.com:jstrimpel/requirejs-plugins.git",
+        "async": "0.6.x"
     },
     "devDependencies": {
         "grunt-contrib-requirejs": "0.4.x",
         "grunt": "0.4.x",
-        "grunt-castle": "git+ssh://git@github.com:walmartlabs/grunt-castle.git"
+        "grunt-castle": "0.3.2"
     }
 }
+

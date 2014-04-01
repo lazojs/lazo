@@ -1,0 +1,22 @@
+{
+    "directories": {
+        "application": "application",
+        "components": "components",
+        "models": "models"
+    },
+    "server": {
+        "port": 8080,
+        "timeout": 30000,
+        "maxSockets": 500,
+        "monitor": false
+    },
+    "client": {},
+    "requirejs": {
+        "shim": {
+            "handlebars": {
+                "exports": "Handlebars"
+            }
+        },
+        "paths": {}
+    }
+}

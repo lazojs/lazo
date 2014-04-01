@@ -6,4 +6,4 @@ test/mocks/lazo.js
 test/specs/html/**
 node_modules
 npm-debug.log
-/vendor
+lib/vendor

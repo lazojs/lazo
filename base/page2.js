@@ -6,7 +6,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, helper, functionType="function", escapeExpression=this.escapeExpression, self=this;
 
 function program1(depth0,data) {
-
+  
   var buffer = "", stack1, helper;
   buffer += "\n";
   if (helper = helpers.htmlTag) { stack1 = helper.call(depth0, {hash:{},data:data}); }
@@ -17,13 +17,13 @@ function program1(depth0,data) {
   }
 
 function program3(depth0,data) {
-
-
+  
+  
   return "\n<html>\n";
   }
 
 function program5(depth0,data) {
-
+  
   var buffer = "", stack1, helper;
   buffer += "\n        <";
   if (helper = helpers.name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
@@ -44,7 +44,7 @@ function program5(depth0,data) {
   return buffer;
   }
 function program6(depth0,data) {
-
+  
   var buffer = "", stack1;
   buffer += escapeExpression(((stack1 = (data == null || data === false ? data : data.key)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "=\""
@@ -54,7 +54,7 @@ function program6(depth0,data) {
   }
 
 function program8(depth0,data) {
-
+  
   var buffer = "";
   buffer += "\n        <link rel=\"stylesheet\" type=\"text/css\" href=\""
     + escapeExpression((typeof depth0 === functionType ? depth0.apply(depth0) : depth0))
@@ -63,7 +63,7 @@ function program8(depth0,data) {
   }
 
 function program10(depth0,data) {
-
+  
   var buffer = "", stack1, helper;
   buffer += "\n        <script type=\"text/javascript\">\n            requirejs(['";
   if (helper = helpers.lib) { stack1 = helper.call(depth0, {hash:{},data:data}); }
@@ -74,13 +74,13 @@ function program10(depth0,data) {
   }
 
 function program12(depth0,data) {
-
-
+  
+  
   return "\n        <script type=\"text/javascript\">\n            (function () {\n                var bootstrap = requirejs.config({\n                    baseUrl: '/',\n                    paths: {\n                        'resolver': 'lib/common/resolver',\n                        'text': 'vendor/text',\n                        'json': 'vendor/json'\n                    }\n                });\n\n                bootstrap(['bootstrap'], function () {});\n            })();\n        </script>\n    ";
   }
 
 function program14(depth0,data) {
-
+  
   var buffer = "", stack1, helper;
   buffer += " class='";
   if (helper = helpers.bodyClass) { stack1 = helper.call(depth0, {hash:{},data:data}); }

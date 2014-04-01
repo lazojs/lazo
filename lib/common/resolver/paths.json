@@ -28,13 +28,13 @@
         "lazoView": "lib/public/views/base",
         "lazoCollectionView": "lib/public/views/collection",
         "serverFileResolver": "lib/server/resolver/file",
-        "handlebars" : "lib/vendor/handlebars",
+        "handlebars" : "lib/vendor/handlebars.amd",
         "ctlNav": "lib/client/ctlNavigate"
     },
     "client": {
         "backbone": "lib/vendor/backbone",
         "clientApp": "lib/client/app",
-        "jquery": "lib/vendor/jquery",
+        "jquery": "lib/vendor/client/jquery",
         "l": "lib/client/loader",
         "hermes": "lib/vendor/client/hermes",
         "rehydrate": "lib/client/rehydrate",
