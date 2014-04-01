@@ -27,6 +27,7 @@ var path = require('path');
         // resolve to node_modules/requirejs/bin/r.js; pop off file name and last dir
         // and append the browser lib
         modulePath = path.dirname(path.dirname(modulePath)) + '/require.js';
+        moduleId = 'require';
     } else if (moduleId === 'hermes-conrad') {
         modulePath = path.dirname(modulePath) + '/hermes.amd.js';
         moduleId = 'hermes.amd';

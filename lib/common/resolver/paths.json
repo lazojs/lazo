@@ -36,10 +36,12 @@
         "clientApp": "lib/client/app",
         "jquery": "lib/vendor/client/jquery",
         "l": "lib/client/loader",
-        "hermes": "lib/vendor/client/hermes",
+        "hermes": "lib/vendor/client/hermes.amd",
         "rehydrate": "lib/client/rehydrate",
         "post": "lib/client/post",
-        "logger": "lib/client/logger"
+        "execute": "lib/client/execute",
+        "logger": "lib/client/logger",
+        "routes": "app/routes.json"
     },
     "server": {
         "backbone": "lib/server/backbone",
