@@ -5,12 +5,11 @@
     "private": true,
     "scripts": {
         "start": "lazo",
-        "postinstall": "postinstall"
+        "postinstall": "bin/postinstall"
     },
     "main": "index",
     "bin": {
-        "lazo": "lazo.js",
-        "postinstall": "bin/postinstall"
+        "lazo": "lazo.js"
     },
     "dependencies": {
         "crumb": "1.1.x",
