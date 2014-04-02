@@ -41,7 +41,7 @@
         "post": "lib/client/post",
         "execute": "lib/client/execute",
         "logger": "lib/client/logger",
-        "routes": "app/routes.json"
+        "appConf": "app/app.json"
     },
     "server": {
         "backbone": "lib/server/backbone",

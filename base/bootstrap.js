@@ -21,8 +21,8 @@ define(['resolver/requireConfigure'], function (resolver) {
         };
 
         function bootstrap() {
-            lazoRequire(['app/application', 'config', 'jquerycookie', 'handlebars', 'error', 'logger', 'json!routes'],
-                function (App, config, jquerycookie, handlebars, error, logger, routes) {
+            lazoRequire(['app/application', 'config', 'jquerycookie', 'handlebars', 'error', 'logger', 'json!appConf'],
+                function (App, config, jquerycookie, handlebars, error, logger, appConf) {
 
                 LAZO.config = config;
                 LAZO.app = new App();
@@ -30,7 +30,7 @@ define(['resolver/requireConfigure'], function (resolver) {
                 LAZO.app.isServer = false;
                 LAZO.app.isClient = true;
                 LAZO.logger = logger;
-                LAZO.routes = routes;
+                LAZO.routes = appConf.routes;
 
                 lazoRequire(['clientApp'], function (clientApp) {
                     LAZO.app.args = LAZO.initConf.lazoArgs;
