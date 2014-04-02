@@ -20,7 +20,6 @@
         "lazo": "lib/public",
         "template": "lib/common/template",
         "json": "lib/vendor/json",
-        "jitc": "lib/server/jitc",
         "lazoCollection": "lib/public/collection",
         "lazoModel": "lib/public/model",
         "lazoCtl": "lib/public/controller",
@@ -28,8 +27,8 @@
         "lazoCollectionView": "lib/public/views/collection",
         "serverFileResolver": "lib/server/resolver/file",
         "handlebars" : "lib/vendor/handlebars.amd",
-        "ctlNav": "lib/client/ctlNavigate",
-        "bundler": "lib/public/bundle"
+        "bundler": "lib/public/bundle",
+        "lazoBootstrap": "lib/client/bootstrap"
     },
     "client": {
         "backbone": "lib/vendor/backbone",
@@ -52,7 +51,6 @@
         "lazoSyncher": "lib/public/server/syncher",
         "l": "lib/server/loader",
         "handlers": "lib/server/handlers",
-        "jitc": "lib/server/jitc",
         "lazoBundler": "lib/public/server/bundle"
     },
     "lib": [
@@ -66,8 +64,8 @@
         "text",
         "proxy",
         "utils/modelLoader",
-        "page",
-        "bootstrap",
+        "text!pageTemplate",
+        "lazoBootstrap",
         "error",
         "requestFilters",
         "underscore",
@@ -84,8 +82,9 @@
         "utils/handlebarsEngine",
         "l",
         "hermes",
-        "rehydrate",
+        "rehydrate/main",
         "post",
-        "logger"
+        "logger",
+        "bundler"
     ]
 }

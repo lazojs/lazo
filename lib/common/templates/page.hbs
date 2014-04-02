@@ -1,8 +1,6 @@
 <!DOCTYPE html>
-<!-- handlebars -f simplePage.js -a simplePage.hbs -->
-
 {{#if htmlTag}}
-{{{htmlTag}}}
+    {{{htmlTag}}}
 {{else}}
 <html>
 {{/if}}
@@ -47,7 +45,8 @@
                     paths: {
                         'resolver': 'lib/common/resolver',
                         'text': 'vendor/text',
-                        'json': 'vendor/json'
+                        'json': 'vendor/json',
+                        'lazoBootstrap': 'lib/client/bootstrap'
                     }
                 });
 
@@ -62,7 +61,8 @@
                     paths: {
                         'resolver': 'lib/common/resolver',
                         'text': 'vendor/text',
-                        'json': 'vendor/json'
+                        'json': 'vendor/json',
+                        'lazoBootstrap': 'lib/client/bootstrap'
                     }
                 });
 
