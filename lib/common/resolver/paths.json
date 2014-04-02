@@ -10,8 +10,7 @@
         "text": "lib/vendor/text",
         "utils": "lib/common/utils",
         "proxy": "lib/{env}/proxy",
-        "pageTemplate": "base/page.hbs",
-        "bootstrap": "base/bootstrap",
+        "pageTemplate": "lib/common/templates/page.hbs",
         "resolver": "lib/common/resolver",
         "lazoApp": "lib/common/app",
         "error": "lib/common/error",
@@ -41,7 +40,8 @@
         "post": "lib/client/post",
         "execute": "lib/client/execute",
         "logger": "lib/client/logger",
-        "appConf": "app/app.json"
+        "appConf": "app/app.json",
+        "bootstrap": "lib/client/bootstrap"
     },
     "server": {
         "backbone": "lib/server/backbone",
