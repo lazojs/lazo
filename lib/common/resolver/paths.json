@@ -28,7 +28,8 @@
         "lazoCollectionView": "lib/public/views/collection",
         "serverFileResolver": "lib/server/resolver/file",
         "handlebars" : "lib/vendor/handlebars.amd",
-        "ctlNav": "lib/client/ctlNavigate"
+        "ctlNav": "lib/client/ctlNavigate",
+        "bundler": "lib/public/bundle"
     },
     "client": {
         "backbone": "lib/vendor/backbone",
@@ -52,7 +53,6 @@
         "l": "lib/server/loader",
         "handlers": "lib/server/handlers",
         "jitc": "lib/server/jitc",
-        "bundler": "lib/public/server/bundle",
         "lazoBundler": "lib/public/server/bundle"
     },
     "lib": [
