@@ -40,8 +40,7 @@
         "post": "lib/client/post",
         "execute": "lib/client/execute",
         "logger": "lib/client/logger",
-        "appConf": "app/app.json",
-        "bootstrap": "lib/client/bootstrap"
+        "appConf": "app/app.json"
     },
     "server": {
         "backbone": "lib/server/backbone",
