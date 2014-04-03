@@ -11,13 +11,13 @@
         "lazo": "lazo.js"
     },
     "dependencies": {
-        "crumb": "0.3.x",
-        "hapi": "1.8.x",
+        "crumb": "0.3.2",
+        "hapi": "1.8.3",
         "good": "0.12.3",
         "node-dir": "0.0.3",
         "requirejs": "2.1.8",
         "request": "2.27.0",
-        "winston": "0.7.x",
+        "winston": "0.7.3",
         "clean-css": "1.0.12",
         "forever": "0.10.8",
         "fs-extra": "0.6.3",
@@ -25,8 +25,8 @@
         "optimist": "0.6.0"
     },
     "devDependencies": {
-        "grunt-contrib-requirejs": "0.4.x",
-        "grunt": "0.4.x",
-        "grunt-castle": "git+ssh://git@github.com:walmartlabs/grunt-castle.git"
+        "grunt-contrib-requirejs": "0.4.3",
+        "grunt": "0.4.4",
+        "grunt-castle": "0.3.2"
     }
 }
