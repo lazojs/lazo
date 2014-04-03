@@ -8,6 +8,7 @@
         "context": "lib/common/context",
         "renderer": "lib/common/renderer",
         "text": "lib/vendor/text",
+        "json": "lib/vendor/json",
         "utils": "lib/common/utils",
         "proxy": "lib/{env}/proxy",
         "pageTemplate": "lib/common/templates/page.hbs",
