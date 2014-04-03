@@ -9,8 +9,7 @@ var args = parseArgs();
 function parseArgs() {
     return require('optimist')
         .options('c', {
-            alias: 'cluster',
-            default: ''+os.cpus().length
+            alias: 'cluster'
         })
         .options('d', {
             alias: 'daemon'
