@@ -1,6 +1,7 @@
 var fs = require('fs');
 var path = require('path');
 var lazoPath = path.dirname(module.filename);
+var os = require('os');
 var args = parseArgs();
 
 // helper functions
@@ -20,8 +21,8 @@ function parseArgs() {
         .options('r', {
             alias: 'robust'
         })
-        .boolean(['c', 'd', 'r'])
-        .string(['p'])
+        .boolean(['d', 'r'])
+        .string(['p', 'c'])
         .argv;
 }
 
@@ -52,10 +53,12 @@ function getStartEnvOptions() {
 
     for (var k in args) {
         switch (k) {
-            case 'cluster':
             case 'daemon':
             case 'robust':
                 options[k] = args[k] === true ? '1' : '0';
+                break;
+            case 'cluster':
+                options[k] = args[k] ? args[k] : os.cpus().length;
                 break;
             case 'port':
                 options[k] = args[k];

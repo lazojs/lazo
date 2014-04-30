@@ -29,7 +29,9 @@
         "serverFileResolver": "lib/server/resolver/file",
         "handlebars" : "lib/vendor/handlebars.amd",
         "bundler": "lib/public/bundle",
-        "lazoBootstrap": "lib/client/bootstrap"
+        "lazoBootstrap": "lib/client/bootstrap",
+        "fileSink": "lib/server/logger/fileSink",
+        "logger": "lib/common/logger"
     },
     "client": {
         "backbone": "lib/vendor/backbone",
@@ -40,7 +42,6 @@
         "rehydrate": "lib/client/rehydrate",
         "post": "lib/client/post",
         "execute": "lib/client/execute",
-        "logger": "lib/client/logger",
         "appConf": "app/app.json"
     },
     "server": {
