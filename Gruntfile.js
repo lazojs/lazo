@@ -57,7 +57,14 @@ module.exports = function (grunt) {
                 options: {
 
                     mocks: {
-                        baseUrl: 'test/mocks'
+                        server: {
+                            baseUrl: './test/mocks',
+                            paths: grunt.file.readJSON('./test/mocks/lazo/paths.json')
+                        },
+                        client: {
+                            baseUrl: './test/mocks',
+                            paths: grunt.file.readJSON('./test/mocks/lazo/paths.json')
+                        }
                     },
 
                     specs: {
@@ -70,11 +77,11 @@ module.exports = function (grunt) {
 
                     requirejs: {
                         server: {
-                            baseUrl: './',
+                            baseUrl: '.',
                             paths: getPaths(reqConf, 'server')
                         },
                         client: {
-                            baseUrl: './',
+                            baseUrl: '.',
                             paths: getPaths(reqConf, 'client')
                         }
                     },

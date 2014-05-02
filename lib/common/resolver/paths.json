@@ -31,7 +31,8 @@
         "template": "lib/common/template",
         "text": "lib/vendor/text",
         "underscore": "lib/vendor/underscore",
-        "utils": "lib/common/utils"
+        "utils": "lib/common/utils",
+        "loggerUtils": "lib/server/logger/utils"
     },
     "client": {
         "backbone": "lib/vendor/backbone",

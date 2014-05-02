@@ -13,6 +13,7 @@ describe('logger', function () {
         requirejs(['castle'], function (castle) {
             castle.test({
                 module: 'lib/common/logger',
+                mocks: ['l'],
                 globals: [
                     { module: 'lazo', exports: 'LAZO' }
                 ],
@@ -40,17 +41,15 @@ describe('logger', function () {
         var error = new Error('consectetur adipiscing elit');
         error.stack = 'nullam vel tempus massa';
 
-        expect(logger.error('Lorem ipsum dolor sit amet')).to.be.equal('2012-01-27T12:30:00.000Z\tERROR\tLorem ipsum dolor sit amet');
-        expect(logger.error('Lorem ipsum dolor sit amet', {foo: 123, bar: 456})).to.be.equal('2012-01-27T12:30:00.000Z\tERROR\tLorem ipsum dolor sit amet {"foo":123,"bar":456}');
-        expect(logger.error('Lorem ipsum dolor sit amet', error)).to.be.equal('2012-01-27T12:30:00.000Z\tERROR\tLorem ipsum dolor sit amet {"message":"consectetur adipiscing elit","stack":"nullam vel tempus massa"}');
-        expect(logger.error('Lorem %s dolor %s amet', 'ipsum', 'sit')).to.be.equal('2012-01-27T12:30:00.000Z\tERROR\tLorem ipsum dolor sit amet');
-        expect(logger.error('Lorem %s dolor %s amet')).to.be.equal('2012-01-27T12:30:00.000Z\tERROR\tLorem undefined dolor undefined amet');
-        expect(logger.error('Lorem ipsum dolor sit amet %d %f', 3.14159, 3.14159)).to.be.equal('2012-01-27T12:30:00.000Z\tERROR\tLorem ipsum dolor sit amet 3 3.14159');
-        expect(logger.error(['TempoAssetUpload.UtilActions', 'upload'], 'Lorem ipsum dolor sit amet')).to.be.equal('2012-01-27T12:30:00.000Z\tERROR\tLorem ipsum dolor sit amet\tTempoAssetUpload.UtilActions.upload');
-        expect(logger.error(['TempoAssetUpload.UtilActions', 'upload'], 'Lorem ipsum dolor sit amet', {"foo": 123, "bar": 456})).to.be.equal('2012-01-27T12:30:00.000Z\tERROR\tLorem ipsum dolor sit amet {"foo":123,"bar":456}\tTempoAssetUpload.UtilActions.upload');
+        expect(logger.error('Lorem ipsum dolor sit amet')).to.be.equal('2012-01-27T12:30:00.000Z\tERROR\t-\tLorem ipsum dolor sit amet');
+        expect(logger.error('Lorem ipsum dolor sit amet', {foo: 123, bar: 456})).to.be.equal('2012-01-27T12:30:00.000Z\tERROR\t-\tLorem ipsum dolor sit amet {"foo":123,"bar":456}');
+        expect(logger.error('Lorem ipsum dolor sit amet', error)).to.be.equal('2012-01-27T12:30:00.000Z\tERROR\t-\tLorem ipsum dolor sit amet {"message":"consectetur adipiscing elit","stack":"nullam vel tempus massa"}');
+        expect(logger.error('Lorem %s dolor %s amet', 'ipsum', 'sit')).to.be.equal('2012-01-27T12:30:00.000Z\tERROR\t-\tLorem ipsum dolor sit amet');
+        expect(logger.error('Lorem %s dolor %s amet')).to.be.equal('2012-01-27T12:30:00.000Z\tERROR\t-\tLorem undefined dolor undefined amet');
+        expect(logger.error('Lorem ipsum dolor sit amet %d %f', 3.14159, 3.14159)).to.be.equal('2012-01-27T12:30:00.000Z\tERROR\t-\tLorem ipsum dolor sit amet 3 3.14159');
 
         setTimeout(function () {
-            expect(console.log.callCount).to.be.equal(8);
+            expect(console.log.callCount).to.be.equal(6);
             console.log.restore();
             done();
         }, 0);
