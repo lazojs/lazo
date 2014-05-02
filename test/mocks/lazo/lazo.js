@@ -17,16 +17,21 @@ define(function () {
     };
 
     LAZO.logger = {
-        log: function () {},
-        debug: function() {},
-        warn: function () {}
+        debug: function () {
+        },
+        error: function () {
+        },
+        log: function () {
+        },
+        warn: function () {
+        }
     };
 
     LAZO.config = {
-        get: function(key) {
+        get: function (key) {
             return this[key];
         },
-        set: function(key, value) {
+        set: function (key, value) {
             this[key] = value;
         }
     };
