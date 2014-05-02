@@ -12,22 +12,23 @@ define(function () {
     }
 
     LAZO.app = {
-
         isServer: isServer,
-
         isClient: isClient
-
-    };
-
-    var noop = function () {
-
     };
 
     LAZO.logger = {
-        debug: noop,
-        error: noop,
-        info: noop,
-        warn: noop
+        log: function () {},
+        debug: function() {},
+        warn: function () {}
+    };
+
+    LAZO.config = {
+        get: function(key) {
+            return this[key];
+        },
+        set: function(key, value) {
+            this[key] = value;
+        }
     };
 
     return LAZO;
