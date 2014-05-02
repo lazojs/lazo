@@ -52,6 +52,7 @@
         "l": "lib/server/loader",
         "lazoBundler": "lib/public/server/bundle",
         "lazoSyncher": "lib/public/server/syncher",
+        "loggerUtils": "lib/server/logger/utils",
         "server": "lib/server/server",
         "serviceProxy": "lib/server/serviceProxy"
     },
