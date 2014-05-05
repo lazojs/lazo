@@ -19,7 +19,8 @@ var path = require('path');
     'handlebars',
     'jquery.cookie',
     'hermes-conrad',
-    'async'
+    'async',
+    'lodash'
 ].forEach(function (moduleId) {
     var modulePath = require.resolve(moduleId);
     var client = '';

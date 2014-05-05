@@ -31,7 +31,8 @@
         "bundler": "lib/public/bundle",
         "lazoBootstrap": "lib/client/bootstrap",
         "fileSink": "lib/server/logger/fileSink",
-        "logger": "lib/common/logger"
+        "logger": "lib/common/logger",
+        "lodash": "lib/vendor/lodash"
     },
     "client": {
         "backbone": "lib/vendor/backbone",
