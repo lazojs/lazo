@@ -54,8 +54,7 @@
         "serviceProxy": "lib/server/serviceProxy",
         "lazoSyncher": "lib/public/server/syncher",
         "l": "lib/server/loader",
-        "handlers": "lib/server/handlers",
-        "lazoBundler": "lib/public/server/bundle"
+        "handlers": "lib/server/handlers"
     },
     "lib": [
         "assets",
