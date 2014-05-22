@@ -1,8 +1,6 @@
 <!DOCTYPE html>
-<!-- handlebars -f simplePage.js -a simplePage.hbs -->
-
 {{#if htmlTag}}
-{{{htmlTag}}}
+    {{{htmlTag}}}
 {{else}}
 <html>
 {{/if}}
@@ -33,7 +31,8 @@
                 rootCtl: {{{rootCtl}}},
                 shim: {{{shim}}},
                 paths: {{{paths}}},
-                args: {{{args}}}
+                args: {{{args}}},
+                files: {{{files}}}
             }
         };
     </script>
@@ -46,11 +45,12 @@
                     paths: {
                         'resolver': 'lib/common/resolver',
                         'text': 'vendor/text',
-                        'json': 'vendor/json'
+                        'json': 'vendor/json',
+                        'lazoBootstrap': 'lib/client/bootstrap'
                     }
                 });
 
-                bootstrap(['bootstrap'], function () {});
+                bootstrap(['lib/client/bootstrap'], function () {});
             });
         </script>
     {{else}}
@@ -61,11 +61,12 @@
                     paths: {
                         'resolver': 'lib/common/resolver',
                         'text': 'vendor/text',
-                        'json': 'vendor/json'
+                        'json': 'vendor/json',
+                        'lazoBootstrap': 'lib/client/bootstrap'
                     }
                 });
 
-                bootstrap(['bootstrap'], function () {});
+                bootstrap(['lib/client/bootstrap'], function () {});
             })();
         </script>
     {{/if}}

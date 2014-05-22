@@ -1,33 +1,43 @@
 {
-  "name": "lazo",
-  "version": "0.1.0",
-  "description": "Best framework ever.",
-  "private": true,
-  "scripts": {
-    "start": "lazo"
-  },
-  "main": "index",
-  "bin": {
-    "lazo": "lazo.js"
-  },
-  "dependencies": {
-    "clean-css": "1.0.12",
-    "continuation-local-storage": "3.0.0",
-    "crumb": "0.3.2",
-    "forever": "0.10.8",
-    "fs-extra": "0.6.3",
-    "good": "0.12.3",
-    "handlebars": "1.0.12",
-    "hapi": "1.8.3",
-    "node-dir": "0.0.3",
-    "optimist": "0.6.0",
-    "request": "2.27.0",
-    "requirejs": "2.1.8",
-    "winston": "0.7.3"
-  },
-  "devDependencies": {
-    "grunt-castle": "0.4.2",
-    "grunt-contrib-requirejs": "0.4.3",
-    "grunt": "0.4.4"
-  }
+    "name": "lazo",
+    "version": "0.1.0",
+    "description": "Best framework ever.",
+    "private": true,
+    "scripts": {
+        "start": "lazo",
+        "postinstall": "bin/postinstall"
+    },
+    "main": "index",
+    "bin": {
+        "lazo": "lazo.js"
+    },
+    "dependencies": {
+        "crumb": "1.1.x",
+        "continuation-local-storage": "3.0.0",
+        "request": "2.27.0",
+        "winston": "0.7.x",
+        "forever": "0.10.8",
+        "fs-extra": "0.6.3",
+        "handlebars": "1.3.x",
+        "optimist": "0.6.0",
+        "node-dir": "0.1.x",
+        "clean-css": "1.0.12",
+        "lodash": "2.4.1",
+        "hapi": "3.1.x",
+        "requirejs": "2.1.x",
+        "handlebars": "1.3.x",
+        "backbone": "git+ssh://git@github.com:amdjs/backbone.git",
+        "underscore": "git+ssh://git@github.com:amdjs/underscore.git",
+        "jquery": "1.11.x",
+        "rjs-text": "git+ssh://git@github.com:requirejs/text.git",
+        "hermes": "git+ssh://git@github.com:jstrimpel/hermes.git",
+        "jquery-cookie": "git+ssh://git@github.com:carhartl/jquery-cookie.git",
+        "rjs-json": "git+ssh://git@github.com:jstrimpel/requirejs-plugins.git",
+        "async": "0.6.x"
+    },
+    "devDependencies": {
+        "grunt-contrib-requirejs": "0.4.x",
+        "grunt": "0.4.x",
+        "grunt-castle": "0.3.2"
+    }
 }

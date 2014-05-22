@@ -100,7 +100,6 @@ function daemon() {
                 sourceDir: lazoPath,
                 a: true
             });
-            console.log('Started Lazo! on port ' + process.env['PORT']);
         } else {
             console.error(err);
         }
@@ -123,9 +122,8 @@ function start() {
     if (args.d) {
         daemon();
     } else {
-        console.log('Starting Lazo! on port ' + process.env['PORT'] + '. Please wait...');
+        console.log('Starting Lazo! Please wait...');
         lazo = require('./lib/server/app.js');
-        console.log('Started Lazo! on port ' + process.env['PORT']);
     }
 }
 

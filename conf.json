@@ -1,0 +1,40 @@
+{
+    "directories": {
+        "application": "application",
+        "components": "components",
+        "models": "models"
+    },
+    "server": {
+        "instances": {
+            "default": {
+                "port": 8080
+            }
+        },
+        "defaults": {
+            "timeout": {
+                "server": 30000,
+                "client": 30000
+            },
+            "maxSockets": 500,
+            "maxBytes": 10485760,
+            "monitor": false,
+            "debug": false,
+            "state": {
+                "cookies": {
+                    "failAction": "log",
+                    "strictHeader": false
+                }
+            }
+        }
+    },
+    "client": {},
+    "requirejs": {
+        "shim": {
+            "handlebars": {
+                "exports": "Handlebars"
+            }
+        },
+        "paths": {}
+    },
+    "libPath": "/lib/optimized/lib.js"
+}
