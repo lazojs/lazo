@@ -38,6 +38,7 @@
     "devDependencies": {
         "grunt-contrib-requirejs": "0.4.x",
         "grunt": "0.4.x",
-        "grunt-castle": "0.3.2"
+        "grunt-castle": "0.4.x",
+        "grunt-contrib-watch": "0.5.x"
     }
 }

@@ -50,6 +50,20 @@ module.exports = function (grunt) {
             }
         },
 
+        watch: {
+            test: {
+                files: ['lib/**/*.*', '!lib/vendor/**/*.*'],
+                tasks: ['castle'],
+                options: {
+                    events: ['changed']
+                }
+            },
+            lib: {
+                files: ['lib/**/*.*', '!lib/**/server/**/*.*', '!lib/vendor/**/*.*'],
+                tasks: ['requirejs']
+            }
+        },
+
         castle: {
 
             lazo: {
@@ -107,7 +121,7 @@ module.exports = function (grunt) {
 
     });
 
+    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-castle');
-
 };
