@@ -6,7 +6,7 @@
     },
     "server": {
         "instances": {
-            "default": {
+            "primary": {
                 "port": 8080
             }
         },
@@ -15,9 +15,10 @@
                 "server": 30000,
                 "client": 30000
             },
-            "maxSockets": 500,
             "maxBytes": 10485760,
-            "monitor": false,
+            "monitor": {
+                "on": false
+            },
             "debug": false,
             "state": {
                 "cookies": {
@@ -25,7 +26,8 @@
                     "strictHeader": false
                 }
             }
-        }
+        },
+        "maxSockets": 500
     },
     "client": {},
     "requirejs": {

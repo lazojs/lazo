@@ -13,6 +13,7 @@
     },
     "dependencies": {
         "crumb": "2.2.x",
+        "good": "2.1.x",
         "continuation-local-storage": "3.0.0",
         "request": "2.27.0",
         "winston": "0.7.x",
