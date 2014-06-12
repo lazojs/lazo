@@ -24,7 +24,7 @@
         "node-dir": "0.1.x",
         "clean-css": "1.0.12",
         "lodash": "2.4.1",
-        "hapi": "5.1.x",
+        "hapi": "6.0.x",
         "requirejs": "2.1.x",
         "handlebars": "1.3.x",
         "backbone": "git+ssh://git@github.com:amdjs/backbone.git",
