@@ -10,15 +10,16 @@
                 "port": 8080
             }
         },
+        "monitor": {
+            "on": false,
+            "options": {}
+        },
         "defaults": {
             "timeout": {
                 "server": 30000,
                 "client": 30000
             },
             "maxBytes": 10485760,
-            "monitor": {
-                "on": false
-            },
             "debug": false,
             "state": {
                 "cookies": {
