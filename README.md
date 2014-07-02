@@ -44,7 +44,7 @@ Next clone [Lazo TodoMVC example](https://github.com/jstrimpel/lazojs-todomvc):
 git clone git@github.com:jstrimpel/framework-todomvc.git
 ```
 
-Finally [start](#) the new application:
+Finally start the new application:
 
 ```shell
 lazo start TODOMVC_REPO_DIR
@@ -52,4 +52,4 @@ lazo start TODOMVC_REPO_DIR
 
 You are done.
 
-To verify that the application is running open `http://localhost:8080` in a browser.
+Open `http://localhost:8080` in a browser to verify that the application is running.

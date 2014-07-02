@@ -170,7 +170,7 @@ function help(command) {
             break;
         default:
             console.log('\nUsage: lazo --help command\n');
-            console.log('Available commands: start stop version create add\n');
+            console.log('Available commands: start stop create add\n');
             console.log('Options:\n');
             console.log('command [optional]\n');
             break;
