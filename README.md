@@ -1,11 +1,4 @@
-<p align="center">
-  <a title='Build Status' href="https://travis-ci.org/walmartlabs/lazojs">
-    <img src='https://magnum.travis-ci.com/walmartlabs/lazojs.svg?token=z2zE7486TYDmgKQiuXPa&branch=v2-life-cycles' />
-  </a>
-</p>
-
-lazojs
-======
+# lazojs [![Build Status](https://magnum.travis-ci.com/walmartlabs/lazojs.svg?token=z2zE7486TYDmgKQiuXPa&branch=v2-life-cycles)](https://magnum.travis-ci.com/walmartlabs/lazojs)
 
 Lazojs is a client, server web framework built on Node.js that allows front-end developers to easily create a
 100% SEO compliant, component MVC structured web application with an optimized first page
