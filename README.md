@@ -35,7 +35,7 @@ Lazo is a [node module](https://npmjs.org/). Installing and creating a new Lazo 
 To install Lazo execute the following command:
 
 ```shell
-npm install -g lazo
+npm install -g --production lazo
 ```
 
 Next clone [Lazo TodoMVC example](https://github.com/jstrimpel/lazojs-todomvc):
