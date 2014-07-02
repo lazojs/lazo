@@ -16,14 +16,24 @@ describe('Context', function () {
 
     it('XHR POST request', function () {
         var ctx = new Context({
-            _rawReq: {
+            _request: {
                 raw: {
                     req: {
                         headers: {
                             'x-requested-with': 'XMLHttpRequest'
                         }
                     }
-                }
+                },
+                server: {
+                    info: {
+                        protocol: 'http'
+                    }
+                },
+                url: {}
+            },
+            headers: {
+                'x-requested-with': 'XMLHttpRequest',
+                host: 'localhost:8080'
             }
         });
 
@@ -32,12 +42,21 @@ describe('Context', function () {
 
     it('standard GET request', function () {
         var ctx = new Context({
-            _rawReq: {
+            _request: {
                 raw: {
                     req: {
                         headers: {}
                     }
-                }
+                },
+                server: {
+                    info: {
+                        protocol: 'http'
+                    }
+                },
+                url: {}
+            },
+            headers: {
+                host: 'localhost:8080'
             }
         });
 
@@ -46,15 +65,25 @@ describe('Context', function () {
 
     it('common server', function () {
         var ctx = new Context({
-            _rawReq: {
+            _request: {
                 url: {
                     pathname: 'foo/bar/baz'
                 },
                 raw: { // this is expected on the server
                     req: {
-                        headers: {}
+                        headers: {
+                            host: 'localhost:8080'
+                        }
+                    }
+                },
+                server: {
+                    info: {
+                        protocol: 'http'
                     }
                 }
+            },
+            headers: {
+                host: 'localhost:8080'
             }
         });
 

@@ -36,6 +36,14 @@ define(function () {
         }
     };
 
+    LAZO.files = {
+        components: [],
+        models: [],
+        appViews: []
+    };
+
+    LAZO.FILE_REPO_PATH = './test';
+
     return LAZO;
 
 });

@@ -41,8 +41,8 @@ describe('Stream Handler Test', function () {
             reply : function(){}
         };
 
-        var spy = sinon.spy(req, "reply");
-        StreamHandler(req);
+        var spy = sinon.spy();
+        StreamHandler(req, spy);
         chai.expect(JSON.stringify("done")).to.be.equal(spy.args[0][0]);
         chai.expect("app/server/utilActions").to.be.equal(lazoSpy.args[0][0][0]);
     });
@@ -57,8 +57,8 @@ describe('Stream Handler Test', function () {
             reply : function(){}
         };
 
-        var spy = sinon.spy(req, "reply");
-        StreamHandler(req);
+        var spy = sinon.spy();
+        StreamHandler(req, spy);
         chai.expect(JSON.stringify("done")).to.be.equal(spy.args[0][0]);
         chai.expect("components/test/server/utilActions").to.be.equal(lazoSpy.args[0][0][0]);
     });

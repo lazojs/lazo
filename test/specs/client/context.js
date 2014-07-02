@@ -17,7 +17,7 @@ describe('Context', function () {
 
     it('common client', function () {
         var ctx = new Context({
-            _rawReq: {
+            _request: {
                 url: {
                     pathname: 'foo/bar/baz'
                 },
