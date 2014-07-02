@@ -20,7 +20,6 @@
         "jquerycookie": "lib/vendor/client/jquery-cookie",
         "lazo": "lib/public",
         "template": "lib/common/template",
-        "json": "lib/vendor/json",
         "lazoCollection": "lib/public/collection",
         "lazoModel": "lib/public/model",
         "lazoCtl": "lib/public/controller",
@@ -33,7 +32,8 @@
         "lazoBootstrap": "lib/client/bootstrap",
         "fileSink": "lib/server/logger/fileSink",
         "logger": "lib/common/logger",
-        "lodash": "lib/vendor/lodash"
+        "lodash": "lib/vendor/lodash",
+        "lazoBundle": "lib/public/bundle"
     },
     "client": {
         "backbone": "lib/vendor/backbone",

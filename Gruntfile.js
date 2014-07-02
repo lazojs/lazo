@@ -43,7 +43,8 @@ module.exports = function (grunt) {
                     },
                     outFileName: 'lib',
                     baseUrl:  path.resolve('.'),
-                    optimize: 'uglify2',
+                    // optimize: 'uglify2',
+                    optimize: 'none',
                     logLevel: 4,
                     out: 'lib/optimized/lib.js'
                 }

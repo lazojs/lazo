@@ -32,7 +32,8 @@
                 shim: {{{shim}}},
                 paths: {{{paths}}},
                 args: {{{args}}},
-                files: {{{files}}}
+                files: {{{files}}},
+                bundler: '{{bundler}}'
             }
         };
     </script>
@@ -50,7 +51,7 @@
                     }
                 });
 
-                bootstrap(['lib/client/bootstrap'], function () {});
+                bootstrap(['lazoBootstrap'], function () {});
             });
         </script>
     {{else}}
@@ -66,7 +67,7 @@
                     }
                 });
 
-                bootstrap(['lib/client/bootstrap'], function () {});
+                bootstrap(['lazoBootstrap'], function () {});
             })();
         </script>
     {{/if}}
