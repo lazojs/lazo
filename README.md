@@ -1,3 +1,9 @@
+<p align="center">
+  <a title='Build Status' href="https://travis-ci.org/walmartlabs/lazojs">
+    <img src='https://secure.travis-ci.org/walmartlabs/lazojs.svg?branch=master' />
+  </a>
+</p>
+
 lazojs
 ======
 
