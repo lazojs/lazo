@@ -5,7 +5,8 @@
     "private": true,
     "scripts": {
         "start": "lazo",
-        "postinstall": "bin/postinstall"
+        "postinstall": "bin/postinstall",
+        "test": "grunt castle"
     },
     "main": "index",
     "bin": {
