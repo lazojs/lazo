@@ -1,6 +1,6 @@
 <p align="center">
   <a title='Build Status' href="https://travis-ci.org/walmartlabs/lazojs">
-    <img src='https://secure.travis-ci.org/walmartlabs/lazojs.svg?branch=master' />
+    <img src='https://magnum.travis-ci.com/walmartlabs/lazojs.svg?token=z2zE7486TYDmgKQiuXPa&branch=v2-life-cycles' />
   </a>
 </p>
 
