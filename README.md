@@ -1,8 +1,11 @@
-<p align="center">
-  <img title="lazojs" src='lazojs.png?raw=true' /><br />
+<h1>
+  lazojs
   <a title='Build Status' href="https://magnum.travis-ci.com/walmartlabs/lazojs">
     <img src='https://magnum.travis-ci.com/walmartlabs/lazojs.svg?token=z2zE7486TYDmgKQiuXPa&branch=v2-life-cycles' />
-  </a>
+  </a>  
+</h1>
+<p align="center">
+  <img title="lazojs" src='lazojs.png?raw=true' /><br />
 </p>
 
 Lazojs is a client, server web framework built on Node.js that allows front-end developers to easily create a
