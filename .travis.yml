@@ -6,4 +6,3 @@ before_install: npm install -g grunt-cli
 branches:
   only:
     - master
-    - v2-life-cycles
