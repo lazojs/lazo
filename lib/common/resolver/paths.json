@@ -87,7 +87,6 @@
         "l",
         "hermes",
         "rehydrate/main",
-        "post",
         "logger",
         "bundler"
     ]
