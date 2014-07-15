@@ -31,7 +31,7 @@
         "jquery": "1.11.x",
         "rjs-text": "git+ssh://git@github.com:requirejs/text.git",
         "hermes": "git+ssh://git@github.com:jstrimpel/hermes.git",
-        "jquery-cookie": "git+ssh://git@github.com:carhartl/jquery-cookie.git",
+        "jquery-cookie": "git+ssh://git@github.com:jstrimpel/jquery-cookie.git",
         "rjs-json": "git+ssh://git@github.com:jstrimpel/requirejs-plugins.git",
         "async": "0.6.x"
     },
