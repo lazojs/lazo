@@ -1,8 +1,25 @@
 {
     "name": "lazo",
     "version": "0.1.0",
-    "description": "Best framework ever.",
-    "private": true,
+    "description": "A client-server web framework built on Node.js that allows front-end developers to easily create a 100% SEO compliant, component MVC structured web application with an optimized first page load.",
+    "homepage": "https://github.com/walmartlabs/lazojs",
+    "keywords": [
+        "backbone, requirejs, hapi, mvc, client-server, lazo, lazojs, isomorphic javascript, SEO"
+    ],
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "/blob/master/LICENSE-MIT"
+        }
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/walmartlabs/grunt-castle/lazojs.git"
+    },
+    "bugs": {
+        "url": "https://github.com/walmartlabs/lazojs/issues"
+    },
+    "private": false,
     "scripts": {
         "start": "lazo",
         "postinstall": "bin/postinstall",
