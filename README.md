@@ -8,7 +8,7 @@
   <img title="lazojs" src='lazojs.png?raw=true' /><br />
 </p>
 
-Lazojs is a client, server web framework built on Node.js that allows front-end developers to easily create a
+Lazojs is a client-server web framework built on Node.js that allows front-end developers to easily create a
 100% SEO compliant, component MVC structured web application with an optimized first page
 load using a familiar tool stack comprised of [Backbone.js](http://backbonejs.org/),
 [RequireJS](http://requirejs.org/), and [jQuery](http://jquery.com/).
