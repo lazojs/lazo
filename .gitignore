@@ -7,3 +7,4 @@ test/specs/html/**
 node_modules
 npm-debug.log
 lib/vendor
+.DS_Store
