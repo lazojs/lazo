@@ -48,7 +48,7 @@ npm install -g --production lazo
 Next clone [Lazo TodoMVC example](https://github.com/jstrimpel/lazojs-todomvc):
 
 ```shell
-git clone git@github.com:jstrimpel/framework-todomvc.git
+git clone git@github.com:jstrimpel/lazojs-todomvc.git
 ```
 
 Finally start the new application:
