@@ -54,7 +54,7 @@ git clone git@github.com:jstrimpel/lazojs-todomvc.git
 Finally start the new application:
 
 ```shell
-lazo start TODOMVC_REPO_DIR
+lazo start lazojs-todomvc
 ```
 
 You are done.
