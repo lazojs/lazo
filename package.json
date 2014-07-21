@@ -1,6 +1,6 @@
 {
     "name": "lazo",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "A client-server web framework built on Node.js that allows front-end developers to easily create a 100% SEO compliant, component MVC structured web application with an optimized first page load.",
     "homepage": "https://github.com/walmartlabs/lazojs",
     "keywords": [
