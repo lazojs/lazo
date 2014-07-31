@@ -74,26 +74,4 @@ describe('Context', function () {
         chai.expect(ctx1._rootCtx.foo).to.be.equal('z');
     });
 
-    it('merge global models', function () {
-        var newCtx = {
-                modelList: {
-                    a: {}
-                },
-                modelInstances: {
-                    a: { b: 1 }
-                }
-            },
-            oldCtx = {
-                modelList: {
-                    a: {}
-                },
-                modelInstances: {
-                    a: { b: 2 }
-                }
-            };
-
-        Context.mergeGlobalModels(newCtx, oldCtx);
-        chai.expect(newCtx.modelInstances.a.b).to.be.equal(2);
-    });
-
 });
