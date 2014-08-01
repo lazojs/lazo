@@ -1,6 +1,6 @@
 <h1>
   lazojs
-  <a title='Build Status' href="https://magnum.travis-ci.com/walmartlabs/lazojs">
+  <a title='Build Status' href="https://travis-ci.org/walmartlabs/lazojs">
     <img src='https://travis-ci.org/walmartlabs/lazojs.svg' />
   </a>
 </h1>
