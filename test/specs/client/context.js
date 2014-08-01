@@ -33,45 +33,4 @@ describe('Context', function () {
         chai.expect(ctx.location.pathname).to.not.be.equal('foo/bar/baz');
     });
 
-    it('merge root context', function () {
-        var ctx1 = new Context({
-                _rootCtx: {
-                    dependencies: {
-                        css: ['a.css'],
-                        modules: ['a.js']
-                    },
-                    data: {
-                        a: 1,
-                        b: 2
-                    },
-                    modules: ['a', 'b'],
-                    foo: 1
-                }
-            }),
-            ctx2 = new Context({
-                _rootCtx: {
-                    dependencies: {
-                        css: ['b.css'],
-                        modules: ['b.js']
-                    },
-                    data: {
-                        a: 'foo',
-                        b: 2,
-                        c: 3
-                    },
-                    modules: ['c'],
-                    foo: 'z'
-                }
-            });
-
-        Context.mergeRoot(ctx1._rootCtx, ctx2._rootCtx);
-
-        chai.expect(ctx1._rootCtx.dependencies.css[0]).to.be.equal('a.css');
-        chai.expect(ctx1._rootCtx.dependencies.modules[0]).to.be.equal('a.js');
-        chai.expect(ctx1._rootCtx.data.a).to.be.equal('foo');
-        chai.expect(ctx1._rootCtx.data.c).to.be.equal(3);
-        chai.expect(ctx1._rootCtx.modules.length).to.be.equal(3);
-        chai.expect(ctx1._rootCtx.foo).to.be.equal('z');
-    });
-
 });
