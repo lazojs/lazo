@@ -13,7 +13,7 @@ Lazojs is a client-server web framework built on Node.js that allows front-end d
 load using a familiar tool stack comprised of [Backbone.js](http://backbonejs.org/),
 [RequireJS](http://requirejs.org/), and [jQuery](http://jquery.com/).
 
-Have a question? Want to keep up-to-date on changes and releases? Post questions to the [LazoJS Google Group](https://groups.google.com/forum/#!forum/lazojs) and follow [@lazojs](https://twitter.com/lazojs) on Twitter.
+> Have a question? Want to keep up-to-date on changes and releases? Post questions to the [LazoJS Google Group](https://groups.google.com/forum/#!forum/lazojs) and follow [@lazojs](https://twitter.com/lazojs) on Twitter.
 
 ### Problem
 The single page application ([SPA](http://en.wikipedia.org/wiki/Single-page_application)) model is an excellent
