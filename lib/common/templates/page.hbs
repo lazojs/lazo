@@ -14,16 +14,6 @@
     {{/each}}
 
     <script type="text/javascript">
-        window.addEventListener('load', function (e) {
-            window.applicationCache.addEventListener('updateready', function (e) {
-                if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
-                    window.location.reload();
-                }
-            }, false);
-        }, false);
-    </script>
-
-    <script type="text/javascript">
         var LAZO = {
             initConf: {
                 layout: '{{layout}}',
