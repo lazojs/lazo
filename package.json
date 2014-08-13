@@ -22,7 +22,7 @@
     "private": false,
     "scripts": {
         "start": "lazo",
-        "postinstall": "bin/postinstall",
+        "postinstall": "node bin/postinstall",
         "test": "grunt castle"
     },
     "main": "index",
