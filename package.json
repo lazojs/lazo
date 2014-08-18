@@ -4,7 +4,15 @@
     "description": "A client-server web framework built on Node.js that allows front-end developers to easily create a 100% SEO compliant, component MVC structured web application with an optimized first page load.",
     "homepage": "https://github.com/walmartlabs/lazojs",
     "keywords": [
-        "backbone, requirejs, hapi, mvc, client-server, lazo, lazojs, isomorphic javascript, SEO"
+        "backbone",
+        "requirejs",
+        "hapi",
+        "mvc",
+        "client-server",
+        "lazo",
+        "lazojs",
+        "isomorphic javascript",
+        "SEO"
     ],
     "licenses": [
         {
