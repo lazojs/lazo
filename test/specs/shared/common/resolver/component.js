@@ -62,6 +62,21 @@ describe('component resolver', function () {
         chai.expect(def.layout).to.be.null;
     });
 
+    it('should get child components', function () {
+        var def;
+
+        LAZO.app.defaultLayout = 'regular';
+        LAZO.routes = {
+            '/f': { component: 'f', layout: false, components: ['a', 'b'] }
+        };
+
+        def = component.getDef('/f');
+        chai.expect(def.name).to.be.equal('f');
+        chai.expect(def.action).to.be.equal('index');
+        chai.expect(def.layout).to.be.null;
+        chai.expect(def.components).to.include.members(['a', 'b']);
+    });
+
     it('should get the CSS for a component', function () {
         var css = component.getCss('a');
 
