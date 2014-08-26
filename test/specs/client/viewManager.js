@@ -1,46 +1,18 @@
-describe('Client Loader', function () {
+describe('View Manager', function () {
 
     var viewManager;
     var LazoView;
-    var id = 0;
-
-    function setup(app) {
-        app.getDefaultTemplateEngineName = function () {};
-        app.getTemplateEngine = function () {};
-    }
-
-    function createCtlTree() {
-        var ctl = {
-            currentView: null,
-            children: {
-                foo: []
-            }
-        };
-
-        for (var i = 0; i < 3; i++) {
-            id++;
-            $('body').append('<div class="view-"' + id + '>');
-
-            if (!i) {
-                ctl.currentView = new LazoView({ el: $('.view-' + id) });
-            } else {
-                ctl.children.foo.push({
-                    currentView: new LazoView({ el: $('.view-' + id) })
-                });
-            }
-        }
-
-        return ctl;
-    }
+    var utils;
 
     beforeEach(function (done) {
-        requirejs(['castle', 'lazoView'], function (castle, LView) {
+        requirejs(['castle', 'lazoView', 'test/utils'], function (castle, LView, u) {
             LazoView = LView;
+            utils = u;
             castle.test({
                 module: 'viewManager',
                 globals: [{ module: 'lazo', exports: 'LAZO' }],
                 callback: function (module) {
-                    setup(LAZO.app);
+                    utils.setup(LAZO.app);
                     viewManager = module;
                     done();
                 }
@@ -62,7 +34,7 @@ describe('Client Loader', function () {
     });
 
     it('should attach views in a tree', function () {
-        var ctl = createCtlTree();
+        var ctl = utils.createCtlTree();
         var spy = sinon.spy(viewManager, 'attachView');
 
         viewManager.attachViews(ctl, ctl.currentView.cid);
@@ -84,7 +56,7 @@ describe('Client Loader', function () {
     });
 
     it('should clean up a tree branch', function () {
-        var ctl = createCtlTree();
+        var ctl = utils.createCtlTree();
         var spy = sinon.spy(viewManager, 'cleanupView');
 
         viewManager.cleanup(ctl, ctl.currentView.cid);
