@@ -6,7 +6,7 @@
         "base": "lib/common/base",
         "config": "lib/common/config",
         "context": "lib/common/context",
-        "renderer": "lib/common/asyncRenderer",
+        "renderer": "lib/common/renderer",
         "text": "lib/vendor/text",
         "json": "lib/vendor/json",
         "utils": "lib/common/utils",
