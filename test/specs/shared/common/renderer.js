@@ -34,18 +34,11 @@ describe('Renderer', function () {
         var ctl = utils.createCtlTree();
 
         renderer.getTreeHtml(ctl, null, null, function (html) {
-            var containers = html.search(/lazo-cmp-container="foo"/g);
-            var components = html.search(/lazo-cmp-name/g);
-            var views = html.search(/lazo-view-id/g);
+            var regex = /<div lazo-cmp-name="name[0-9]" lazo-cmp-id="[0-9]"><div lazo-view-id="view[0-9]"><div lazo-cmp-container="foo"><div lazo-cmp-name="name[0-9]" lazo-cmp-id="[0-9]"><div lazo-view-id="view[0-9]">I am a template!<\/div><\/div><div lazo-cmp-name="name[0-9]" lazo-cmp-id="[0-9]"><div lazo-view-id="view[0-9]">I am a template!<\/div><\/div><\/div><\/div><\/div>/;
+            var match = html.match(regex);
 
-            expect(containers.length).to.be.equal(1);
-            expect(components.length).to.be.equal(3);
-            expect(views.length).to.be.equal(3);
-
-console.log(html);
-console.log(html.search(/lazo-cmp-name/g));
-
-
+            expect(match.length).to.be.equal(1);
+            expect(match.index).to.be.equal(0);
             done();
         });
     });
