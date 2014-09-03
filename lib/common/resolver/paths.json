@@ -33,7 +33,8 @@
         "fileSink": "lib/server/logger/fileSink",
         "logger": "lib/common/logger",
         "lodash": "lib/vendor/lodash",
-        "lazoBundle": "lib/public/bundle"
+        "lazoBundle": "lib/public/bundle",
+        "lazoAssets": "lib/public/assets"
     },
     "client": {
         "backbone": "lib/vendor/backbone",
@@ -60,6 +61,7 @@
     "lib": [
         "assets",
         "assetsProvider",
+        "lazoAssets",
         "async",
         "config",
         "context",
