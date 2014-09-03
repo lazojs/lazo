@@ -48,7 +48,7 @@
         "optimist": "0.6.0",
         "node-dir": "0.1.5",
         "lodash": "2.4.1",
-        "hapi": "6.0.2",
+        "hapi": "6.7.1",
         "requirejs": "2.1.11",
         "backbone": "git://github.com/amdjs/backbone.git",
         "underscore": "git://github.com/amdjs/underscore.git",
