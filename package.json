@@ -1,6 +1,6 @@
 {
     "name": "lazo",
-    "version": "0.1.5",
+    "version": "0.1.6",
     "description": "A client-server web framework built on Node.js that allows front-end developers to easily create a 100% SEO compliant, component MVC structured web application with an optimized first page load.",
     "homepage": "https://github.com/walmartlabs/lazojs",
     "keywords": [
@@ -48,7 +48,7 @@
         "optimist": "0.6.0",
         "node-dir": "0.1.5",
         "lodash": "2.4.1",
-        "hapi": "6.0.2",
+        "hapi": "6.7.1",
         "requirejs": "2.1.11",
         "backbone": "git://github.com/amdjs/backbone.git",
         "underscore": "git://github.com/amdjs/underscore.git",
