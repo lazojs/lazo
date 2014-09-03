@@ -15,6 +15,8 @@ load using a familiar tool stack comprised of [Backbone.js](http://backbonejs.or
 
 > Have a question? Want to keep up-to-date on changes and releases? Post questions to the [LazoJS Google Group](https://groups.google.com/forum/#!forum/lazojs) and follow [@lazojs](https://twitter.com/lazojs) on Twitter.
 
+> Looking for documentation? Check out our [wiki](https://github.com/walmartlabs/lazojs/wiki).
+
 ### Problem
 The single page application ([SPA](http://en.wikipedia.org/wiki/Single-page_application)) model is an excellent
 approach for separating application logic from data retrieval; consolidating UI code to a single language and run
