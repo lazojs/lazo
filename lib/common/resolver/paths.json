@@ -1,6 +1,5 @@
 {
     "common": {
-        "assets": "lib/common/assets",
         "assetsProvider": "lib/{env}/assetsProvider",
         "async": "lib/vendor/async",
         "base": "lib/common/base",
@@ -34,7 +33,8 @@
         "logger": "lib/common/logger",
         "lodash": "lib/vendor/lodash",
         "lazoBundle": "lib/public/bundle",
-        "lazoAssets": "lib/public/assets"
+        "lazoAssets": "lib/public/assets",
+        "assets": "lib/public/assets"
     },
     "client": {
         "backbone": "lib/vendor/backbone",
@@ -59,9 +59,8 @@
         "forbidden": "lib/server/forbidden"
     },
     "lib": [
-        "assets",
         "assetsProvider",
-        "lazoAssets",
+        "assets",
         "async",
         "config",
         "context",
