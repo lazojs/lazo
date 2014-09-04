@@ -45,50 +45,54 @@ describe('Asset Resolution Utils', function () {
         } else {
             // en-US,en;q=0.8
             locales = assets.getLocales(ctx);
-            expect(locales.length).to.be.equal(2);
+            expect(locales.length).to.be.equal(3);
             expect(locales[0]).to.be.equal('en-US');
             expect(locales[1]).to.be.equal('en');
+            expect(locales[2]).to.be.equal('defaults');
 
             // en;q=0.8,en-US
             ctx._request.raw.req.headers['accept-language'] = 'en;q=0.8,en-US';
             locales = assets.getLocales(ctx);
-            expect(locales.length).to.be.equal(2);
+            expect(locales.length).to.be.equal(3);
             expect(locales[0]).to.be.equal('en-US');
             expect(locales[1]).to.be.equal('en');
+            expect(locales[2]).to.be.equal('defaults');
 
             // en-GB;q=0.8,en;q=0.5,en-US
             ctx._request.raw.req.headers['accept-language'] = 'en-GB;q=0.8,en;q=0.5,en-US';
             locales = assets.getLocales(ctx);
-            expect(locales.length).to.be.equal(3);
+            expect(locales.length).to.be.equal(4);
             expect(locales[0]).to.be.equal('en-US');
             expect(locales[1]).to.be.equal('en-GB');
             expect(locales[2]).to.be.equal('en');
+            expect(locales[3]).to.be.equal('defaults');
         }
     });
 
-    it('should resolve an asset by key name', function () {
+    it('should resolve component asset map', function () {
         var ctx = getCtx();
-        var list = {
-            defaults: {
-                foo: 0,
-                bar: 0
-            },
+        var assetMap = {
             'en-US': {
                 foo: 1
             },
             'en': {
                 foo: 2,
                 baz: 2
+            },
+            defaults: {
+                foo: 0,
+                bar: 0
             }
         };
+        var resolvedAssetMap = assets.resolveAssets(assetMap, ctx);
 
         // en-US,en;q=0.8
-        expect(assets.resolveAsset('foo', list, ctx)).to.be.equal(1);
-        expect(assets.resolveAsset('bar', list, ctx)).to.be.equal(0);
-        expect(assets.resolveAsset('baz', list, ctx)).to.be.equal(2);
+        expect(resolvedAssetMap.foo).to.be.equal(1);
+        expect(resolvedAssetMap.bar).to.be.equal(0);
+        expect(resolvedAssetMap.baz).to.be.equal(2);
     });
 
-    it('should resolve asset key name', function () {
+    it('should resolve assets map key name', function () {
         var ctx = getCtx();
         var key = assets.resolveAssetKey('en-US/img/foo.png', ctx);
 
