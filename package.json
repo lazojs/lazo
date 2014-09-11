@@ -53,10 +53,10 @@
         "backbone": "git://github.com/amdjs/backbone.git",
         "underscore": "git://github.com/amdjs/underscore.git",
         "jquery": "1.11.1",
-        "rjs-text": "git://github.com/requirejs/text.git",
-        "hermes": "git://github.com/jstrimpel/hermes.git",
-        "jquery-cookie": "git://github.com/jstrimpel/jquery-cookie.git",
-        "rjs-json": "git://github.com/jstrimpel/requirejs-plugins.git",
+        "text": "git://github.com/requirejs/text.git",
+        "hermes-conrad": "git://github.com/jstrimpel/hermes.git",
+        "jquery.cookie": "git://github.com/jstrimpel/jquery-cookie.git",
+        "requirejs-plugins": "git://github.com/jstrimpel/requirejs-plugins.git",
         "async": "0.6.2"
     },
     "devDependencies": {
