@@ -14,55 +14,6 @@ describe('Context', function () {
         });
     });
 
-    it('XHR POST request', function () {
-        var ctx = new Context({
-            _request: {
-                raw: {
-                    req: {
-                        headers: {
-                            'x-requested-with': 'XMLHttpRequest'
-                        }
-                    }
-                },
-                server: {
-                    info: {
-                        protocol: 'http'
-                    }
-                },
-                url: {}
-            },
-            headers: {
-                'x-requested-with': 'XMLHttpRequest',
-                host: 'localhost:8080'
-            }
-        });
-
-        chai.expect(ctx.isXHR).to.be.true;
-    });
-
-    it('standard GET request', function () {
-        var ctx = new Context({
-            _request: {
-                raw: {
-                    req: {
-                        headers: {}
-                    }
-                },
-                server: {
-                    info: {
-                        protocol: 'http'
-                    }
-                },
-                url: {}
-            },
-            headers: {
-                host: 'localhost:8080'
-            }
-        });
-
-        chai.expect(ctx.isXHR).to.be.false;
-    });
-
     it('common server', function () {
         var ctx = new Context({
             _request: {
