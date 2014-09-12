@@ -54,7 +54,7 @@
         "underscore": "git://github.com/amdjs/underscore.git",
         "jquery": "1.11.1",
         "text": "git://github.com/requirejs/text.git",
-        "hermes-conrad": "git://github.com/jstrimpel/hermes.git",
+        "hermes-conrad": "0.2.0",
         "jquery.cookie": "git://github.com/jstrimpel/jquery-cookie.git",
         "requirejs-plugins": "git://github.com/jstrimpel/requirejs-plugins.git",
         "async": "0.6.2"
