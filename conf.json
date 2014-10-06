@@ -10,10 +10,6 @@
                 "port": 8080
             }
         },
-        "monitor": {
-            "on": false,
-            "options": {}
-        },
         "defaults": {
             "timeout": {
                 "server": 30000,
