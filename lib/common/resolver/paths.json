@@ -58,7 +58,6 @@
         "l": "lib/server/loader",
         "handlers": "lib/server/handlers",
         "forbidden": "lib/server/forbidden",
-        "appSetup": "lib/server/appSetup",
         "appServerSetup": "lib/public/server/server",
         "lazoServer": "lib/public/server/server"
     },
