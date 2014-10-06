@@ -19,7 +19,7 @@
         <{{name}} {{#each attributes}}{{@key}}="{{this}}" {{/each}}>{{content}}</{{name}}>
     {{/each}}
     {{#each dependencies.css}}
-        <link rel="stylesheet" type="text/css" href="{{this}}" data-lazo-css>
+        <link rel="stylesheet" type="text/css" href="{{this}}" data-lazo-link="css">
     {{/each}}
 
     <script type="text/javascript">
