@@ -1,4 +1,4 @@
-define(['lazoMocksBase', 'underscore'], function (Base, _) {
+define(['./base', 'underscore'], function (Base, _) {
 
     'use strict';
 

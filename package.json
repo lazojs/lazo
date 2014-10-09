@@ -62,6 +62,7 @@
         "grunt-contrib-requirejs": "0.4.x",
         "grunt": "0.4.x",
         "grunt-castle": "0.4.x",
-        "grunt-contrib-watch": "0.5.x"
+        "grunt-contrib-watch": "0.5.x",
+        "intern": "2.1.1"
     }
 }
