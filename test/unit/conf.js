@@ -1,12 +1,8 @@
-console.log('HERE');
-
-define(['lib/vendor/text!lib/common/paths.json'], function (paths) {
+define(['intern/dojo/node!fs'], function (fs) {
 
     'use strict';
 
-console.log('THERE');
-    paths = JSON.parse(paths);
-
+    var paths = JSON.parse(fs.readFileSync('lib/common/resolver/paths.json'));
     var env = 'server';
     var needle = '/{env}/';
     var replace = '/' + env + '/';
@@ -22,7 +18,15 @@ console.log('THERE');
     return {
         environments: [{browserName: 'chrome'}],
 
-        suites: ['test/unit/isomorphic/common/resolver/route'],
+        suites: [
+            'test/unit/client-server/common/resolver/route',
+            'test/unit/client-server/common/resolver/file',
+            'test/unit/client-server/common/resolver/assets',
+            'test/unit/client-server/common/resolver/component',
+            'test/unit/client-server/common/utils/handlebarsEngine',
+            // 'test/unit/client-server/common/utils/model',
+            'test/unit/client-server/common/utils/template'
+        ],
 
         excludeInstrumentation: /^(?:test|node_modules|lib\/vendor)\//,
 
@@ -30,7 +34,7 @@ console.log('THERE');
 
         useLoader: {
             'host-node': 'requirejs',
-            'host-browser': 'node_modules/dojo/dojo.js'
+            'host-browser': 'node_modules/requirejs/require.js'
         },
 
         loader: {
@@ -39,6 +43,10 @@ console.log('THERE');
                 intern: {
                     dojo: 'intern/node_modules/dojo',
                     chai: 'intern/node_modules/chai/chai'
+                },
+                request: 'test/mocks/request',
+                '*': {
+                    'l': 'lib/server/loader.js'
                 }
             }
         },

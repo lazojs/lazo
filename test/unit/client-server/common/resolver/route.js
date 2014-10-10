@@ -5,8 +5,8 @@ define([
     'lib/common/resolver/route'
 ], function (bdd, expect, utils, route) {
     with (bdd) {
+        utils.stub('LAZO');
         describe('route resolver', function () {
-            utils.stub('LAZO');
             it('transform routes', function () {
                 var foo = route.transform('foo(/)');
                 var bar = route.transform('bar');

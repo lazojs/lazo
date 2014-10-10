@@ -63,6 +63,12 @@ define(['test/mocks/lazo/view', 'test/mocks/lazo/lazo', 'underscore'], function 
         return ctl;
     }
 
+    try {
+        window.LAZO = lazo;
+    } catch (err) {
+        global.LAZO = lazo;
+    }
+
     return {
         createCtlTree: createCtlTree,
         setup: setup,

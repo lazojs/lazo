@@ -1,4 +1,4 @@
-define(function () {
+define(['utils/handlebarsEngine'], function (handlebarsEngine) {
 
     var LAZO = {},
         isServer = true,
@@ -13,36 +13,33 @@ define(function () {
 
     LAZO.app = {
         isServer: isServer,
-        isClient: isClient
+        isClient: isClient,
+        navigate: function(){},
+        getTemplateEngine: function () {
+            return handlebarsEngine;
+        },
+        getTemplateExt: function () {
+            return 'hbs';
+        }
     };
 
     LAZO.logger = {
-        debug: function () {
-        },
-        error: function () {
-        },
-        log: function () {
-        },
-        warn: function () {
-        }
+        log: function () {},
+        info: function() {},
+        debug: function() {},
+        warn: function () {},
+        error: function () {},
+        setLevel: function () {}
     };
 
     LAZO.config = {
-        get: function (key) {
+        get: function(key) {
             return this[key];
         },
-        set: function (key, value) {
+        set: function(key, value) {
             this[key] = value;
         }
     };
-
-    LAZO.files = {
-        components: [],
-        models: [],
-        appViews: []
-    };
-
-    LAZO.FILE_REPO_PATH = './test';
 
     return LAZO;
 
