@@ -1,7 +1,7 @@
 define([
     'intern!bdd',
     'intern/chai!expect',
-    'test/utils',
+    'test/unit/utils',
     'intern/dojo/node!sinon',
     'intern/chai!',
     'intern/dojo/node!sinon-chai',

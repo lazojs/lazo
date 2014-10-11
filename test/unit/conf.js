@@ -33,7 +33,8 @@ define(['intern/dojo/node!fs', 'intern/dojo/node!path', 'test/mocks/lazo'], func
             'test/unit/client-server/common/utils/model',
             'test/unit/client-server/common/utils/template',
             'test/unit/client-server/common/logger',
-            // 'test/unit/client-server/common/renderer'
+            'test/unit/client-server/common/renderer',
+            'test/unit/client-server/utils/treeMixin'
         ],
 
         excludeInstrumentation: /^(?:test|node_modules|lib\/vendor)\//,
