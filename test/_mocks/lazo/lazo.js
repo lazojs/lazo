@@ -1,4 +1,4 @@
-define(['utils/handlebarsEngine'], function (handlebarsEngine) {
+define(['lib/vendor/handlebars.amd'], function (handlebarsEngine) {
 
     var LAZO = {},
         isServer = true,
@@ -16,7 +16,18 @@ define(['utils/handlebarsEngine'], function (handlebarsEngine) {
         isClient: isClient,
         navigate: function(){},
         getTemplateEngine: function () {
-            return handlebarsEngine;
+            return {
+                compile: function(template) {
+                    return Handlebars.default.compile(template);
+                },
+                precompile: function (template) {
+                    return Handlebars.default.precompile(template);
+                },
+                execute: function(template, context, templateName) {
+                    return template(context);
+                },
+                engine: Handlebars.default
+            };
         },
         getTemplateExt: function () {
             return 'hbs';

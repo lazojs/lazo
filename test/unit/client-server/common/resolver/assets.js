@@ -1,12 +1,16 @@
 define([
     'intern!bdd',
+    'intern/chai!',
     'intern/chai!expect',
-    'test/utils',
-    'lib/common/resolver/assets'
-], function (bdd, expect, utils, assets) {
+    'intern/dojo/node!sinon',
+    'intern/dojo/node!sinon-chai',
+    'test/unit/utils',
+    'resolver/assets'
+], function (bdd, chai, expect, sinon, sinonChai, utils, assets) {
+    chai.use(sinonChai);
+
     with (bdd) {
         var navLanguages = LAZO.isClient ? navigator.languages : [];
-        utils.stub('LAZO');
 
         describe('Asset Resolution Utils', function () {
 

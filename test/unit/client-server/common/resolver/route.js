@@ -1,11 +1,15 @@
 define([
     'intern!bdd',
+    'intern/chai!',
     'intern/chai!expect',
-    'test/utils',
-    'lib/common/resolver/route'
-], function (bdd, expect, utils, route) {
+    'intern/dojo/node!sinon',
+    'intern/dojo/node!sinon-chai',
+    'test/unit/utils',
+    'resolver/route'
+], function (bdd, chai, expect, sinon, sinonChai, utils, route) {
+    chai.use(sinonChai);
+
     with (bdd) {
-        utils.stub('LAZO');
         describe('route resolver', function () {
             it('transform routes', function () {
                 var foo = route.transform('foo(/)');

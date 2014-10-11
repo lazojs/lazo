@@ -1,11 +1,15 @@
 define([
     'intern!bdd',
+    'intern/chai!',
     'intern/chai!expect',
-    'test/utils',
-    'lib/common/resolver/component'
-], function (bdd, expect, utils, component) {
+    'intern/dojo/node!sinon',
+    'intern/dojo/node!sinon-chai',
+    'test/unit/utils',
+    'resolver/component'
+], function (bdd, chai, expect, sinon, sinonChai, utils, component) {
+    chai.use(sinonChai);
+
     with (bdd) {
-        utils.stub('LAZO');
         LAZO.files = {
             components: {
                 'components/a/a.css': true,

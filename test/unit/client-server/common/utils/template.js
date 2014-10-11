@@ -1,11 +1,15 @@
 define([
     'intern!bdd',
+    'intern/chai!',
     'intern/chai!expect',
-    'test/utils',
+    'intern/dojo/node!sinon',
+    'intern/dojo/node!sinon-chai',
+    'test/unit/utils',
     'utils/template'
-], function (bdd, expect, utils, template) {
+], function (bdd, chai, expect, sinon, sinonChai, utils, template) {
+    chai.use(sinonChai);
+
     with (bdd) {
-        utils.stub('LAZO');
         describe('template', function () {
 
             beforeEach(function () {

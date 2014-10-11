@@ -1,12 +1,16 @@
 define([
     'intern!bdd',
+    'intern/chai!',
     'intern/chai!expect',
-    'test/utils',
+    'intern/dojo/node!sinon',
+    'intern/dojo/node!sinon-chai',
+    'test/unit/utils',
     'handlebars',
     'utils/handlebarsEngine'
-], function (bdd, expect, utils, handlebars, hbsEng) {
+], function (bdd, chai, expect, sinon, sinonChai, utils, handlebars, hbsEng) {
+    chai.use(sinonChai);
+
     with (bdd) {
-        utils.stub('LAZO');
         describe('handlebarsEngine', function () {
             it('should compile a template', function () {
                 var template = hbsEng.compile('I am {{fname}} {{lname}}.');

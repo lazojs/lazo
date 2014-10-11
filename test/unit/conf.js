@@ -1,4 +1,4 @@
-define(['intern/dojo/node!fs'], function (fs) {
+define(['intern/dojo/node!fs', 'intern/dojo/node!path', 'test/mocks/lazo'], function (fs, path, lazo) {
 
     'use strict';
 
@@ -15,6 +15,12 @@ define(['intern/dojo/node!fs'], function (fs) {
         paths.common[k] = paths[env][k];
     }
 
+    try {
+        window.LAZO = lazo;
+    } catch (err) {
+        global.LAZO = lazo;
+    }
+
     return {
         environments: [{browserName: 'chrome'}],
 
@@ -24,8 +30,10 @@ define(['intern/dojo/node!fs'], function (fs) {
             'test/unit/client-server/common/resolver/assets',
             'test/unit/client-server/common/resolver/component',
             'test/unit/client-server/common/utils/handlebarsEngine',
-            // 'test/unit/client-server/common/utils/model',
-            'test/unit/client-server/common/utils/template'
+            'test/unit/client-server/common/utils/model',
+            'test/unit/client-server/common/utils/template',
+            'test/unit/client-server/common/logger',
+            // 'test/unit/client-server/common/renderer'
         ],
 
         excludeInstrumentation: /^(?:test|node_modules|lib\/vendor)\//,
@@ -44,9 +52,12 @@ define(['intern/dojo/node!fs'], function (fs) {
                     dojo: 'intern/node_modules/dojo',
                     chai: 'intern/node_modules/chai/chai'
                 },
-                request: 'test/mocks/request',
+                // lazo
                 '*': {
-                    'l': 'lib/server/loader.js'
+                    'l': 'lib/server/loader.js',
+                // mocks
+                request: 'test/mocks/request',
+                'continuation-local-storage': 'test/mocks/continuation-local-storage',
                 }
             }
         },

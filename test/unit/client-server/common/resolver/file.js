@@ -1,12 +1,15 @@
 define([
     'intern!bdd',
+    'intern/chai!',
     'intern/chai!expect',
-    'test/utils',
-    'lib/common/resolver/file'
-], function (bdd, expect, utils, file) {
-    with (bdd) {
-        utils.stub('LAZO');
+    'intern/dojo/node!sinon',
+    'intern/dojo/node!sinon-chai',
+    'test/unit/utils',
+    'resolver/file'
+], function (bdd, chai, expect, sinon, sinonChai, utils, file) {
+    chai.use(sinonChai);
 
+    with (bdd) {
         describe('file resolver', function () {
 
             it('should get a view\'s path', function () {
@@ -23,13 +26,15 @@ define([
                         templateName: 'view_tmp',
                         ctl: {
                             name: 'cmp_name'
-                        }
+                        },
+                        templateEngine: 'handlebars'
                     },
                     view2  = {
                         templateName: 'a:view_tmp',
                         ctl: {
                             name: 'cmp_name'
-                        }
+                        },
+                        templateEngine: 'handlebars'
                     },
                     cmpTemplatePath = file.getTemplatePath(view1),
                     appTemplatePath = file.getTemplatePath(view2);
@@ -44,13 +49,15 @@ define([
                         templateName: 'view_tmp',
                         ctl: {
                             name: 'cmp_name'
-                        }
+                        },
+                        templateEngine: 'handlebars'
                     },
                     view2  = {
                         templateName: function () { return 'a:view_tmp' },
                         ctl: {
                             name: 'cmp_name'
-                        }
+                        },
+                        templateEngine: 'handlebars'
                     },
                     strTemplateName = file.getTemplateName(view1),
                     fnTemplateName = file.getTemplateName(view2);
