@@ -1,12 +1,5 @@
 define(['test/mocks/lazo'], function (lazo) {
 
-    try {
-        window;
-        isServer = false;
-    } catch (err) {
-        isClient = false;
-    }
-
     function createView(ctl, id, LazoView, _) {
         var el;
         var template = _.template('I am a template!');

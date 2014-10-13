@@ -25,6 +25,7 @@ define(['intern/dojo/node!fs', 'intern/dojo/node!path', 'test/mocks/lazo'], func
         environments: [{browserName: 'chrome'}],
 
         suites: [
+            // client-server
             'test/unit/client-server/common/resolver/route',
             'test/unit/client-server/common/resolver/file',
             'test/unit/client-server/common/resolver/assets',
@@ -34,7 +35,10 @@ define(['intern/dojo/node!fs', 'intern/dojo/node!path', 'test/mocks/lazo'], func
             'test/unit/client-server/common/utils/template',
             'test/unit/client-server/common/logger',
             'test/unit/client-server/common/renderer',
-            'test/unit/client-server/utils/treeMixin'
+            'test/unit/client-server/utils/treeMixin',
+            // server
+            'test/unit/server/common/resolver/requireConfigure',
+            'test/unit/server/common/utils/document',
         ],
 
         excludeInstrumentation: /^(?:test|node_modules|lib\/vendor)\//,
