@@ -39,6 +39,11 @@ define(['intern/dojo/node!fs', 'intern/dojo/node!path', 'test/mocks/lazo'], func
             // server
             'test/unit/server/common/resolver/requireConfigure',
             'test/unit/server/common/utils/document',
+            'test/unit/server/assetsProvider',
+            'test/unit/server/context',
+            'test/unit/server/forbidden',
+            'test/unit/server/loader',
+            'test/unit/server/serviceProxy',
         ],
 
         excludeInstrumentation: /^(?:test|node_modules|lib\/vendor)\//,
