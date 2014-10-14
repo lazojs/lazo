@@ -59,7 +59,7 @@ define(['intern/dojo/text!lib/common/resolver/paths.json', 'test/mocks/lazo'], f
 
         webdriver: {
             host: 'localhost',
-            port: 4445
+            port: 4444
         }
 
     };
