@@ -31,9 +31,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('test-server', ['configure-intern:server', 'intern:server']);
     grunt.registerTask('test-client', ['configure-intern:client', 'intern:client']);
-
-    // grunt.registerTask('test', ['test-server', 'test-client']);
-    grunt.registerTask('test', ['test-server']);
+    grunt.registerTask('test', ['test-server', 'test-client']);
 
     grunt.initConfig({
 

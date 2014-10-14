@@ -26,11 +26,17 @@ define(['intern/dojo/text!lib/common/resolver/paths.json', 'test/mocks/lazo'], f
 
     return {
 
+        proxyPort: 9000,
+
+        proxyUrl: 'http://localhost:9000/',
+
+        capabilities: {
+            'selenium-version': '2.39.0'
+        },
+
         environments: [{ browserName: 'chrome' }],
 
         excludeInstrumentation: /^(?:test|node_modules|lib\/vendor)\//,
-
-        useSauceConnect: false,
 
         useLoader: {
             'host-browser': '../../node_modules/requirejs/require.js'
@@ -53,7 +59,7 @@ define(['intern/dojo/text!lib/common/resolver/paths.json', 'test/mocks/lazo'], f
 
         webdriver: {
             host: 'localhost',
-            port: 4444
+            port: 4445
         }
 
     };
