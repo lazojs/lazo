@@ -2,8 +2,8 @@ define([
     'intern!bdd',
     'intern/chai!',
     'intern/chai!expect',
-    'intern/dojo/node!sinon',
-    'intern/dojo/node!sinon-chai',
+    'sinon',
+    'sinon-chai',
     'test/unit/utils',
     'resolver/requireConfigure'
 ], function (bdd, chai, expect, sinon, sinonChai, utils, conf) {

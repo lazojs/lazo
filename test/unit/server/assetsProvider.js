@@ -2,8 +2,8 @@ define([
     'intern!bdd',
     'intern/chai!',
     'intern/chai!expect',
-    'intern/dojo/node!sinon',
-    'intern/dojo/node!sinon-chai',
+    'sinon',
+    'sinon-chai',
     'test/unit/utils',
     'intern/dojo/node!path',
     'assetsProvider'
@@ -31,8 +31,9 @@ define([
                 };
             }
 
-            it('should get the assets for a list of components', function (done) {
+            it('should get the assets for a list of components', function () {
                 var ctx = getCtx();
+                var dfd = this.async();
                 assetsProvider.get(['foo', 'bar', 'baz'], ctx, {
                     success: function (assets) {
                         expect(assets.foo).to.be.empty;
@@ -41,19 +42,20 @@ define([
 
                         expect(assets.bar.name).to.be.equal('Käthe Kollwitz');
                         expect(assets.bar['img/logo.png']).to.be.equal('/components/bar/assets/en-US/img/logo.png');
-                        done();
+                        dfd.resolve();
                     }
                 });
             });
 
-            it('should get the assets for an application', function (done) {
+            it('should get the assets for an application', function () {
                 var ctx = getCtx();
+                var dfd = this.async();
                 assetsProvider.get(['app'], ctx, {
                     success: function (assets) {
                         expect(assets.app['info.pdf']).to.be.equal('/app/assets/info.pdf');
                         expect(assets.app.name).to.be.equal('Käthe Kollwitz');
                         expect(assets.app['img/logo.png']).to.be.equal('/app/assets/en-US/img/logo.png');
-                        done();
+                        dfd.resolve();
                     }
                 });
             });

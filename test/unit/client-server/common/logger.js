@@ -2,9 +2,9 @@ define([
     'intern!bdd',
     'intern/chai!expect',
     'test/unit/utils',
-    'intern/dojo/node!sinon',
+    'sinon',
     'intern/chai!',
-    'intern/dojo/node!sinon-chai',
+    'sinon-chai',
     'lib/common/logger'
 ], function (bdd, expect, utils, sinon, chai, sinonChai, logger) {
     chai.use(sinonChai);
