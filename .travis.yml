@@ -8,9 +8,10 @@ branches:
 notifications:
   email:
     - jstrimpel@gmail.com
+    - pknepper@walmartlabs.com
 env:
   global:
-    - secure: f4PvKBSo7YijgRHIkv0cZcOUzl1dFYd/ooOqZVGiU+GTkI+OttDRodfKHP4xpKvMsh5fkNTEhe6ASiXcUEmHP/nv9yPO2sfVBjkwCY2iz7B/Bn/2+VPLgSs2/W++OYTh++8S0M9cYW2sw/nHs3xeWfj7xpdD5nXeFa8jwJ1oTKc=
-    - secure: STMGofHglePPpYTuBd40WpdUQir1GUeczOVtdvde3kaG9M+Sss1ogSCKdLjDj4YnSt4OEvBbBPDohOpECjvL9uF7/1YD8zbllcjwKHz7PblPM42h2KdMisjSK9zXX90hbeQhwd0ZrxSHrypA0owibx6hCxdsB/G6eGJpMGJNJTc=
+    - secure: WK2soq/YAU4xfsNru+mvwTUxPqFibFkwIq83yYXKvxcf7vGAfTG6eoLM2GptvGUmeZBGfK5UmQG7xRTVKzsllWHmzyJn5LdoDV4NxP85T518eoZhhdcMyy4QumnNL567YDtijAVCB37tw39Bf7oPUdxCNmjO8i2rDQJLhZ7Ujxs=
+    - secure: LI/nIyV0CQswxb0DywGDqeXpUXfoM30ZrIRsD4i3URcrjMIgi0XC4oz3ZGX9Dxpi9pMdC4IJ8/fqfRNuBGpll2WIvcLCKAGK26w14NXYcT41LwGkxngCSPSfPR0mUpXjwsVKfRcMNffAZL249Ly7/ArVvapZQIpAW5ax9c9m7Vk=
 addons:
   sauce_connect: true
