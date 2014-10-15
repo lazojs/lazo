@@ -11,7 +11,7 @@ notifications:
     - pknepper@walmartlabs.com
 env:
   global:
-    - secure: WK2soq/YAU4xfsNru+mvwTUxPqFibFkwIq83yYXKvxcf7vGAfTG6eoLM2GptvGUmeZBGfK5UmQG7xRTVKzsllWHmzyJn5LdoDV4NxP85T518eoZhhdcMyy4QumnNL567YDtijAVCB37tw39Bf7oPUdxCNmjO8i2rDQJLhZ7Ujxs=
-    - secure: LI/nIyV0CQswxb0DywGDqeXpUXfoM30ZrIRsD4i3URcrjMIgi0XC4oz3ZGX9Dxpi9pMdC4IJ8/fqfRNuBGpll2WIvcLCKAGK26w14NXYcT41LwGkxngCSPSfPR0mUpXjwsVKfRcMNffAZL249Ly7/ArVvapZQIpAW5ax9c9m7Vk=
+    - secure: Ss0z/JgzCf3MXBwFYd75bLnMoG9OTY4cAcjVN6VMYxbHWrADooYCYCMx8PlAaDYKJIvhLq0bA4LnMfqAQHddyRp6/t2lb0vRE0WF51e1WHTZDQ8o9lWAur88LtGWZfeG5gIjjm/a3Q+c8V7rOxyFR2TkZuY7ClY9kS6tH2/Gkuc=
+    - secure: OqI1MSLFasYGdS5B5tfRNbn7ZKaXlgLNZ6S4eRBx9WoJL+nJcIZ2oOjzBIlUpzrmS6slTStBx6YIu1ToeL7FZjk73Xb2MKXE4xEimvMHoQjrZgYTcKxk9IpNKg2tvrrUYcaICuvE+FAcGhObMn41faGewy1ZDhWoQWejzgdIeoY=
 addons:
   sauce_connect: true
