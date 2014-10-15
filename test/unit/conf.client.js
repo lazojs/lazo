@@ -12,16 +12,6 @@ define(['intern/dojo/text!lib/common/resolver/paths.json', 'test/mocks/lazo'], f
     LAZO.app.isServer = false;
     LAZO.app.isClient = true;
 
-    if (!console) { // stub out for win9
-        console = {
-            log: function () {},
-            info: function () {},
-            error: function () {},
-            warn: function () {},
-            debug: function () {}
-        };
-    }
-
     var needle = '/{env}/';
     var serverPaths = {};
     var env = LAZO.app.isServer ? 'server' : 'client';
@@ -44,13 +34,19 @@ define(['intern/dojo/text!lib/common/resolver/paths.json', 'test/mocks/lazo'], f
             'selenium-version': '2.40.0'
         },
 
+        // latest 2 browser version available, https://saucelabs.com/platforms
         environments: [
+            // IE
             { browserName: 'internet explorer', version: '10', platform: 'Windows 8' },
             { browserName: 'internet explorer', version: '11', platform: 'Windows 8.1' },
-            { browserName: 'firefox', version: '33', platform: [ 'OS X 10.9', 'Windows 7', 'Linux' ] },
+            // FF
             { browserName: 'firefox', version: '32', platform: [ 'OS X 10.9', 'Windows 7', 'Linux' ] },
-            { browserName: 'chrome', version: '37', platform: [ 'OS X 10.9', 'Windows 7', 'Linux' ] },
+            { browserName: 'firefox', version: '31', platform: [ 'OS X 10.9', 'Windows 7', 'Linux' ] },
+            // Chrome
+            { browserName: 'chrome', version: '36', platform: [ 'OS X 10.9' ] },
+            { browserName: 'chrome', version: '37', platform: [ 'Windows 7', 'Linux' ] },
             { browserName: 'chrome', version: '38', platform: [ 'OS X 10.9', 'Windows 7', 'Linux' ] },
+            // Safari
             { browserName: 'safari', version: '6', platform: 'OS X 10.8' },
             { browserName: 'safari', version: '7', platform: 'OS X 10.9' }
         ],
