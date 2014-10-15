@@ -7,6 +7,11 @@ branches:
     - master
 notifications:
   email:
-    - jstrimpel@walmartlabs.com
     - jstrimpel@gmail.com
     - pknepper@walmartlabs.com
+env:
+  global:
+    - secure: WK2soq/YAU4xfsNru+mvwTUxPqFibFkwIq83yYXKvxcf7vGAfTG6eoLM2GptvGUmeZBGfK5UmQG7xRTVKzsllWHmzyJn5LdoDV4NxP85T518eoZhhdcMyy4QumnNL567YDtijAVCB37tw39Bf7oPUdxCNmjO8i2rDQJLhZ7Ujxs=
+    - secure: LI/nIyV0CQswxb0DywGDqeXpUXfoM30ZrIRsD4i3URcrjMIgi0XC4oz3ZGX9Dxpi9pMdC4IJ8/fqfRNuBGpll2WIvcLCKAGK26w14NXYcT41LwGkxngCSPSfPR0mUpXjwsVKfRcMNffAZL249Ly7/ArVvapZQIpAW5ax9c9m7Vk=
+addons:
+  sauce_connect: true

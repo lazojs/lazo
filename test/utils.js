@@ -65,7 +65,10 @@ define(['lazoView', 'underscore'], function (LazoView, _) {
 
     return {
         createCtlTree: createCtlTree,
-        setup: setup
+        setup: setup,
+        stub: function () {
+
+        }
     };
 
 });
