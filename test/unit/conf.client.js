@@ -12,6 +12,16 @@ define(['intern/dojo/text!lib/common/resolver/paths.json', 'test/mocks/lazo'], f
     LAZO.app.isServer = false;
     LAZO.app.isClient = true;
 
+    if (!console) { // stub out for win9
+        console = {
+            log: function () {},
+            info: function () {},
+            error: function () {},
+            warn: function () {},
+            debug: function () {}
+        };
+    }
+
     var needle = '/{env}/';
     var serverPaths = {};
     var env = LAZO.app.isServer ? 'server' : 'client';
