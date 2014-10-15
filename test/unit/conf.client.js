@@ -34,9 +34,9 @@ define(['intern/dojo/text!lib/common/resolver/paths.json', 'test/mocks/lazo'], f
             'selenium-version': '2.40.0'
         },
 
-        // environments: [{ browserName: 'chrome' }],
+        environments: [{ browserName: 'chrome', version: '34', platform: [ 'OS X 10.9', 'Windows 7', 'Linux' ] }],
 
-        environments: [],
+        tunnel: 'SauceLabsTunnel',
 
         excludeInstrumentation: /^(?:test|node_modules|lib\/vendor)\//,
 
@@ -57,11 +57,6 @@ define(['intern/dojo/text!lib/common/resolver/paths.json', 'test/mocks/lazo'], f
                     'sinon-chai': '../../node_modules/sinon-chai/lib/sinon-chai.js'
                 }
             }
-        },
-
-        webdriver: {
-            host: 'localhost',
-            port: 4445
         }
 
     };
