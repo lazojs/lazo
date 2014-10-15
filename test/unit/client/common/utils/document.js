@@ -22,6 +22,10 @@ define([
             // link.onload is not being called when test is executed in phantomjs because it
             // is not supported by the version of webkit phantomjs is running
             it('update css', function () {
+                if (window.navigator.userAgent.indexOf('PhantomJS') !== -1) {
+                    this.skip();
+                }
+
                 var add = ['../../mocks/css/b.css', '../../mocks/css/c.css', '../../mocks/css/d.css'];
                 var remove = ['../../mocks/css/a.css'];
                 var $head = $('head');
