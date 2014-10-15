@@ -17,4 +17,4 @@ env:
 addons:
   sauce_connect: true
 before_script:
-  before.sh
+  ./before.sh
