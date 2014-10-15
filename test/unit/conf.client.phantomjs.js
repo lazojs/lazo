@@ -49,14 +49,7 @@ define(['intern/dojo/text!lib/common/resolver/paths.json', 'test/mocks/lazo'], f
                     'sinon-chai': '../../node_modules/sinon-chai/lib/sinon-chai.js'
                 }
             }
-        },
-
-        webdriver: {
-            host: 'localhost',
-            port: 4444
-        },
-
-        useSauceConnect: false
+        }
 
     };
 

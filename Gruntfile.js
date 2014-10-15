@@ -28,6 +28,7 @@ module.exports = function (grunt) {
         var conf = grunt.config.get('intern');
         conf[this.args[0]].options.suites = specs;
         if (!isSecure && env === 'client') {
+console.log('USE PHANTOMJS');
             conf[this.args[0]].options.config = 'test/unit/conf.client.phantomjs';
         }
         grunt.config.set('intern', conf);
