@@ -3,7 +3,7 @@ module.exports = function (grunt) {
     var fs = require('fs');
     var path = require('path');
     var reqConf = grunt.file.readJSON('lib/common/resolver/paths.json');
-    var isSecure = process.env.TRAVIS_SECURE_ENV_VARS === 'false' ? false : true;
+    var isSecure = process.env.TRAVIS_SECURE_ENV_VARS === 'false' || !process.env.TRAVIS ? false : true;
 
     function getPaths(conf, env) {
         var paths = grunt.util._.extend({}, conf.common, (conf[env] || conf.client));
@@ -33,11 +33,25 @@ module.exports = function (grunt) {
         grunt.config.set('intern', conf);
     });
 
-    grunt.registerTask('test-server', ['configure-intern:server', 'intern:server']);
-    grunt.registerTask('test-client', ['exec:selenium-server','configure-intern:client', 'intern:client']);
-    grunt.registerTask('test-client-local', ['configure-intern:client-local', 'intern:client-local']);
+    // ci and local; if local or unsecure pull request uses phantomjs and selenium;
+    // if secure pull request then it uses sauce labs
     grunt.registerTask('test', ['test-server', 'test-client']);
+    // local
     grunt.registerTask('test-local', ['test-server', 'test-client-local']);
+
+    grunt.registerTask('test-server', ['configure-intern:server', 'intern:server']);
+    grunt.registerTask('test-client', function () {
+        var tasks = ['configure-intern:client', 'intern:client'];
+
+        // running locally; ci starts selenium before testing
+        if (!process.env.TRAVIS) {
+            tasks.unshift('exec:selenium-server');
+        }
+
+        grunt.task.run(tasks);
+    });
+
+    grunt.registerTask('test-client-local', ['exec:selenium-server', 'configure-intern:client-local', 'intern:client-local']);
 
     grunt.initConfig({
 
