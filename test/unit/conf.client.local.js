@@ -26,32 +26,11 @@ define(['intern/dojo/text!lib/common/resolver/paths.json', 'test/mocks/lazo'], f
 
     return {
 
-        proxyPort: 9000,
-
-        proxyUrl: 'http://localhost:9000/',
-
-        capabilities: {
-            'selenium-version': '2.40.0'
-        },
-
-        // latest 2 browser version available, https://saucelabs.com/platforms
         environments: [
-            // IE
-            { browserName: 'internet explorer', version: '10', platform: 'Windows 8' },
-            { browserName: 'internet explorer', version: '11', platform: 'Windows 8.1' },
-            // FF
-            { browserName: 'firefox', version: '30', platform: [ 'Windows 7', 'OS X 10.9', 'Linux' ] },
-            { browserName: 'firefox', version: '31', platform: [ 'OS X 10.9', 'Windows 7', 'Linux' ] },
-            // Chrome
-            { browserName: 'chrome', version: '35', platform: [ 'Windows 7' ] },
-            { browserName: 'chrome', version: '36', platform: [ 'OS X 10.9', 'Windows 7', 'Linux' ] },
-            { browserName: 'chrome', version: '37', platform: [ 'Linux', 'OS X 10.9' ] },
-            // Safari
-            { browserName: 'safari', version: '6', platform: 'OS X 10.8' },
-            { browserName: 'safari', version: '7', platform: 'OS X 10.9' }
+            { browserName: 'firefox' },
+            { browserName: 'chrome' },
+            { browserName: 'safari' },
         ],
-
-        tunnel: 'SauceLabsTunnel',
 
         excludeInstrumentation: /^(?:test|node_modules|lib\/vendor)\//,
 
@@ -72,7 +51,14 @@ define(['intern/dojo/text!lib/common/resolver/paths.json', 'test/mocks/lazo'], f
                     'sinon-chai': '../../node_modules/sinon-chai/lib/sinon-chai.js'
                 }
             }
-        }
+        },
+
+        webdriver: {
+            host: 'localhost',
+            port: 4444
+        },
+
+        useSauceConnect: false
 
     };
 
