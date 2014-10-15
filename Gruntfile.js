@@ -28,14 +28,13 @@ module.exports = function (grunt) {
         var conf = grunt.config.get('intern');
         conf[this.args[0]].options.suites = specs;
         if (!isSecure && env === 'client') {
-console.log('USE PHANTOMJS');
             conf[this.args[0]].options.config = 'test/unit/conf.client.phantomjs';
         }
         grunt.config.set('intern', conf);
     });
 
     grunt.registerTask('test-server', ['configure-intern:server', 'intern:server']);
-    grunt.registerTask('test-client', ['configure-intern:client', 'intern:client']);
+    grunt.registerTask('test-client', ['exec:selenium-server','configure-intern:client', 'intern:client']);
     grunt.registerTask('test-client-local', ['configure-intern:client-local', 'intern:client-local']);
     grunt.registerTask('test', ['test-server', 'test-client']);
     grunt.registerTask('test-local', ['test-server', 'test-client-local']);
@@ -98,11 +97,14 @@ console.log('USE PHANTOMJS');
                     config: 'test/unit/conf.server'
                 }
             }
-        }
+        },
+
+        exec: { 'selenium-server': 'node node_modules/selenium-server/bin/selenium &' }
 
     });
 
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('intern');
+    grunt.loadNpmTasks('grunt-exec');
 };
