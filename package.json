@@ -60,7 +60,7 @@
     },
     "devDependencies": {
         "grunt-contrib-requirejs": "0.4.x",
-        "grunt": "0.4.x",
+        "grunt": "0.4.5",
         "grunt-contrib-watch": "0.5.x",
         "intern": "2.1.1",
         "sinon-chai": "2.6.0",
