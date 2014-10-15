@@ -27,9 +27,9 @@ define(['intern/dojo/text!lib/common/resolver/paths.json', 'test/mocks/lazo'], f
     return {
 
         environments: [
-            { browserName: 'firefox' },
+            // { browserName: 'firefox' },
             { browserName: 'chrome' },
-            { browserName: 'safari' },
+            // { browserName: 'safari' },
         ],
 
         excludeInstrumentation: /^(?:test|node_modules|lib\/vendor)\//,

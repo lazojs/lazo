@@ -14,7 +14,7 @@ module.exports = function (grunt) {
     }
 
     grunt.registerTask('configure-intern', 'Create intern configuration for runner', function () {
-        var env = this.args[0];
+        var env = this.args[0] === 'client-local' ? 'client' : this.args[0];
         var paths = getPaths(reqConf, env);
         var specs = grunt.file.expand([
             'test/unit/' + env + '/**/*.js',
@@ -25,13 +25,15 @@ module.exports = function (grunt) {
             return spec.substr(0, spec.lastIndexOf('.js'));
         });
         var conf = grunt.config.get('intern');
-        conf[env].options.suites = specs;
+        conf[this.args[0]].options.suites = specs;
         grunt.config.set('intern', conf);
     });
 
     grunt.registerTask('test-server', ['configure-intern:server', 'intern:server']);
     grunt.registerTask('test-client', ['configure-intern:client', 'intern:client']);
+    grunt.registerTask('test-client-local', ['configure-intern:client', 'intern:client-local']);
     grunt.registerTask('test', ['test-server', 'test-client']);
+    grunt.registerTask('test-local', ['test-server', 'test-client-local']);
 
     grunt.initConfig({
 
@@ -74,6 +76,12 @@ module.exports = function (grunt) {
         },
 
         intern: {
+            'client-local': {
+                options: {
+                    runType: 'runner',
+                    config: 'test/unit/conf.client.local'
+                }
+            },
             client: {
                 options: {
                     runType: 'runner',

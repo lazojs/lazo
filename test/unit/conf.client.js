@@ -43,9 +43,9 @@ define(['intern/dojo/text!lib/common/resolver/paths.json', 'test/mocks/lazo'], f
             { browserName: 'firefox', version: '30', platform: [ 'Windows 7', 'OS X 10.9', 'Linux' ] },
             { browserName: 'firefox', version: '31', platform: [ 'OS X 10.9', 'Windows 7', 'Linux' ] },
             // Chrome
-            { browserName: 'chrome', version: '35', platform: [ 'Windows 7' ] },
+            { browserName: 'chrome', version: '35', platform: [ 'Windows 7', 'OS X 10.9' ] },
             { browserName: 'chrome', version: '36', platform: [ 'OS X 10.9', 'Windows 7', 'Linux' ] },
-            { browserName: 'chrome', version: '37', platform: [ 'Linux', 'OS X 10.9' ] },
+            { browserName: 'chrome', version: '37', platform: [ 'Linux' ] },
             // Safari
             { browserName: 'safari', version: '6', platform: 'OS X 10.8' },
             { browserName: 'safari', version: '7', platform: 'OS X 10.9' }
