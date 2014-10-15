@@ -5,6 +5,7 @@ before_install: npm install -g grunt-cli
 branches:
   only:
     - master
+    - development
 notifications:
   email:
     - jstrimpel@gmail.com
