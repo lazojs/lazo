@@ -77,7 +77,7 @@ define([
             });
 
             it('should get the CSS for a component', function () {
-                var css = component.getCss('a');
+                var css = component.getLinks('a', 'css');
 
                 expect(css.length).to.be.equal(3);
                 expect(css[0]).to.be.equal('components/a/a.css');
