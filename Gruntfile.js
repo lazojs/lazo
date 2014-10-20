@@ -67,7 +67,11 @@ module.exports = function (grunt) {
                     },
                     map: {
                         '*': {
-                            'l': '/lib/client/loader.js'
+                            'l': '/lib/client/loader.js',
+                            // don't define 'bundler' in paths.json because
+                            // it will result in a build error due to
+                            // duplicate paths; 'bundler' path is set at run time
+                            'bundler': 'lazoBundle'
                         }
                     },
                     outFileName: 'lib',
