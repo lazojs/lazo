@@ -6,6 +6,9 @@ define(['intern/dojo/text!lib/common/resolver/paths.json', 'test/mocks/lazo'], f
 
     try {
         window.LAZO = lazo;
+        // used to skip tests in testing environments that do not support specific
+        // browser event, e.g., link.onload
+        window.lazoLocalTesting = true;
     } catch (err) {
         global.LAZO = lazo;
     }
