@@ -93,7 +93,7 @@ function daemon() {
     fsx.mkdirs(lazoPath + '/logs', function (err) {
         if (!err) {
             forever.load({ root: lazoPath + '/logs', pidPath: lazoPath });
-            forever.startDaemon('lib/server/app.js', {
+            forever.startDaemon('./lib/server/app.js', {
                 logFile: 'lazo.log',
                 pidFile: 'lazo.pid',
                 errFile: 'logs/lazo.err',
