@@ -96,7 +96,7 @@ function daemon() {
             forever.startDaemon('./lib/server/app.js', {
                 logFile: 'lazo.log',
                 pidFile: 'lazo.pid',
-                errFile: 'logs/lazo.err',
+                errFile: 'lazo.err',
                 sourceDir: lazoPath,
                 a: true
             });
