@@ -56,7 +56,8 @@
         "hermes-conrad": "0.2.0",
         "jquery.cookie": "git://github.com/jstrimpel/jquery-cookie.git",
         "requirejs-plugins": "git://github.com/jstrimpel/requirejs-plugins.git",
-        "async": "0.6.2"
+        "async": "0.6.2",
+        "flexo.js": "x.x.x"
     },
     "devDependencies": {
         "grunt-contrib-requirejs": "0.4.x",

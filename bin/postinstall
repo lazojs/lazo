@@ -20,7 +20,8 @@ var path = require('path');
     'jquery.cookie',
     'hermes-conrad',
     'async',
-    'lodash'
+    'lodash',
+    'flexo.js'
 ].forEach(function (moduleId) {
     var modulePath = require.resolve(moduleId);
     var client = '';
@@ -33,6 +34,9 @@ var path = require('path');
         modulePath = path.dirname(modulePath) + '/hermes.amd.js';
         moduleId = 'hermes.amd';
         client = 'client/';
+    } else if (moduleId === 'flexo.js') {
+        modulePath = path.dirname(modulePath) + '/flexo.amd.js';
+        moduleId = 'flexo.amd';
     } else if (moduleId === 'jquery.cookie') {
         client = 'client/';
         moduleId = 'jquery-cookie';

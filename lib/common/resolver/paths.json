@@ -34,7 +34,8 @@
         "lazoBundle": "lib/public/bundle",
         "lazoAssets": "lib/public/assets",
         "assets": "lib/public/assets",
-        "viewManager": "lib/client/viewManager"
+        "viewManager": "lib/client/viewManager",
+        "flexo": "lib/vendor/flexo.amd"
     },
     "client": {
         "backbone": "lib/vendor/backbone",

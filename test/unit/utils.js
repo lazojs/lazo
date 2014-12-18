@@ -2,13 +2,14 @@ define(['test/mocks/lazo'], function (lazo) {
 
     function createView(ctl, id, LazoView, _) {
         var el;
-        var template = _.template('I am a template!');
 
         el = LAZO.app.isClient ? $('<div class="view-"' + id + '>') : null;
         return new LazoView({
             el: el,
             templateEngine: 'micro',
-            template: template,
+            getTemplate: function (callback) {
+                callback(null, 'I am a template!');
+            },
             ctl: ctl
         });
     }
@@ -19,7 +20,8 @@ define(['test/mocks/lazo'], function (lazo) {
 
         setUpApp: function (callback) {
             requirejs(['underscore'], function (_) {
-                var template = _.template('I am a template!');
+                // var template = _.template('I am a template!');
+                LAZO.require = requirejs;
                 LAZO.app.getDefaultTemplateEngineName = function () {};
                 LAZO.app.getTemplateEngine = function () {
                     return {
@@ -50,7 +52,9 @@ define(['test/mocks/lazo'], function (lazo) {
                 for (var i = 0; i < 3; i++) {
                     if (!i) {
                         ctl.currentView = createView(ctl, i, LazoView, _);
-                        ctl.currentView.template = _.template('<div lazo-cmp-container="foo"></div>');
+                        ctl.currentView.getTemplate = function (callback) {
+                            callback(null, '<div lazo-cmp-container="foo"></div>');
+                        };
                         ctl.cid = i;
                         ctl.name = 'name' + i;
                         ctl.ctx = {};
