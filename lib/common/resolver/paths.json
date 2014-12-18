@@ -93,6 +93,7 @@
         "hermes",
         "rehydrate/main",
         "logger",
-        "lazoBundle"
+        "lazoBundle",
+        "flexo"
     ]
 }
