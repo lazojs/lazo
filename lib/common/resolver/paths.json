@@ -35,7 +35,8 @@
         "lazoAssets": "lib/public/assets",
         "assets": "lib/public/assets",
         "viewManager": "lib/client/viewManager",
-        "flexo": "lib/vendor/flexo.amd"
+        "flexo": "lib/vendor/flexo.amd",
+        "lazoViewMixin": "lib/public/views/mixin"
     },
     "client": {
         "backbone": "lib/vendor/backbone",
@@ -94,6 +95,7 @@
         "rehydrate/main",
         "logger",
         "lazoBundle",
-        "flexo"
+        "flexo",
+        "lazoViewMixin"
     ]
 }
