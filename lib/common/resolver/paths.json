@@ -36,7 +36,10 @@
         "assets": "lib/public/assets",
         "viewManager": "lib/client/viewManager",
         "flexo": "lib/vendor/flexo.amd",
-        "lazoViewMixin": "lib/public/views/mixin"
+        "lazoViewMixin": "lib/public/views/view",
+        "htmlparserToString": "lib/vendor/htmlparser-toString",
+        "lazoWidget": "lib/public/widget",
+        "lazoWidgetMixin": "lib/public/views/widget"
     },
     "client": {
         "backbone": "lib/vendor/backbone",
@@ -47,7 +50,8 @@
         "rehydrate": "lib/client/rehydrate",
         "post": "lib/client/post",
         "execute": "lib/client/execute",
-        "appConf": "app/app.json"
+        "appConf": "app/app.json",
+        "htmlparser": "lib/vendor/htmlparser"
     },
     "server": {
         "backbone": "lib/server/backbone",

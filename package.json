@@ -57,7 +57,8 @@
         "jquery.cookie": "git://github.com/jstrimpel/jquery-cookie.git",
         "requirejs-plugins": "git://github.com/jstrimpel/requirejs-plugins.git",
         "async": "0.6.2",
-        "flexo.js": "x.x.x"
+        "flexo.js": "x.x.x",
+        "htmlparser": "1.7.7"
     },
     "devDependencies": {
         "grunt-contrib-requirejs": "0.4.x",
