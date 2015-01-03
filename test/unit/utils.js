@@ -7,8 +7,8 @@ define(['test/mocks/lazo'], function (lazo) {
         return new LazoView({
             el: el,
             templateEngine: 'micro',
-            getTemplate: function (callback) {
-                callback(null, 'I am a template!');
+            getTemplate: function (options) {
+                options.success('I am a template!');
             },
             ctl: ctl
         });
@@ -52,8 +52,8 @@ define(['test/mocks/lazo'], function (lazo) {
                 for (var i = 0; i < 3; i++) {
                     if (!i) {
                         ctl.currentView = createView(ctl, i, LazoView, _);
-                        ctl.currentView.getTemplate = function (callback) {
-                            callback(null, '<div lazo-cmp-container="foo"></div>');
+                        ctl.currentView.getTemplate = function (options) {
+                            options.success('<div lazo-cmp-container="foo"></div>');
                         };
                         ctl.cid = i;
                         ctl.name = 'name' + i;

@@ -34,11 +34,14 @@ define([
                 var dfd = this.async();
                 utils.setUpApp(function () {
                     utils.createCtlTree(function (ctl) {
-                        var spy = sinon.spy(viewManager, 'attachView');
-
-                        viewManager.attachViews(ctl, ctl.currentView.cid);
-                        expect(spy.calledThrice).to.be.true;
-                        dfd.resolve();
+                        var spy = sinon.spy(ctl.currentView, 'attach');
+                        viewManager.attachViews(ctl, function (err) {
+                            if (err) {
+                                throw err;
+                            }
+                            expect(spy.calledOnce).to.be.true;
+                            dfd.resolve();
+                        });
                     });
                 });
             });
