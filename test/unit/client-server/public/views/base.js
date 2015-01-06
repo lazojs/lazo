@@ -9,6 +9,15 @@ define([
 ], function (bdd, expect, utils, sinon, chai, sinonChai, LazoView) {
     chai.use(sinonChai);
 
+    function loadChild(viewName, options) {
+        LAZO.require(['test/application/components/foo/views/' + viewName], function (View) {
+            options.success(View);
+        },
+        function (err) {
+            options.error(err);
+        });
+    }
+
     with (bdd) {
 
         describe('Base View', function () {
@@ -125,7 +134,146 @@ define([
                 });
             });
 
-// getTemplate
+            it('should get view template', function () {
+                var dfd = this.async();
+                var view = new LazoView({
+                    name: 'index',
+                    ctl: {
+                        name: 'foo'
+                    },
+                    templatePath: 'test/application/components/foo/views/index.hbs'
+                });
+
+                view.getTemplate({
+                    success: function (template) {
+                        expect(template).to.be.equal('I am the template.');
+                        dfd.resolve();
+                    },
+                    error: function (err) {
+                        throw err;
+                    }
+                });
+            });
+
+            it('should load a child view', function () {
+                var dfd = this.async();
+                var view = new LazoView({
+                    name: 'index',
+                    ctl: {
+                        name: 'foo'
+                    }
+                });
+                view._loadView = loadChild;
+
+                view.loadChild('child', {
+                    success: function (View) {
+                        expect(View.prototype).to.have.property('child');
+                        dfd.resolve();
+                    },
+                    error: function (err) {
+                        throw err;
+                    }
+                });
+            });
+
+
+            it('should resolve a child view', function () {
+                var dfd = this.async();
+                var view = new LazoView({
+                    name: 'index',
+                    ctl: {
+                        name: 'foo',
+                        _getPath: function () {},
+                        _getBasePath: function () {}
+                    },
+                    children: {
+                        child: 'child'
+                    }
+                });
+                view._loadView = loadChild;
+
+                view.resolveChild('child', {
+                    success: function (view) {
+                        expect(view).to.be.instanceof(LazoView);
+                        dfd.resolve();
+                    },
+                    error: function (err) {
+                        throw err;
+                    }
+                });
+            });
+
+            it('should get child view options', function () {
+                var view = new LazoView({
+                    name: 'index',
+                    ctl: {
+                        name: 'foo',
+                        _getPath: function () {},
+                        _getBasePath: function () {}
+                    }
+                });
+
+                var options = view.getChildOptions({
+                    name: 'child'
+                });
+
+                expect(options.ctl.name).to.be.equal('foo');
+                expect(options.name).to.be.equal('child');
+            });
+
+            it('should attach child views', function () {
+                var spy = sinon.spy();
+                var dfd = this.async();
+                var view = new LazoView({
+                    events: {
+                        'click': spy
+                    },
+                    name: 'index',
+                    ctl: {
+                        name: 'foo',
+                        _getPath: function () {},
+                        _getBasePath: function () {},
+                        ctx: {
+                            _rootCtx: {},
+                            getCookie: function () {
+                                return '';
+                            },
+                            assets: {}
+                        }
+                    },
+                    children: {
+                        child: 'child'
+                    },
+                    getTemplate: function (options) {
+                        options.success('<div lazo-view="child"></div>');
+                    }
+                });
+                view._loadView = loadChild;
+
+                if (LAZO.isServer) {
+                    return dfd.resolve();
+                }
+
+                view.render({
+                    success: function () {
+                        view.attachChildren({
+                            success: function () {
+                                view.children.child.$el.trigger('click');
+                                setTimeout(function () {
+                                    expect(spy.calledOnce).to.be.true;
+                                    dfd.resolve();
+                                }, 10);
+                            },
+                            error: function (err) {
+                                throw err;
+                            }
+                        });
+                    },
+                    error: function (err) {
+                        throw err;
+                    }
+                });
+            });
 
         });
     }
