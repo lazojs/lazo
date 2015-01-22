@@ -111,7 +111,7 @@ define([
             });
             describe('#process', function(){
                 it('should process a model but not call fetch if fetch is false', function () {
-                    this.skip();
+
                     var dfd = this.async();
                     LAZO.require = function (path, success, error) {
                         success(LazoModel);
@@ -123,6 +123,11 @@ define([
                             modelInstances: {}
                         }
                     };
+
+                    LAZO.files.appViews = LAZO.files.appViews || {};
+                    LAZO.files.models = LAZO.files.models || {};
+                    LAZO.files.models['models/foo/model.js'] = true;
+                    
                     utilModel.process('foo',
                         {
                             ctx: ctx,
@@ -131,6 +136,70 @@ define([
                                 expect(m).to.not.be.null;
                                 expect(fetchSpy).to.not.be.called;
                                 fetchSpy.restore();
+                                dfd.resolve();
+                            }
+                        },
+                        'model'
+                    );
+
+                });
+
+                it('should process children', function () {
+
+                    var dfd = this.async();
+                    var ParentModel = LazoModel.extend({
+                        modelsSchema: [
+                            {
+                                name: 'child',
+                                locator: 'foo.bar.baz',
+                                prop: 'theProp'
+                            }
+                        ],
+                        fetch: function(options) {
+                            this._resp = {
+                                foo: {
+                                    bar: {
+                                        baz: {
+                                            a: 'b'
+                                        }
+                                    }
+                                }
+                            };
+                            options.success(this);    
+                        }
+                    });
+                    var ChildModel = LazoModel.extend({
+                        fetch: function(options) {
+                            options.success(this);
+                        }
+                    });
+                    var ctx = {
+                        _rootCtx: {
+                            modelList: {},
+                            modelInstances: {}
+                        }
+                    };
+                    
+                    LAZO.require = function (path, success, error) {
+                        if (path[0] === 'models/parent/model') {
+                            return success(ParentModel);
+                        }
+                        else {
+                            return success(ChildModel);
+                        }
+                    };
+                    
+                    LAZO.files.appViews = LAZO.files.appViews || {};
+                    LAZO.files.models = LAZO.files.models || {};
+                    LAZO.files.models['models/parent/model.js'] = true;
+                    LAZO.files.models['models/child/model.js'] = true;
+                    
+                    utilModel.process('parent',
+                        {
+                            ctx: ctx,
+                            success: function (m) {
+                                expect(m.theProp).to.not.be.undefined;
+                                expect(m.theProp.get('a')).to.equal('b');
                                 dfd.resolve();
                             }
                         },

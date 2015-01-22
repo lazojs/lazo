@@ -86,6 +86,7 @@ Exact same functionality except when `options.persist` is false, it will no-op.
 1. `options` *(Object)*: Options for save. See [Backbone.Model.save](http://backbonejs.org/#Model-save).
     - `success` *(Function)*: Function to call when successful.
     - `error` *(Function)*: Function to call if there is a failure.
+    - `[syncDateFromChildren]` *(Boolean)* When True the child models created via modelsSchema will update the parent object hierarchy with their data. Defaults to true.
 
 #### Example
 ```js
@@ -97,3 +98,66 @@ var options = {
 
 lazoModel.save(attributes, options);
 ```
+
+
+### `set(attributes, [options])`
+
+Override of [Backbone.Model.set](http://backbonejs.org/#Model-set).
+
+#### Arguments
+1. `attributes` *(Object)*: Attributes to set.
+1. `[options]` *(Object)*: Options for save. See [Backbone.Model.save](http://backbonejs.org/#Model-set).
+    - `[syncDateToChildren]` *(Boolean)* When True any attribute is set that is the first part of a path in a modelsSchema locator, will update the child's model data. Defaults to true.
+
+
+### `[modelsSchema]`
+
+An array of object that provide a mechanism to parse object hierarchies into child LazoModels and LazoCollections.
+
+#### schema *(Object)*
+1. `name` *(String)*: Name of model or collection in the repository to use for this child object.
+1. `locator` *(String)*: Path used to locate the data in the object hierarchy used to populate the data in the child model/collection.
+1. `prop` *(String)*: The name of the property created in the parent object that is a reference to the model/collection instance.
+
+#### Example
+Given repo structure:
+repo
+|
+|-- models
+    |
+    |-- parent
+    |-- child
+ 
+parent/model.js:    
+```js
+define(['lazoModel'], function (LazoModel) {
+
+    return LazoModel.extend({
+
+        modelsSchema: [
+            {
+                name: 'child',
+                locator: 'foo.bar.baz',
+                prop: 'theChildModel'
+            }
+        ]
+    });
+
+});
+```   
+ 
+And the given data for the parent/model is:
+```js
+{
+    foo: {
+        bar: {
+            baz: {
+                a: 'b'
+            }
+        }
+    }
+}
+``` 
+  
+The parent model would have a property `theChildModel` which would be an instance of the `repo/models/child` model and have the attributes `a` which would have a value of `b`.
+  
