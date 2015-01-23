@@ -39,6 +39,31 @@ define([
                 expect(ctx.location.pathname).to.be.equal('foo/bar/baz');
             });
 
+            it('handles undefined host', function () {
+                var ctx = new Context({
+                    _request: {
+                        url: {
+                            pathname: 'foo/bar/baz'
+                        },
+                        raw: { // this is expected on the server
+                            req: {
+                                headers: {
+                                    host: 'localhost:8080'
+                                }
+                            }
+                        },
+                        server: {
+                            info: {
+                                protocol: 'http'
+                            }
+                        }
+                    },
+                    headers: {}
+                });
+
+                expect(ctx.location.host).to.be.undefined;
+            });
+
         });
     }
 });
