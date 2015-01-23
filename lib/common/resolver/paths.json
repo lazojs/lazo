@@ -37,7 +37,7 @@
         "viewManager": "lib/client/viewManager",
         "flexo": "lib/vendor/flexo.amd",
         "lazoViewMixin": "lib/public/views/view",
-        "htmlparserToString": "lib/vendor/htmlparser-toString",
+        "htmlparserToString": "lib/vendor/htmlparser-tostring",
         "lazoWidget": "lib/public/widget",
         "lazoWidgetMixin": "lib/public/views/widget"
     },

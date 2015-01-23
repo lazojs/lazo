@@ -21,7 +21,9 @@ var path = require('path');
     'hermes-conrad',
     'async',
     'lodash',
-    'flexo.js'
+    'flexo.js',
+    'htmlparser-tostring',
+    'htmlparser'
 ].forEach(function (moduleId) {
     var modulePath = require.resolve(moduleId);
     var client = '';
@@ -47,6 +49,10 @@ var path = require('path');
     } else if (moduleId === 'handlebars') {
         moduleId = 'handlebars.amd';
         modulePath = path.dirname(path.dirname(modulePath)) + '/dist/' + moduleId + '.js';
+    } else if (moduleId === 'htmlparser-tostring') {
+        modulePath = path.dirname(path.dirname(modulePath)) + '/dist/index.amd.js';
+    } else if (moduleId === 'htmlparser') {
+        modulePath = path.dirname(path.dirname(modulePath)) + '/lib/htmlparser.js';
     }
 
     fs.writeFileSync('lib/vendor/' + client + moduleId + '.js', fs.readFileSync(modulePath));
