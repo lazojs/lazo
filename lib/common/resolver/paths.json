@@ -39,7 +39,8 @@
         "lazoViewMixin": "lib/public/views/view",
         "htmlparserToString": "lib/vendor/htmlparser-tostring",
         "lazoWidget": "lib/public/widget",
-        "lazoWidgetMixin": "lib/public/views/widget"
+        "lazoWidgetMixin": "lib/public/views/widget",
+        "uiStateMixin": "lib/public/views/state"
     },
     "client": {
         "backbone": "lib/vendor/backbone",
@@ -100,6 +101,11 @@
         "logger",
         "lazoBundle",
         "flexo",
-        "lazoViewMixin"
+        "lazoViewMixin",
+        "lazoWidgetMixin",
+        "lazoWidget",
+        "htmlparser",
+        "htmlparserToString",
+        "uiStateMixin"
     ]
 }
