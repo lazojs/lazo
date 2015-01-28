@@ -13,23 +13,6 @@ define([
     with (bdd) {
         describe('View Manager', function () {
 
-            it('should attach a view', function () {
-                var dfd = this.async();
-                utils.setUpApp(function () {
-                    $('body').append('<div class="view-attach">');
-                    var $view = $('.view-attach');
-                    var view = new LazoView();
-                    var afterRenderSpy = sinon.spy(view, 'afterRender');
-                    var setElementSpy = sinon.spy(view, 'setElement');
-
-                    viewManager.attachView(view, $view[0]);
-                    expect($view[0]).to.be.equal(view.el);
-                    expect(afterRenderSpy.calledOnce).to.be.true;
-                    expect(setElementSpy.calledOnce).to.be.true;
-                    dfd.resolve();
-                });
-            });
-
             it('should attach views in a tree', function () {
                 var dfd = this.async();
                 utils.setUpApp(function () {

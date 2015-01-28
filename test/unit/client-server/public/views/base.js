@@ -221,13 +221,9 @@ define([
                 expect(options.name).to.be.equal('child');
             });
 
-            it('should attach child views', function () {
-                var spy = sinon.spy();
+            it('should render', function () {
                 var dfd = this.async();
                 var view = new LazoView({
-                    events: {
-                        'click': spy
-                    },
                     name: 'index',
                     ctl: {
                         name: 'foo',
@@ -239,6 +235,9 @@ define([
                                 return '';
                             },
                             assets: {}
+                        },
+                        _getEl: function () {
+                            return $('<div lazo-cmp-name="myCmp" lazo-cmp-id="0"></div>');
                         }
                     },
                     children: {
@@ -249,25 +248,20 @@ define([
                     }
                 });
                 view._loadView = loadChild;
+                view.ctl.currentView = view;
 
                 if (LAZO.isServer) {
                     return dfd.resolve();
                 }
 
                 view.render({
-                    success: function () {
-                        view.attachChildren({
-                            success: function () {
-                                view.children.child.$el.trigger('click');
-                                setTimeout(function () {
-                                    expect(spy.calledOnce).to.be.true;
-                                    dfd.resolve();
-                                }, 10);
-                            },
-                            error: function (err) {
-                                throw err;
-                            }
-                        });
+                    success: function (html) {
+                        var regex = /<div lazo-view-name="index" lazo-view-id="view[0-9]+" class="unbound"><div lazo-view="child"><div lazo-view-name="child" lazo-view-id="view[0-9]+" class="unbound">I am the child template.<\/div><\/div><\/div>/
+                        var match = html.match(regex);
+
+                        expect(match.length).to.be.equal(1);
+                        expect(match.index).to.be.equal(0);
+                        dfd.resolve();
                     },
                     error: function (err) {
                         throw err;
