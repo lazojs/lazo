@@ -21,7 +21,7 @@ define(['lazoWidget', 'underscore'], function (LazoWidget, _) {
 });
 ```
 
-Widget constructors are defined in a `LazoView` `widgets` property. The values can be a `LazoWidget` class or the path to the widget module:
+Widget constructors are defined in a `LazoView` `widgets` property. The values can be `LazoWidget` classes or the paths to the widget modules:
 
 ```js
 define(['lazoView', 'lazoWidget'], function (LazoView, LazoWidget) {
@@ -74,14 +74,14 @@ something like the following:
 
 ### Widget Attibutes
 Widget container markup attributes are passed to the `LazoWidget` constructor and assigned to the instance `attributes` property. Attribute
-values can be used to resolve to context values for the component that instantiated the the `LazoView` that owns the widget instance. This done
+values can be used to resolve to context values for the component that instantiated the `LazoView` that owns the widget instance. This done
 using the "$" in an attribute value:
 
 ```html
 <div lazo-widget="foo" data-status="$.status">
 ```
 
-This would map to `ctx.status`. By default a `LazoWIdget` will attempt to coerce values that do not resolve to a context property. See
+This would map to `ctx.status`. By default a `LazoWidget` will attempt to coerce values that do not resolve to a context property. See
 [`attrValCoercion`](#attrvalcoercion) for further details.
 
 ### `constructor(attributes)`
