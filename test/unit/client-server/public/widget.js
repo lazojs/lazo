@@ -10,12 +10,8 @@ define([
     chai.use(sinonChai);
 
     with (bdd) {
-        describe('Lazo Widgets', function () {
-            var MyWidget = LazoWidget.extend({
-                initialize: function () {
-                    return true;
-                }
-            });
+        describe('Lazo Widget Interface', function () {
+            var MyWidget = LazoWidget.extend({});
             var spy = sinon.spy(MyWidget.prototype, 'initialize');
             var widget = new MyWidget({
                 view: {
