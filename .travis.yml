@@ -6,6 +6,7 @@ branches:
   only:
     - master
     - development
+    - v2
 notifications:
   email:
     - jstrimpel@gmail.com
