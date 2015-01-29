@@ -81,8 +81,8 @@ using the "$" in an attribute value:
 <div lazo-widget="foo" data-status="$.status">
 ```
 
-This would map to `ctx.status`. By default a `LazoWidget` will attempt to coerce values that do not resolve to a context property. See
-[`attrValCoercion`](#attrvalcoercion) for further details.
+This would map `<instance>.attributes['data-status']` to `ctx.status`. By default a `LazoWidget` will attempt to coerce values that do not
+resolve to a context property. See [`attrValCoercion`](#attrvalcoercion) for further details.
 
 ### `constructor(attributes)`
 

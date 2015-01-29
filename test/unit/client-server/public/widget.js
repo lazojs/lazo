@@ -58,9 +58,9 @@ define([
             });
 
             it('should resolve context values', function () {
-                expect(widget.attributes.$.foo).to.be.equal(1);
-                expect(widget.attributes.$.bar).to.be.true;
-                expect(widget.attributes.$.baz).to.be.equal('baz');
+                expect(widget.attributes['data-foo']).to.be.equal(1);
+                expect(widget.attributes['data-bar']).to.be.true;
+                expect(widget.attributes['data-baz']).to.be.equal('baz');
             });
 
         });
