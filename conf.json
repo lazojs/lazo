@@ -31,6 +31,9 @@
         "shim": {
             "handlebars": {
                 "exports": "Handlebars"
+            },
+            "htmlparser": {
+                "exports": "Tautologistics.NodeHtmlParser"
             }
         },
         "paths": {}

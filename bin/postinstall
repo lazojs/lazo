@@ -20,7 +20,10 @@ var path = require('path');
     'jquery.cookie',
     'hermes-conrad',
     'async',
-    'lodash'
+    'lodash',
+    'flexo.js',
+    'htmlparser-tostring',
+    'htmlparser'
 ].forEach(function (moduleId) {
     var modulePath = require.resolve(moduleId);
     var client = '';
@@ -33,6 +36,9 @@ var path = require('path');
         modulePath = path.dirname(modulePath) + '/hermes.amd.js';
         moduleId = 'hermes.amd';
         client = 'client/';
+    } else if (moduleId === 'flexo.js') {
+        modulePath = path.dirname(modulePath) + '/flexo.amd.js';
+        moduleId = 'flexo.amd';
     } else if (moduleId === 'jquery.cookie') {
         client = 'client/';
         moduleId = 'jquery-cookie';
@@ -43,6 +49,10 @@ var path = require('path');
     } else if (moduleId === 'handlebars') {
         moduleId = 'handlebars.amd';
         modulePath = path.dirname(path.dirname(modulePath)) + '/dist/' + moduleId + '.js';
+    } else if (moduleId === 'htmlparser-tostring') {
+        modulePath = path.dirname(path.dirname(modulePath)) + '/dist/index.amd.js';
+    } else if (moduleId === 'htmlparser') {
+        modulePath = path.dirname(path.dirname(modulePath)) + '/lib/htmlparser.js';
     }
 
     fs.writeFileSync('lib/vendor/' + client + moduleId + '.js', fs.readFileSync(modulePath));

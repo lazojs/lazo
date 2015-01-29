@@ -13,32 +13,18 @@ define([
     with (bdd) {
         describe('View Manager', function () {
 
-            it('should attach a view', function () {
-                var dfd = this.async();
-                utils.setUpApp(function () {
-                    $('body').append('<div class="view-attach">');
-                    var $view = $('.view-attach');
-                    var view = new LazoView();
-                    var afterRenderSpy = sinon.spy(view, 'afterRender');
-                    var setElementSpy = sinon.spy(view, 'setElement');
-
-                    viewManager.attachView(view, $view[0]);
-                    expect($view[0]).to.be.equal(view.el);
-                    expect(afterRenderSpy.calledOnce).to.be.true;
-                    expect(setElementSpy.calledOnce).to.be.true;
-                    dfd.resolve();
-                });
-            });
-
             it('should attach views in a tree', function () {
                 var dfd = this.async();
                 utils.setUpApp(function () {
                     utils.createCtlTree(function (ctl) {
-                        var spy = sinon.spy(viewManager, 'attachView');
-
-                        viewManager.attachViews(ctl, ctl.currentView.cid);
-                        expect(spy.calledThrice).to.be.true;
-                        dfd.resolve();
+                        var spy = sinon.spy(ctl.currentView, 'attach');
+                        viewManager.attachViews(ctl, function (err) {
+                            if (err) {
+                                throw err;
+                            }
+                            expect(spy.calledOnce).to.be.true;
+                            dfd.resolve();
+                        });
                     });
                 });
             });

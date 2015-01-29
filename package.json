@@ -53,10 +53,13 @@
         "underscore": "git://github.com/amdjs/underscore.git",
         "jquery": "1.11.1",
         "text": "git://github.com/requirejs/text.git",
-        "hermes-conrad": "0.2.0",
+        "hermes-conrad": "1.0.0",
         "jquery.cookie": "git://github.com/jstrimpel/jquery-cookie.git",
         "requirejs-plugins": "git://github.com/jstrimpel/requirejs-plugins.git",
-        "async": "0.6.2"
+        "async": "0.6.2",
+        "flexo.js": "0.2.1",
+        "htmlparser": "1.7.7",
+        "htmlparser-tostring": "0.0.2"
     },
     "devDependencies": {
         "grunt-contrib-requirejs": "0.4.x",
