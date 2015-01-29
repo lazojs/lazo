@@ -1,7 +1,7 @@
 <h1>
   lazojs
-  <a title='Build Status' href="https://travis-ci.org/walmartlabs/lazojs">
-    <img src='https://travis-ci.org/walmartlabs/lazojs.svg' />
+  <a title='Build Status' href="https://travis-ci.org/lazojs/lazo">
+    <img src='https://travis-ci.org/lazojs/lazo.svg' />
   </a>
 </h1>
 <p align="center">
