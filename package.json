@@ -33,7 +33,7 @@
         "postinstall": "node bin/postinstall",
         "test": "grunt test"
     },
-    "main": "index",
+    "main": "lazo",
     "bin": {
         "lazo": "lazo.js"
     },
