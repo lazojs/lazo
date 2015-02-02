@@ -146,7 +146,7 @@ define([
 
                 // TODO: determine why this is only failing during ci on the client
                 if (LAZO.isClient) {
-                    dfd.resolve();
+                    return dfd.resolve();
                 }
 
                 view.getTemplate({
