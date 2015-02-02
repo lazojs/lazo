@@ -39,7 +39,7 @@ define([
                 var html = '<div><div lazo-widget="foo"></div></div>';
                 lazoWidgetMixin.getWidgetsHtml(html, {
                     success: function (html) {
-                        expect(html).to.be.equal('<div><div lazo-widget="foo" class="unbound rendering">I am a widget.</div></div>');
+                        expect(html).to.be.equal('<div><div lazo-widget="foo" class="lazo-unbound lazo-rendering">I am a widget.</div></div>');
                         // indeirectly testing css resolution
                         expect(lazoWidgetMixin.ctl.ctx._rootCtx.dependencies.css.length).to.be.equal(1);
                         expect(lazoWidgetMixin.ctl.ctx._rootCtx.dependencies.css[0].href).to.be.equal('/app/widgets/foo/index.css');

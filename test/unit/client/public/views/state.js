@@ -10,7 +10,7 @@ define([
 ], function (bdd, chai, expect, sinon, sinonChai, utils, uiStateMixin, $) {
     chai.use(sinonChai);
 
-    uiStateMixin.el = $('<div class="focus foo disabled bar hidden baz visible ">')[0];
+    uiStateMixin.el = $('<div class="lazo-focus foo lazo-disabled bar lazo-hidden baz lazo-visible ">')[0];
 
     with (bdd) {
         describe('Lazo View, Widget State Mixin', function () {
