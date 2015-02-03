@@ -144,11 +144,6 @@ define([
                     templatePath: 'test/application/components/foo/views/index.hbs'
                 });
 
-                // TODO: determine why this is only failing during ci on the client
-                if (LAZO.isClient) {
-                    return dfd.resolve();
-                }
-
                 view.getTemplate({
                     success: function (template) {
                         expect(template).to.be.equal('I am the template.');
