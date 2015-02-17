@@ -29,6 +29,9 @@ module.exports = function (grunt) {
         if (env === 'client' && this.args[0] !== 'client-local') {
             conf[this.args[0]].options.config = 'test/unit/conf.client.phantomjs';
         }
+        
+        console.log(env + ' options:]\n');
+        console.log(conf[this.args[0]].options);                
         grunt.config.set('intern', conf);
     });
 
@@ -43,7 +46,7 @@ module.exports = function (grunt) {
         var tasks = ['configure-intern:client', 'intern:client'];
 
         // running locally; ci starts selenium before testing
-        if (!process.env.TRAVIS) {
+        if (process.env.TRAVIS) {
             tasks.unshift('exec:selenium-server');
         }
 
