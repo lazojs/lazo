@@ -113,8 +113,8 @@ login page.
 - `func` *(Function)*: Filter function
 
 #### Returns
-- The Application instance
-- 
+- *(Object)*: The Application instance
+
 #### Example
 
 > Filters are applied in the order they were entered for a given regular expression that matches a route. If multiple
@@ -148,11 +148,26 @@ will trigger a 500 error and render the corresponding [error template](Error-Tem
 
 ### <a name="addRoutes"></a>`addRoutes(routes)`
 
+Adds routes to the LAZO routes.
+
 #### Arguments
+
+- `routes` *(Object)*: Lazo Routes Objects
 
 #### Returns
 
+- *(Object)*: The Application instance
+
 #### Example
+
+```javascript
+    LAZO.app.addRoutes({
+        "/url_path": {
+            "component": "component_name",
+            "bundle": "bundle_name",
+        }});
+```
+> For more information on Lazo routes check [wiki] (https://github.com/lazojs/lazo/wiki/Configuration)
 
 ### <a name="navigate"></a>`navigate(ctx, routeName)`
 
