@@ -68,9 +68,10 @@ Stores Key-Value data in a given context which can be then accessed from both se
 define(['l!lazoCtl'], function (Ctl) {
     'use strict';
     return Ctl.extend({
-        index: function (title) {
+        index: function (options) {
             LAZO.app.setData('foo', {bar:'quux'}, this.ctx);
             // controller logic
+            options.success(index);
         }
     });
 });
@@ -91,12 +92,13 @@ Retrieves shared Key-Value data from the context.
 
 #### Example
 ```javascript
-define(['l!lazoCtl'], function (Ctl) {
+define(['lazoView'], function (LazoView) {
+
     'use strict';
-    return Ctl.extend({
-        index: function (title) {
-            LAZO.app.setData('foo', {bar:'quux'}, this.ctx);
-            // controller logic
+
+    return LazoView.extend({
+        initialize: function(options) {
+            console.log("Foo = " + LAZO.app.getData('foo', this.ctl.ctx));
         }
     });
 });
@@ -125,5 +127,129 @@ define(['l!lazoCtl'], function (Ctl) {
 #### Returns
 
 #### Example
+
+### <a name="loadModel"></a>`loadModel(modelName, options)`
+
+#### Arguments
+
+#### Returns
+
+#### Example
+
+### <a name="loadCollection"></a>`loadCollection(collectionName, options)`
+
+#### Arguments
+
+#### Returns
+
+#### Example
+
+### <a name="createModel"></a>`createModel(modelName, attributes, options)`
+
+#### Arguments
+
+#### Returns
+
+#### Example
+
+### <a name="createCollection"></a>`createCollection(collectionName, attributes, options)`
+
+#### Arguments
+
+#### Returns
+
+#### Example
+
+### <a name="addTag"></a>`addTag(name, attributes, content)`
+
+#### Arguments
+
+#### Returns
+
+#### Example
+
+### <a name="setHtmlTag"></a>`setHtmlTag(val)`
+
+#### Arguments
+
+#### Returns
+
+#### Example
+
+### <a name="setBodyClass"></a>`setBodyClass(val)`
+
+#### Arguments
+
+#### Returns
+
+#### Example
+
+### <a name="setDefaultTitle"></a>`setDefaultTitle(title)`
+
+#### Arguments
+
+#### Returns
+
+#### Example
+
+### <a name="registerTemplateEngine"></a>`registerTemplateEngine(engineDef, options)`
+
+#### Arguments
+
+#### Returns
+
+#### Example
+
+### <a name="getTemplateEngine"></a>`getTemplateEngine(engineName)`
+
+#### Arguments
+
+#### Returns
+
+#### Example
+
+### <a name="getTemplateExt"></a>`getTemplateExt(engineName)`
+
+#### Arguments
+
+#### Returns
+
+#### Example
+
+### <a name="getDefaultTemplateEngine"></a>`getDefaultTemplateEngine()`
+
+#### Arguments
+
+#### Returns
+
+#### Example
+
+### <a name="getDefaultTemplateEngineName"></a>`getDefaultTemplateEngineName()`
+
+#### Arguments
+
+#### Returns
+
+#### Example
+
+### <a name="setDefaultTemplateEngine"></a>`setDefaultTemplateEngine(engineName)`
+
+#### Arguments
+
+#### Returns
+
+#### Example
+
+### <a name="getImport"></a>`getImport(relativePath)`
+
+#### Arguments
+
+#### Returns
+
+#### Example
+
+
+
+
 
 
