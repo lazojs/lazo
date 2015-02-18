@@ -211,6 +211,21 @@ Loads the lazo model. For more information on models refer to [LazoModel](LazoMo
 
 #### Example
 
+```javascript
+LAZO.app.loadModel('person', {
+    error: function (error) {
+        console.log('Oops...');
+    },
+    params: {
+        id: 123 // See LazoModel for params usage
+    },
+    success: function (person) {
+        console.log('Yay!');
+    },
+    ctx: this.ctl.ctx // Current context of the request
+    });
+```
+
 ### <a name="loadCollection"></a>`loadCollection(collectionName, options)`
 
 Loads the lazo collection. For more information on models refer to [LazoCollection](LazoCollection.md)
@@ -231,6 +246,21 @@ Loads the lazo collection. For more information on models refer to [LazoCollecti
 
 #### Example
 
+```javascript
+LAZO.app.loadModel('people', {
+    error: function (error) {
+        console.log('Oops...');
+    },
+    params: {
+        id: 123 // See LazoModel for params usage
+    },
+    success: function (people) {
+        console.log('Yay!');
+    },
+    ctx: this.ctl.ctx // Current context of the request
+    });
+```
+
 ### <a name="createModel"></a>`createModel(modelName, attributes, options)`
 
 Creates a new model instance.
@@ -249,7 +279,23 @@ Creates a new model instance.
 
 #### Returns
 
+*(Object)*: The Application instance
+
 #### Example
+
+```javascript
+LAZO.app.createModel('person', {
+  name: 'Tim', age: 5
+}, {
+  error: function (error) {
+    console.log('Oops...');
+  },
+  success: function (person) {
+    console.log(person.get('name') + " object was created");;
+  }
+  ctx: this.ctl.ctx   // Current request context
+});
+```
 
 ### <a name="createCollection"></a>`createCollection(collectionName, attributes, options)`
 
@@ -269,7 +315,26 @@ Creates a new collection instance.
 
 #### Returns
 
+*(Object)*: The Application instance
+
 #### Example
+
+```javascript
+LAZO.app.createCollection('people', [
+    {name: 'Tim', age: 5},
+    {name: 'Ida', age: 26},
+    {name: 'Rob', age: 55}
+  ],{
+  error: function (error) {
+    console.log('Oops...');
+  },
+  modelName: 'person',
+  success: function (collection) {
+    console.log('Yay!');
+  },
+  ctx: this.ctl.ctx   // current request context
+});
+```
 
 ### <a name="addTag"></a>`addTag(name, attributes, content)`
 
