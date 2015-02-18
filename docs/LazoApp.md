@@ -110,8 +110,16 @@ login page.
 
 #### Arguments
 - `regex` *(String)* : Regular expression for the route
-- `func` *(Function)*: Filter function
-
+- `func` *(Function)*: Filter function that must implement the interface 
+    - `function (path, params, ctx, options)`
+        - `[path]` *(String)*:
+        - `[params]` *(Object*): The params hash, used in URL substitution
+        - `[ctx]` *(Object)*: The context object
+        - `[options]` *(Object)*: The options hash:
+            - `[error]` *(Function)*: Called if an error occurs, it must implement the `function(error)` interface:
+                - `error` *(Error)*: The `Error` instance
+            - `[success]` *(Function)*: Called after the model instance has been successfully loaded, it must implement the `function(model)` interface:
+                - `model` *(LazoModel)*: The model instance.
 #### Returns
 - *(Object)*: The Application instance
 
@@ -171,17 +179,34 @@ Adds routes to the LAZO routes.
 
 ### <a name="navigate"></a>`navigate(ctx, routeName)`
 
-#### Arguments
+Used to navigate to a different route at client or server side.
 
-#### Returns
+#### Arguments
+- `ctx` *(Object)*: Context Object
+- `routeName` *(String)*: new route
 
 #### Example
+```javascript
+LAZO.app.navigate(this.ctl.ctx, "/new-route");
+```
 
 ### <a name="loadModel"></a>`loadModel(modelName, options)`
 
+Loads a lazo model. For more information on models refer to [LazoModel](LazoModel.md)
+
 #### Arguments
+- `modelName` *(String)*: The model name, it should match a model declared under the `models` directory;
+- `[options]` *(Object)*: The options hash:
+  - `[error]` *(Function)*: Called if an error occurs, it must implement the `function(error)` interface:
+    - `error` *(Error)*: The `Error` instance;
+  - `[params]` *(Object)*: The params hash, used in URL substitution;
+  - `[success]` *(Function)*: Called after the model instance has been successfully loaded, it must implement the            `function(model)` interface:
+    - `model` *(LazoModel)*: The model instance.
+  - `[ctx] *(Object)*: The context object 
 
 #### Returns
+
+*(Object)*: The Application instance
 
 #### Example
 
