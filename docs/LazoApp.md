@@ -378,20 +378,35 @@ LAZO.app.setHtmlTag('<html lang="fr">');
 ```
 ### <a name="setBodyClass"></a>`setBodyClass(val)`
 
-#### Arguments
+Sets the class for the body tag in the document
 
+#### Arguments
+- `val` *(String)*: css class for the body tag
+ 
 #### Returns
+- *(Object)*: The application instance
 
 #### Example
-
+```javascript
+LAZO.app.setBodyClass('foo');
+// sets the DOM's body tag to <body class='foo'>
+```
 ### <a name="setDefaultTitle"></a>`setDefaultTitle(title)`
 
-#### Arguments
+Sets the title of the DOM
 
+#### Arguments
+- `title` *(String)*: The title to be set
+ 
 #### Returns
+- *(Object)*: The application instance
 
 #### Example
 
+```javascript
+LAZO.app.setDefaultTitle('FOO');
+// will set the title to FOO <title>FOO</title>
+```
 ### <a name="registerTemplateEngine"></a>`registerTemplateEngine(engineDef, options)`
 
 #### Arguments
