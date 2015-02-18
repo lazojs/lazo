@@ -444,11 +444,7 @@ define(['app/utils/nunjucks'], function (nunjucks) {
 
     'use strict';
 
-    // 1. name of the template engine
-    // 2. template file extension
-    // 3. handler object with compile, precompile, & execute methods; reference to the engine
-    // 4. path to template lib (optional if name is the module id)
-    LAZO.app.registerTemplateEngine('nunjucks', 'njs', {
+    var njEngine = {
         compile: function(template) {
             return nunjucks.compile(template);
         },
@@ -459,8 +455,23 @@ define(['app/utils/nunjucks'], function (nunjucks) {
             return template(context);
         },
         engine: nunjucks
-    }, 'app/utils/nunjucks', 'nonjucks');
-
+    };
+    
+    var engineDef = {
+        name: 'nunjucks',
+        extension: 'njs',
+        handler: njEngine,
+        path: 'app/utils/nunjucks'
+    };
+    LAZO.app.registerTemplateEngine(engineDef, {
+        success: function(engine) {
+            // registered successfully
+            // can now set it as a default template engine
+        },
+        error: function(error) {
+            // error while registering the template engine
+        }
+    });
 });
 ```
 
