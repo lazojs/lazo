@@ -120,6 +120,7 @@ login page.
                 - `error` *(Error)*: The `Error` instance
             - `[success]` *(Function)*: Called after the model instance has been successfully loaded, it must implement the `function(model)` interface:
                 - `model` *(LazoModel)*: The model instance.
+
 #### Returns
 - *(Object)*: The Application instance
 
@@ -192,7 +193,7 @@ LAZO.app.navigate(this.ctl.ctx, "/new-route");
 
 ### <a name="loadModel"></a>`loadModel(modelName, options)`
 
-Loads a lazo model. For more information on models refer to [LazoModel](LazoModel.md)
+Loads the lazo model. For more information on models refer to [LazoModel](LazoModel.md)
 
 #### Arguments
 - `modelName` *(String)*: The model name, it should match a model declared under the `models` directory;
@@ -202,7 +203,7 @@ Loads a lazo model. For more information on models refer to [LazoModel](LazoMode
   - `[params]` *(Object)*: The params hash, used in URL substitution;
   - `[success]` *(Function)*: Called after the model instance has been successfully loaded, it must implement the            `function(model)` interface:
     - `model` *(LazoModel)*: The model instance.
-  - `[ctx] *(Object)*: The context object 
+  - `[ctx]` *(Object)*: The context object 
 
 #### Returns
 
@@ -212,15 +213,39 @@ Loads a lazo model. For more information on models refer to [LazoModel](LazoMode
 
 ### <a name="loadCollection"></a>`loadCollection(collectionName, options)`
 
+Loads the lazo collection. For more information on models refer to [LazoCollection](LazoCollection.md)
+
 #### Arguments
+- `collectionName` *(String)*: The collection name, it should match a collection declared under the `models` directory
+- `[options]` *(Object)*: The options hash:
+  - `[error]` *(Function)*: Called if an error occurs, it must implement the `function(error)` interface:
+    - `error` *(Error)*: The `Error` instance;
+  - `[params]` *(Object)*: The params hash, used in URL substitution;
+  - `[success]` *(Function)*: Called after the model instance has been successfully loaded, it must implement the            `function(model)` interface:
+    - `model` *(LazoModel)*: The model instance.
+  - `[ctx]` *(Object)*: The context object
 
 #### Returns
+
+*(Object)*: The Application instance
 
 #### Example
 
 ### <a name="createModel"></a>`createModel(modelName, attributes, options)`
 
+Creates a new model instance.
+
 #### Arguments
+
+- `modelName` *(String)*: The model name, it should match a model declared under the `models` directory;
+- `[attributes]` *(Object)*: An hash of attributes to initialize the model;
+- `options` *(Object)*: The options hash:
+  - `[error]` *(Function)*: Called if an error occurs, it must implement the `function(error)` interface:
+    - `error` *(Error)*: The `Error` instance;
+  - `[params]` *(Object)*: The params hash, used in URL substitution;
+  - `[success]` *(Function)*: Called after the model instance has been successfully created, it must implement the `function(model)` interface:
+    - `model` *(LazoModel)*: The recently created model instance.
+  - `[ctx]` *(Object)*: The context object
 
 #### Returns
 
@@ -228,7 +253,19 @@ Loads a lazo model. For more information on models refer to [LazoModel](LazoMode
 
 ### <a name="createCollection"></a>`createCollection(collectionName, attributes, options)`
 
+Creates a new collection instance.
+
 #### Arguments
+
+- `collectionName` *(String)*: The collection name, it should match a collection declared under the `models` directory;
+- `[attributes]` *(Array)*: An array of attributes to initialize the child models;
+-  `options` *(Object)*: The options hash:
+    - `[error]` *(Function)*: Called if an error occurs, it must implement the `function(error)` interface:
+        - `error` *(Error)*: The `Error` instance;
+    - `modelName` *(String)*: The model that should be used to create the child instances, it must match a existing model in the application repo;
+    - `[params]` *(Object)*: The params hash, used in URL substitution;
+    - `[success]` *(Function)*: Called after the collection instance has been successfully created, it must implement the `function(collection)` interface:
+        - `collection` *(LazoCollection)*: The recently created collection instance.
 
 #### Returns
 
