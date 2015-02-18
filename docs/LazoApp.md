@@ -414,18 +414,23 @@ Registers a new template engine. For more information please refer to [templates
 #### Arguments
 - `engineDef` *(Object)*:Hash for Template Engine Definition
     - `name` *(String)*: Template Engine Name
-    - `extension` *(String)*: 
+    - `extension` *(String)*: Extension for the template files
     - `handler` *(Object)*: Hash for the engine handler functions, should implement the following
-        - `compile` *(Function)*
-        - `execute` *(Function)*
-        - `precompile` *(Function)*
-        - `engine` *(Object)*
+        - `compile` *(Function)*: Implementation for the interface `function(template)`
+            - `template` *(Object)*:
+        - `execute` *(Function)*: Implementation for the interface `function(template, context, templateName)`
+            - `template` *(Object)*:
+            - `context` *(Object)*:
+            - `templateName` *(String)*:
+        - `precompile` *(Function)*: Implementation for the interface `function(template)`
+            - `template` *(Object)*:
+        - `engine` *(Object)*: Template engine instance
     - `path` *(String)*: Path to the template engine
-    - `exp` *(String)*
+    - `exp` *(String)*:
 - `options` *(Object)*: The options hash:
     - `[error]` *(Function)*: Called if an error occurs, it must implement the `function(error)` interface:
         - `error` *(Error)*: The `Error` instance;
-    - `[success]` *(Function)*: Called after template engine is successfully registered, it must implement `function(engine) interface.
+    - `[success]` *(Function)*: Called after template engine is successfully registered, it must implement `function(engine)` interface.
         - `engine` *(Object)*: The instance of newly registered template engine
         
 #### Returns
