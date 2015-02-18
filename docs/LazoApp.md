@@ -545,14 +545,6 @@ Sets the default template engine for lazo application
 ```javascript
 LAZO.app.setDefaultTemplateEngine('handlebars');
 ```
-### <a name="getImport"></a>`getImport(relativePath)`
-
-#### Arguments
-
-#### Returns
-
-#### Example
-
 
 
 
