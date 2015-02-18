@@ -409,8 +409,25 @@ LAZO.app.setDefaultTitle('FOO');
 ```
 ### <a name="registerTemplateEngine"></a>`registerTemplateEngine(engineDef, options)`
 
-#### Arguments
+Registers a new template engine. For more information please refer to [templates](https://github.com/lazojs/lazo/wiki/Templates) 
 
+#### Arguments
+- `engineDef` *(Object)*:Hash for Template Engine Definition
+    - `name` *(String)*: Template Engine Name
+    - `extension` *(String)*: 
+    - `handler` *(Object)*: Hash for the engine handler functions, should implement the following
+        - `compile` *(Function)*
+        - `execute` *(Function)*
+        - `precompile` *(Function)*
+        - `engine` *(Object)*
+    - `path` *(String)*: Path to the template engine
+    - `exp` *(String)*
+- `options` *(Object)*: The options hash:
+    - `[error]` *(Function)*: Called if an error occurs, it must implement the `function(error)` interface:
+        - `error` *(Error)*: The `Error` instance;
+    - `[success]` *(Function)*: Called after template engine is successfully registered, it must implement `function(engine) interface.
+        - `engine` *(Object)*: The instance of newly registered template engine
+        
 #### Returns
 
 #### Example
