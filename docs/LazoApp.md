@@ -470,28 +470,43 @@ LAZO.app.getTemplateExt('handlebars');  // returns 'hbs'
 ```
 ### <a name="getDefaultTemplateEngine"></a>`getDefaultTemplateEngine()`
 
-#### Arguments
+Retrives the default template engine for the lazo application
 
 #### Returns
+- *(Object)*: The template engine object
 
 #### Example
+```javascript
+LAZO.app.getDefaultTemplateEngine();
+```
 
 ### <a name="getDefaultTemplateEngineName"></a>`getDefaultTemplateEngineName()`
 
-#### Arguments
+Retrieves the default template engine name for the lazo application.
 
 #### Returns
+- *(String)*: The template engine name
 
 #### Example
+
+```javascript
+LAZO.app.getDefaultTemplateEngineName()
+```
 
 ### <a name="setDefaultTemplateEngine"></a>`setDefaultTemplateEngine(engineName)`
 
-#### Arguments
+Sets the default template engine for lazo application
 
-#### Returns
+#### Arguments
+- `engineName` *(String)*: The name of the template engine. 
+
+#### Exception
+- `Error` *(Exception)*: throws an exception if there exists no engine registered with the name provided
 
 #### Example
-
+```javascript
+LAZO.app.setDefaultTemplateEngine('handlebars');
+```
 ### <a name="getImport"></a>`getImport(relativePath)`
 
 #### Arguments
