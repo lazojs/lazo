@@ -11,3 +11,4 @@ notifications:
   email:
     - jstrimpel@gmail.com
     - pknepper@walmartlabs.com
+before_script: ./before_script.sh
