@@ -435,6 +435,8 @@ Registers a new template engine. For more information please refer to [templates
         
 #### Returns
 
+- *(Object)*: The application instance
+
 #### Example
 
 ### <a name="getTemplateEngine"></a>`getTemplateEngine(engineName)`
