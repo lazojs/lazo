@@ -439,20 +439,35 @@ Registers a new template engine. For more information please refer to [templates
 
 ### <a name="getTemplateEngine"></a>`getTemplateEngine(engineName)`
 
+Retrieves the template engine for the given engine name.
+
 #### Arguments
+- `engineName` *(String)*: Template Engine Name
 
 #### Returns
+- *(Object)*: Template Engine object
 
 #### Example
+
+```javascript
+LAZO.app.getTemplateEngine('handlebars')
+```
 
 ### <a name="getTemplateExt"></a>`getTemplateExt(engineName)`
 
+Retrives the extension for the template files for a given template engine name.
+
 #### Arguments
+- `engineName` *(String)*: The name of the template engine
 
 #### Returns
+- *(String)*:The extension of the template files
 
 #### Example
 
+```javascript
+LAZO.app.getTemplateExt('handlebars');  // returns 'hbs'
+```
 ### <a name="getDefaultTemplateEngine"></a>`getDefaultTemplateEngine()`
 
 #### Arguments
