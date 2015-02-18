@@ -439,6 +439,31 @@ Registers a new template engine. For more information please refer to [templates
 
 #### Example
 
+```javascript
+define(['app/utils/nunjucks'], function (nunjucks) {
+
+    'use strict';
+
+    // 1. name of the template engine
+    // 2. template file extension
+    // 3. handler object with compile, precompile, & execute methods; reference to the engine
+    // 4. path to template lib (optional if name is the module id)
+    LAZO.app.registerTemplateEngine('nunjucks', 'njs', {
+        compile: function(template) {
+            return nunjucks.compile(template);
+        },
+        precompile: function (template) {
+            return nunjucks.precompile(template);
+        },
+        execute: function(template, context) {
+            return template(context);
+        },
+        engine: nunjucks
+    }, 'app/utils/nunjucks', 'nonjucks');
+
+});
+```
+
 ### <a name="getTemplateEngine"></a>`getTemplateEngine(engineName)`
 
 Retrieves the template engine for the given engine name.
