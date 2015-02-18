@@ -247,7 +247,7 @@ Loads the lazo collection. For more information on models refer to [LazoCollecti
 #### Example
 
 ```javascript
-LAZO.app.loadModel('people', {
+LAZO.app.loadCollection('people', {
     error: function (error) {
         console.log('Oops...');
     },
@@ -338,20 +338,44 @@ LAZO.app.createCollection('people', [
 
 ### <a name="addTag"></a>`addTag(name, attributes, content)`
 
+Adds the html tag in the document.
+
 #### Arguments
+- `name` *(String)* : Tag name
+- `attributes` *(Objects)* : Hash of various attributes for the tag
+- `content` *(String)* : Content for the tag
 
 #### Returns
 
+- *(Object)*: The application instance
 #### Example
+
+```javascript
+LAZO.app.addTag('script',
+    {
+        'type': 'text/javascript',
+        'lazo-application': '1'
+    }, 'Hello');
+    
+// will add <script type="text/javascript" src="/hello.js">Hello</script> in <head> tag
+```
 
 ### <a name="setHtmlTag"></a>`setHtmlTag(val)`
 
+Sets the html tag of the document to the value specified.
+
 #### Arguments
+- `val` *(String)*: HTML tag value
 
 #### Returns
+- *(Object)*: The appliction instance
 
 #### Example
+```javascript
+LAZO.app.setHtmlTag('<html lang="fr">');
 
+// sets the document html element to <html lang="fr">
+```
 ### <a name="setBodyClass"></a>`setBodyClass(val)`
 
 #### Arguments
