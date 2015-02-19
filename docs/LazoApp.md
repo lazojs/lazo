@@ -415,7 +415,7 @@ Registers a new template engine. For more information please refer to [templates
 - `engineDef` *(Object)*:Hash for Template Engine Definition
     - `name` *(String)*: Template Engine Name
     - `extension` *(String)*: Extension for the template files
-    - `handler` *(Object)*: Hash for the engine handler functions, should implement the following
+    - `handler` *(Function)*: Engine handler function that implements `function(engine)` interface and returns a object with following methods and functions
         - `compile` *(Function)*: Implementation for the interface `function(template)`
             - `template` *(Object)*:
         - `execute` *(Function)*: Implementation for the interface `function(template, context, templateName)`
