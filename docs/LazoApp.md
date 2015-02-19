@@ -445,16 +445,18 @@ define(['app/utils/nunjucks'], function (nunjucks) {
     'use strict';
 
     var nonjucksHandler = function(nonjucksEngine) {
-        compile: function(template) {
-            return nonjucksEngine.compile(template);
-        },
-        precompile: function (template) {
-            return nonjucksEngine.precompile(template);
-        },
-        execute: function(template, context) {
-            return template(context);
-        },
-        engine: nonjucksEngine
+        return {
+            compile: function(template) {
+                return nonjucksEngine.compile(template);
+            },
+            precompile: function (template) {
+                return nonjucksEngine.precompile(template);
+            },
+            execute: function(template, context) {
+                return template(context);
+            },
+            engine: nonjucksEngine
+        };
     };
     
     var engineDef = {
