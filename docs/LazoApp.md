@@ -1,4 +1,4 @@
-`LazoApp` class provides a common set of apis that can be used at both client and server side. Your application has to extend `LazoApp` in `application.js` file. This is where you load environment specific configuration, set application level properties, and define application level CSS and JavaScript. Please check the Lazo Application Strucure for more information [LazoApplicationStrucutre](LazoApplicationStrucutre.md)
+`LazoApp` class provides a common set of apis that can be used at both client and server side. Your application has to extend `LazoApp` in `application.js` file. This is where you load environment specific configuration.
 
 Example:
 ```javascript
@@ -7,10 +7,6 @@ define(['lazoApp'], function (LazoApp) {
     'use strict';
 
     return LazoApp.extend({
-
-        css: ['/app/client/app.css'],
-
-        js: ['/app/utils.js'],
 
         initialize: function (callback) {
             return callback();
