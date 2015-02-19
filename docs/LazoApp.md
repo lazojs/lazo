@@ -444,23 +444,23 @@ define(['app/utils/nunjucks'], function (nunjucks) {
 
     'use strict';
 
-    var njEngine = {
+    var nonjucksHandler = function(nonjucksEngine) {
         compile: function(template) {
-            return nunjucks.compile(template);
+            return nonjucksEngine.compile(template);
         },
         precompile: function (template) {
-            return nunjucks.precompile(template);
+            return nonjucksEngine.precompile(template);
         },
         execute: function(template, context) {
             return template(context);
         },
-        engine: nunjucks
+        engine: nonjucksEngine
     };
     
     var engineDef = {
         name: 'nunjucks',
         extension: 'njs',
-        handler: njEngine,
+        handler: nonjucksHandler,
         path: 'app/utils/nunjucks'
     };
     LAZO.app.registerTemplateEngine(engineDef, {
