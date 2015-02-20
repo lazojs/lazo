@@ -481,6 +481,7 @@ define(['lazoApp', 'l!app/utils/jade'], function (LazoApp, Jade) {
     });
 });
 ```
+> Currently we do not precompile the templates and send it to client, so you will have to send the entire template engine to the client. In future precompiled templates would be sent to the client.
 
 ### <a name="getTemplateEngine"></a>`getTemplateEngine(engineName)`
 
