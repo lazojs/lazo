@@ -436,38 +436,47 @@ Registers a new template engine. For more information please refer to [templates
 #### Example
 
 ```javascript
-define(['app/utils/nunjucks'], function (nunjucks) {
+define(['lazoApp', 'l!app/utils/jade'], function (LazoApp, Jade) {
 
     'use strict';
 
-    var nonjucksHandler = function(nonjucksEngine) {
-        return {
-            compile: function(template) {
-                return nonjucksEngine.compile(template);
-            },
-            precompile: function (template) {
-                return nonjucksEngine.precompile(template);
-            },
-            execute: function(template, context) {
-                return template(context);
-            },
-            engine: nonjucksEngine
-        };
-    };
-    
-    var engineDef = {
-        name: 'nunjucks',
-        extension: 'njs',
-        handler: nonjucksHandler,
-        path: 'app/utils/nunjucks'
-    };
-    LAZO.app.registerTemplateEngine(engineDef, {
-        success: function(engine) {
-            // registered successfully
-            // can now set it as a default template engine
+    var jadeEngineDef = {
+        name: 'jade',
+        extension: 'jade',
+        handler: function(jade) {
+          return {
+              compile: function(template) {
+                  return template;
+              },
+              precompile: function(template) {
+                  return jade.compileClient(template, null);
+              },
+              execute: function(template, context, templateName) {
+                  return jade.render(template, context);
+              },
+              engine: Jade
+          };
         },
-        error: function(error) {
-            // error while registering the template engine
+        path: 'app/utils/jade'
+    };
+
+    return LazoApp.extend({
+
+        initialize: function (callback) {
+
+            LAZO.app.registerTemplateEngine(jadeEngineDef, {
+                success: function(engine) {
+                    // console.log(engine);
+                    LAZO.app.setDefaultTemplateEngine("jade");
+                    callback();
+                },
+                error: function(error){
+                    console.log("Error while registering jade template engine");
+                    callback();
+                }
+                
+            });
+            
         }
     });
 });
