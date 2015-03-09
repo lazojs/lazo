@@ -57,7 +57,7 @@
     "jquery.cookie": "1.4.1",
     "requirejs-plugins": "1.0.2",
     "async": "0.6.2",
-    "flexo.js": "0.2.1",
+    "flexo.js": "0.2.x",
     "htmlparser": "1.7.7",
     "htmlparser-tostring": "0.0.2"
   },
