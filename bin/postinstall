@@ -14,7 +14,7 @@ var path = require('path');
     'jquery',
     'underscore',
     'requirejs',
-    'text',
+    'requirejs-text',
     'requirejs-plugins',
     'handlebars',
     'jquery.cookie',
@@ -40,6 +40,8 @@ var path = require('path');
         client = 'client/';
     } else if (moduleId === 'requirejs-plugins') {
         moduleId = 'json';
+    } else if (moduleId === 'requirejs-text') {
+        moduleId = 'text';
     } else if (moduleId === 'handlebars') {
         moduleId = 'handlebars.amd';
         modulePath = path.dirname(path.dirname(modulePath)) + '/dist/' + moduleId + '.js';
