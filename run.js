@@ -2,8 +2,8 @@ var fs = require('fs');
 var path = require('path');
 var lazoPath = path.dirname(module.filename);
 var os = require('os');
-var args = parseArgs();
 var lazo = require('./index.js')
+var args = parseArgs();
 
 // helper functions
 function getAppDir() {
@@ -12,23 +12,13 @@ function getAppDir() {
 }
 
 function parseArgs() {
-    return require('optimist')
-        .options('c', {
-            alias: 'cluster'
-        })
-        .options('v', {
-            alias: 'version'
-        })
-        .options('d', {
-            alias: 'daemon'
-        })
-        .options('p', {
-            alias: 'port',
-            default: '8080'
-        })
-        .options('r', {
-            alias: 'robust'
-        })
+    return require('yargs')
+        .alias('c', 'cluster')
+        .alias('v', 'version')
+        .alias('d', 'daemon')
+        .alias('p', 'port')
+        .default('port', '8080')
+        .alias('r', 'robust')
         .boolean(['d', 'r'])
         .string(['p', 'c'])
         .argv;

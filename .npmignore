@@ -1,0 +1,12 @@
+!lib/vendor
+.idea
+lib-cov
+node_modules
+reports
+test/specs/html/**
+node_modules
+npm-debug.log
+.DS_Store
+phantomjsdriver.log
+logs/
+lazo.pid
