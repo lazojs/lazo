@@ -1,6 +1,6 @@
 {
   "name": "lazo",
-  "version": "2.0.7-alpha",
+  "version": "2.0.8-alpha",
   "description": "A client-server web framework built on Node.js that allows front-end developers to easily create a 100% SEO compliant, component MVC structured web application with an optimized first page load.",
   "homepage": "https://github.com/lazojs/lazo",
   "keywords": [
@@ -30,7 +30,7 @@
   "private": false,
   "scripts": {
     "start": "lazo",
-    "postinstall": "node bin/postinstall",
+    "prepublish": "node bin/postinstall; grunt requirejs",
     "test": "grunt test"
   },
   "main": "index.js",
@@ -44,7 +44,7 @@
     "forever": "0.10.8",
     "fs-extra": "0.6.3",
     "handlebars": "2.0.0",
-    "optimist": "0.6.0",
+    "yargs": "3.6.0",
     "node-dir": "0.1.5",
     "lodash": "2.4.1",
     "hapi": "6.7.1",
