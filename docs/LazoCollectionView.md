@@ -1,5 +1,3 @@
-## LazoCollectionView
-
 LazoCollectionViews extend [flexo.CollectionView](https://github.com/lazojs/flexo/blob/master/docs/index.md#lexocollectionview).
 They are designed to run within the Lazo rendering life cycle. The following properties and methods should not be overridden:
 
