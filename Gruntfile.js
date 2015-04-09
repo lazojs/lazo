@@ -3,6 +3,7 @@ module.exports = function (grunt) {
     var fs = require('fs');
     var path = require('path');
     var reqConf = grunt.file.readJSON('lib/common/resolver/paths.json');
+    var lazoReqConf = grunt.file.readJSON('conf.json');
 
     function getPaths(conf, env) {
         var paths = grunt.util._.extend({}, conf.common, (conf[env] || conf.client));
@@ -60,11 +61,7 @@ module.exports = function (grunt) {
                 options: {
                     include: reqConf.lib,
                     paths: getPaths(reqConf),
-                    shim: {
-                        handlebars: {
-                            exports: 'Handlebars'
-                        }
-                    },
+                    shim: lazoReqConf.requirejs.client.shim,
                     map: {
                         '*': {
                             'l': '/lib/client/loader.js',
