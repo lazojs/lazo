@@ -29,29 +29,11 @@ define([
                 });
             });
 
-            it('should clean up a view', function () {
-                var dfd = this.async();
-                utils.setUpApp(function () {
-                    $('body').append('<div class="view-cleanup">');
-                    var $view = $('.view-cleanup');
-                    var view = new LazoView({ el: $view });
-                    var onRemoveSpy = sinon.spy(view, 'onRemove');
-                    var stopListening = sinon.spy(view, 'stopListening');
-                    var undelegateEvents = sinon.spy(view, 'undelegateEvents');
-
-                    viewManager.cleanupView(view);
-                    expect(onRemoveSpy.calledOnce).to.be.true;
-                    expect(stopListening.calledOnce).to.be.true;
-                    expect(undelegateEvents.calledOnce).to.be.true;
-                    dfd.resolve();
-                });
-            });
-
             it('should clean up a tree branch', function () {
                 var dfd = this.async();
                 utils.setUpApp(function () {
                     utils.createCtlTree(function (ctl) {
-                        var spy = sinon.spy(viewManager, 'cleanupView');
+                        var spy = sinon.spy(LazoView.prototype, 'remove');
 
                         viewManager.cleanup(ctl, ctl.currentView.cid);
                         expect(spy.calledThrice).to.be.true;
