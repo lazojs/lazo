@@ -1,5 +1,3 @@
-## LazoWidget
-
 The `LazoWidget` interface is designed to work within the Lazo rendering life cycle on the client and the server. As such a
 widget's `render` implementation must function on the client and the server.
 
