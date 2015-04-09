@@ -1,5 +1,3 @@
-## LazoView
-
 LazoViews extend [flexo.View](https://github.com/lazojs/flexo/blob/master/docs/index.md#flexoview). They are designed
 to run within the Lazo rendering life cycle. The following properties and methods should **not** be overridden:
 
