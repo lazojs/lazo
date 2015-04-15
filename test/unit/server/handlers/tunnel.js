@@ -15,6 +15,9 @@ define([
         describe('Tunnel Handler', function () {
 
             var requestBase = {
+                params: {
+
+                },
                 raw: {
                     req: {
                         headers: {
