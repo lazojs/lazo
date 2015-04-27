@@ -334,6 +334,7 @@ Any additional action handlers should implement the same interface. Action handl
 #### Arguments
 
 - `[options]` *(Object)*: The options hash;
+  - `[params]` *(Object)*: The params hash;
   - `[error]` *(Function)*: To be called if an error occurs, it implements the `function(error)` interface:
     - `error` *(Error)*: The `Error` instance;
   - `[success]` *(Function)*: To be called once the action handler is done and ready to return control to the framework, it implements the `function(viewName)` interface:
