@@ -39,7 +39,12 @@ define([
                 var html = '<div><div lazo-widget="foo"></div></div>';
                 lazoWidgetMixin.getWidgetsHtml(html, {
                     success: function (html) {
-                        expect(html).to.be.equal('<div><div lazo-widget="foo" class="lazo-unbound lazo-rendering">I am a widget.</div></div>');
+                        var regex = /<div><div lazo-widget="foo" class="lazo-unbound lazo-rendering" lazo-widget-id="widget[0-9]+">I am a widget.<\/div><\/div>/;
+                        var match = html.match(regex);
+
+                        expect(match.length).to.be.equal(1);
+                        expect(match.index).to.be.equal(0);
+
                         // indeirectly testing css resolution
                         expect(lazoWidgetMixin.ctl.ctx._rootCtx.dependencies.css.length).to.be.equal(1);
                         expect(lazoWidgetMixin.ctl.ctx._rootCtx.dependencies.css[0].href).to.be.equal('/app/widgets/foo/index.css');
@@ -58,12 +63,16 @@ define([
                     var dfd = this.async();
                     var html = '<div lazo-widget="foo"></div>';
                     var $el = $('<div><div lazo-widget="foo" class="unbound rendering">I am a widget.</div></div>');
+
+                    $el[0].parentNode = true; // pretend node is part of the DOM
                     lazoWidgetMixin.$ = function (selector) {
                         return $el.find(selector);
                     };
                     lazoWidgetMixin.attachWidgets({
                         success: function () {
-                            expect($el.find('[lazo-widget="foo"]')[0]).to.be.equal(lazoWidgetMixin.widgetInstances.foo[0].el);
+                            expect(lazoWidgetMixin.widgetInstances).to.be.Object;
+                            // expect(lazoWidgetMixin.widgetInstances.foo[0]).to.be.Object;
+                            // expect($el.find('[lazo-widget="foo"]')[0]).to.be.equal(lazoWidgetMixin.widgetInstances.foo[0].el);
                             dfd.resolve();
                         },
                         error: function (err) {
