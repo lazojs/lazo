@@ -30,7 +30,7 @@
   "private": false,
   "scripts": {
     "start": "lazo",
-    "prepublish": "node bin/postinstall; grunt requirejs; npm test",
+    "prepublish": "node bin/postinstall; grunt requirejs",
     "test": "grunt test"
   },
   "main": "index.js",
