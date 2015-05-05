@@ -256,7 +256,7 @@ define([
 
                 view.render({
                     success: function (html) {
-                        var regex = /<div lazo-view-name="index" lazo-view-id="view[0-9]+" class="lazo-unbound"><div lazo-view="child"><div lazo-view-name="child" lazo-view-id="view[0-9]+" class="lazo-unbound">I am the child template.<\/div><\/div><\/div>/
+                        var regex = /<div lazo-view-name="index" lazo-view-id="view[0-9]+" class="lazo-detached"><div lazo-view="child"><div lazo-view-name="child" lazo-view-id="view[0-9]+" class="lazo-detached">I am the child template.<\/div><\/div><\/div>/
                         var match = html.match(regex);
 
                         expect(match.length).to.be.equal(1);
