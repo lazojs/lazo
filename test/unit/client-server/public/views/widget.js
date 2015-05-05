@@ -39,7 +39,7 @@ define([
                 var html = '<div><div lazo-widget="foo"></div></div>';
                 lazoWidgetMixin.getWidgetsHtml(html, {
                     success: function (html) {
-                        var regex = /<div><div lazo-widget="foo" class="lazo-unbound lazo-rendering" lazo-widget-id="widget[0-9]+">I am a widget.<\/div><\/div>/;
+                        var regex = /<div><div lazo-widget="foo" class="lazo-detached lazo-rendering" lazo-widget-id="widget[0-9]+">I am a widget.<\/div><\/div>/;
                         var match = html.match(regex);
 
                         expect(match.length).to.be.equal(1);
@@ -62,7 +62,7 @@ define([
                 it('should attach widgets', function () {
                     var dfd = this.async();
                     var html = '<div lazo-widget="foo"></div>';
-                    var $el = $('<div><div lazo-widget="foo" class="unbound rendering">I am a widget.</div></div>');
+                    var $el = $('<div><div lazo-widget="foo" class="lazo-detached lazo-rendering">I am a widget.</div></div>');
 
                     $el[0].parentNode = true; // pretend node is part of the DOM
                     lazoWidgetMixin.$ = function (selector) {
