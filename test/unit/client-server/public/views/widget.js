@@ -13,12 +13,13 @@ define([
     with (bdd) {
         describe('Lazo Widget Mixin', function () {
 
+            lazoWidgetMixin.ref = true;
             lazoWidgetMixin.widgets = {
                 foo: LazoWidget.extend({
                     render: function (options) {
                         options.success('I am a widget.');
                     },
-                    css: ['/app/widgets/foo/index.css']
+                    css: ['/app/widgets/foo/index.css'],
                 }),
             };
 
