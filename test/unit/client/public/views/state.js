@@ -16,7 +16,7 @@ define([
         describe('Lazo View, Widget State Mixin', function () {
 
             it('should get the valid attribute states', function () {
-                var states = uiStateMixin.getValidStates();
+                var states = uiStateMixin._getValidStates();
                 expect(states.focus).to.be.true;
                 expect(states.disabled).to.be.true;
                 expect(states.visible).to.be.true;
@@ -24,7 +24,7 @@ define([
             });
 
             it('should get the states for a widget or view', function () {
-                var states = uiStateMixin.getStates();
+                var states = uiStateMixin._getStates();
                 expect(states.focus).to.be.equal('focus');
                 expect(states.disabled).to.be.equal('disabled');
                 expect(states.visible).to.be.equal('visible');
