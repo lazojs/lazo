@@ -1,4 +1,5 @@
-A LazoWidget can be used to integrate a 3rd party library into the Lazo rendering life cycle. This allows you to encapsulate the creation and deletion of a widget in itself keeping your view layer clean. A LazoWidget is intended to be agnostic of business logic.
+A LazoWidget can be used to integrate a 3rd party library into the Lazo rendering life cycle. This allows you to encapsulate the creation and deletion of a widget inside of itself keeping your view layer clean. A LazoWidget is intended to be agnostic of
+business logic.
 
 The `LazoWidget` interface is designed to work within the Lazo rendering life cycle on the client and the server. As such a
 widget's `render` implementation must function on the client and the server.
@@ -21,7 +22,8 @@ define(['lazoWidget', 'underscore'], function (LazoWidget, _) {
 });
 ```
 
-Widget constructors are defined in a `LazoView` `widgets` property. The values can be `LazoWidget` classes or the paths to the widget modules:
+Widget constructors are defined in a `LazoView` `widgets` property. The values can be `LazoWidget` classes
+or the paths to the widget modules that return an extended `LazoWidget`:
 
 ```js
 define(['lazoView', 'lazoWidget'], function (LazoView, LazoWidget) {
@@ -55,7 +57,7 @@ Widgets are then declared in the `LazoView` template:
 {{/each}}
 ```
 
-When widgets are created the instances are then added to the `LazoView` `widgets` property or the `LazoWidget` `children` property
+When widgets are created the instances are  added to the `LazoView` `widgets` property or the `LazoWidget` `children` property
 if the widget is a child of another widget. In the case above the property would look something like the following:
 
 ```js
@@ -78,9 +80,9 @@ Widgets can be children of other widgets:
 </div>
 ```
 
-In this case widget `C` would attempt to resolve its definition to `B.widgetDefinitions.C`. If that failed then it would attempt
+In this case widget `C` would attempt to resolve its definition to `B.widgetDefinitions.C`. If that failed it would attempt
 to resolve to a definition in the parent view, `A.widgetDefinitions.C`. If it cannot resolve to a defintion then error is
-passed back up the callback chain.
+passed back up the callback chain. Below is an example implementation with the widget definitions.
 
 ```js
 define(['lazoView', 'lazoWidget'], function (LazoView, LazoWidget) {
@@ -115,7 +117,7 @@ property. Attribute values can be used to resolve to context values for the comp
 owns the widget instance. This done using the "$" in an attribute value:
 
 ```html
-<div lazo-widget="foo" data-status="$.status">
+<div lazo-widget="foo" data-status="$.models.user">
 ```
 
 ### Widget Events
@@ -124,7 +126,7 @@ owns the widget instance. This done using the "$" in an attribute value:
 This would map `<instance>.attributes['data-status']` to `ctx.status`. By default a `LazoWidget` will attempt to coerce values that do not resolve to a context property. See [`attrValCoercion`](#attrvalcoercion) for further details.
 
 ### CSS Classes
-Lazo adds CSS classes to eidget elements at different times in the life cycle:
+Lazo adds CSS classes to widget elements at different times in the life cycle:
 
 * "lazo-rendering": Markup is generated and is in the DOM, but `afterRender` `options.success` has not been called
 * "lazo-rendered": Markup is generated, in the DOM, and `afterRender` `options.success` has been called
@@ -333,8 +335,8 @@ define(['lazoWidget'], function (LazoWidget) {
 ### `createWidget()`
 
 Used to programatically create a widget instance. Creates an instance of a widget. Renders widget in `el`
-if `el` does not contain children. Attaches widget to the `el`. Pushes widget instance to name array in `children`
-object of the parent widget.
+if it does not contain children. Attaches widget to the `el`. Pushes widget instance to the correspondingly
+named array in `children` object of the parent widget.
 
 *Note - Should only called on the client.*
 

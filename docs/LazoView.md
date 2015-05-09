@@ -6,12 +6,10 @@ to run within the Lazo rendering life cycle. The following properties and method
 * `attributeNameSpace`
 * `getAttributes`
 * `augment`
-* `getInnerHtml`
 
 All of the properties and methods can be overridden and will function within the Lazo rendering life cycle allowing
-you to plugin any rendering solution that is environment agnostic and returns a string. For more information on the
-different properties and methods please consult the flexo
-[documentation](https://github.com/lazojs/flexo/blob/master/docs/index.md#flexoview).
+you to plugin any rendering solution that is environment agnostic. For more information on the different properties
+and methods please consult the flexo [documentation](https://github.com/lazojs/flexo/blob/master/docs/index.md#flexoview).
 
 ```js
 define(['lazoView'], function (LazoView) {
@@ -39,8 +37,8 @@ Lazo adds CSS classes to view elements at different times in the life cycle:
 ### `createWidget()`
 
 Used to programatically create a widget instance. Creates an instance of a widget. Renders widget in `el`
-if `el` does not contain children. Attaches widget to the `el`. Pushes widget instance to name array in `widgets`
-object of the parent widget.
+if `el` does not contain children. Attaches widget to the `el`. Pushes widget instance to the correspondingly
+named array in `widgets` object of the parent widget.
 
 *Note - Should only called on the client.*
 
