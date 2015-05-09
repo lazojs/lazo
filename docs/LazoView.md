@@ -8,15 +8,6 @@ to run within the Lazo rendering life cycle. The following properties and method
 * `augment`
 * `getInnerHtml`
 
-### CSS Classes
-Lazo adds CSS classes to view elements at different times in the life cycle:
-
-* "lazo-detached": Markup is in the DOM, but `attach` has not been called
-* "lazo-attached": Markup is in the DOM and `attach` has been called
-
-### Setting View States
-[LazoState](#LazoState) is mixed into LazoView and can be used to set different states on a view.
-
 All of the properties and methods can be overridden and will function within the Lazo rendering life cycle allowing
 you to plugin any rendering solution that is environment agnostic and returns a string. For more information on the
 different properties and methods please consult the flexo
@@ -35,10 +26,20 @@ define(['lazoView'], function (LazoView) {
 
 });
 ```
+
+### CSS Classes
+Lazo adds CSS classes to view elements at different times in the life cycle:
+
+* "lazo-detached": Markup is in the DOM, but `attach` has not been called
+* "lazo-attached": Markup is in the DOM and `attach` has been called
+
+### Setting View States
+[LazoState](#LazoState) is mixed into LazoView and can be used to set different states on a view.
+
 ### `createWidget()`
 
 Used to programatically create a widget instance. Creates an instance of a widget. Renders widget in `el`
-if `el` does not contain children. Attaches widget to the `el`. Pushes widget instance to name array in `wudgets`
+if `el` does not contain children. Attaches widget to the `el`. Pushes widget instance to name array in `widgets`
 object of the parent widget.
 
 *Note - Should only called on the client.*

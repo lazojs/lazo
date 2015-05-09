@@ -126,7 +126,7 @@ This would map `<instance>.attributes['data-status']` to `ctx.status`. By defaul
 ### CSS Classes
 Lazo adds CSS classes to eidget elements at different times in the life cycle:
 
-* "lazo-rendering": Markup is generated, but not in the DOM or not finished being inserted into the DOM
+* "lazo-rendering": Markup is generated and is in the DOM, but `afterRender` `options.success` has not been called
 * "lazo-rendered": Markup is generated, in the DOM, and `afterRender` `options.success` has been called
 * "lazo-detached": Markup is in the DOM, but `attach` has not been called
 * "lazo-attached": Markup is in the DOM and `attach` has been called
