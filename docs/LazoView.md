@@ -34,6 +34,27 @@ Lazo adds CSS classes to view elements at different times in the life cycle:
 ### Setting View States
 [LazoState](#LazoState) is mixed into LazoView and can be used to set different states on a view.
 
+### `[viewDefinitions]`
+
+An object that contains property names that contain paths to the child view definitions. When a definition
+is resolved the instance is stored in the parent view's `children` object using the definition property
+name.
+
+#### Example
+```js
+define(['lazoView'], function (LazoView) {
+
+    return LazoView.extend({
+
+        viewDefinitions: {
+            foo: 'app/views/foo'
+        }
+
+    });
+
+});
+```
+
 ### `createWidget()`
 
 Used to programatically create a widget instance. Creates an instance of a widget. Renders widget in `el`
