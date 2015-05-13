@@ -22,7 +22,7 @@ define(['lazoWidget', 'underscore'], function (LazoWidget, _) {
 });
 ```
 
-Widget constructors are defined in a `LazoView` `widgets` property. The values can be `LazoWidget` classes
+Widget constructors are defined in a `LazoView` `widgetDefinitions` property. The values can be `LazoWidget` classes
 or the paths to the widget modules that return an extended `LazoWidget`:
 
 ```js
