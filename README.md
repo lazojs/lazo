@@ -49,16 +49,22 @@ To install Lazo execute the following command:
 npm install -g --production lazo
 ```
 
-Next clone [Lazo TodoMVC example](https://github.com/jstrimpel/lazojs-todomvc):
+Next clone [Lazo TodoMVC example](https://github.com/lazojs/lazo-todomvc):
 
 ```shell
-git clone git@github.com:jstrimpel/lazojs-todomvc.git
+git clone git@github.com:lazojs/lazo-todomvc.git
 ```
 
-Finally start the new application:
+Install dependencies (from local lazo-todomvc repo):
 
 ```shell
-lazo start lazojs-todomvc
+npm install
+```
+
+Finally start the new application (from local lazo-todomvc repo):
+
+```shell
+npm start
 ```
 
 You are done.
