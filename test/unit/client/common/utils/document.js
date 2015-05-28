@@ -44,6 +44,51 @@ define([
                 });
             });
 
+            it('add, get page tags', function () {
+
+                var ctx = {
+                    _rootCtx: {},
+                    meta: {}
+                };
+
+                expect(doc.getPageTags(ctx, false).length).to.equal(0);
+                doc.addPageTag(ctx, false, 'meta', { description: 'text' });
+                expect(doc.getPageTags(ctx, false).length).to.equal(1);
+            });
+
+            it('updates page tags', function () {
+                var dfd = this.async();
+                var ctx = {
+                    _rootCtx: {
+                        pageTags: [
+                            { name: 'meta', attributes: { description: 'text' }, content: null },
+                            { name: 'meta', attributes: { keywords: 'keyword' }, content: null }
+                        ]
+                    },
+                    meta: {
+                        pageTags: []
+                    }
+                };
+
+                // simulate initial update on client
+                doc.updatePageTags(ctx, function (err) {
+                    expect(err).to.not.exist;
+                    expect(ctx._rootCtx.pageTags.length).to.equal(0);
+                    expect(ctx.meta.pageTags.length).to.equal(0);
+
+                    doc.addPageTag(ctx, false, 'meta', { description: 'text' });
+                    doc.addPageTag(ctx, false, 'meta', { keywords: 'keyword' });
+                    expect(ctx.meta.pageTags.length).to.equal(2);
+
+                    // simulate secondary update on client
+                    doc.updatePageTags(ctx, function (err) {
+                        expect(err).to.not.exist;
+                        expect(ctx._rootCtx.pageTags.length).to.equal(2);
+                        expect(ctx.meta.pageTags.length).to.equal(0);
+                        dfd.resolve();
+                    });
+                });
+            });
         });
     }
 });
