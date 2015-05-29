@@ -37,6 +37,7 @@ Use to send a `GET` request to a service.
     - `[params]` *(Object)*: A hash containing name-value pairs used in url substitution.
     - `[headers]` *(Object)*: A hash containing name-value pairs of headers to be sent to the service.
     - `[raw]` *(Boolean)*: A boolean that if set to true will return a unparsed response. Defaults to `false`.
+    - `[timeout]` *(Integer)*: An integer for setting the request timeout in milliseconds. Defaults to 30000.
 
 #### Example
 ```js
@@ -83,6 +84,7 @@ Use to send a `POST` request to a service.
     - `[params]` *(Object)*: A hash containing name-value pairs used in url substitution.
     - `[headers]` *(Object)*: A hash containing name-value pairs of headers to be sent to the service.
     - `[raw]` *(Boolean)*: A boolean that if set to true will return a unparsed response. Defaults to `false`.
+    - `[timeout]` *(Integer)*: An integer for setting the request timeout in milliseconds. Defaults to 30000.
 
 #### Example
 ```js
@@ -130,6 +132,7 @@ Use to send a `PUT` request to a service.
     - `[params]` *(Object)*: A hash containing name-value pairs used in url substitution.
     - `[headers]` *(Object)*: A hash containing name-value pairs of headers to be sent to the service.
     - `[raw]` *(Boolean)*: A boolean that if set to true will return a unparsed response. Defaults to `false`.
+    - `[timeout]` *(Integer)*: An integer for setting the request timeout in milliseconds. Defaults to 30000.
 
 #### Example
 ```js
@@ -178,6 +181,7 @@ Use to send a `DELETE` request to a service.
     - `[params]` *(Object)*: A hash containing name-value pairs used in url substitution.
     - `[headers]` *(Object)*: A hash containing name-value pairs of headers to be sent to the service.
     - `[raw]` *(Boolean)*: A boolean that if set to true will return a unparsed response. Defaults to `false`.
+    - `[timeout]` *(Integer)*: An integer for setting the request timeout in milliseconds. Defaults to 30000.
 
 #### Example
 ```js
