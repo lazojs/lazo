@@ -21,6 +21,27 @@ define([
                 }, {});
 
             });
+            
+            it('should not load client configured file', function () {
+                var dfd = this.async();
+
+                LAZO.conf.requirejs = {
+                    client: {
+                        paths: {
+                            aClientModule: 'foo'
+                        }
+                    }
+                };
+                
+                loader.load('aClientModule', null, function (module) {
+                    expect(module).to.be.null;
+                    delete LAZO.conf.requirejs;
+                    dfd.resolve();
+                }, {paths:['.']});
+
+            });
+            
+            
 
         });
     }
