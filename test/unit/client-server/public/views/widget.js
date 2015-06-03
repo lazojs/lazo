@@ -13,27 +13,33 @@ define([
     with (bdd) {
         describe('Lazo Widget Mixin', function () {
 
-            lazoWidgetMixin.ref = true;
-            lazoWidgetMixin.widgets = {
-                foo: LazoWidget.extend({
-                    render: function (options) {
-                        options.success('I am a widget.');
-                    },
-                    css: ['/app/widgets/foo/index.css'],
-                }),
-            };
+            beforeEach(function () {
+                // remove previous container element
+                delete lazoWidgetMixin.el;
+                // clean out widgets from previous test
+                lazoWidgetMixin.widgets = {};
+                lazoWidgetMixin.ref = true;
+                lazoWidgetMixin.widgetDefinitions = {
+                    foo: LazoWidget.extend({
+                        render: function (options) {
+                            options.success('I am a widget.');
+                        },
+                        css: ['/app/widgets/foo/index.css'],
+                    }),
+                };
 
-            lazoWidgetMixin.ctl = {
-                name: 'bar',
-                ctx: {
-                    _rootCtx: {
-                        dependencies: {
-                            css: []
+                lazoWidgetMixin.ctl = {
+                    name: 'bar',
+                    ctx: {
+                        _rootCtx: {
+                            dependencies: {
+                                css: []
+                            }
                         }
-                    }
-                },
-                augmentCssLink: function (link) { return link; }
-            };
+                    },
+                    augmentCssLink: function (link) { return link; }
+                };
+            });
 
             it('should get the html for a widget', function () {
                 var dfd = this.async();
@@ -69,17 +75,45 @@ define([
                     lazoWidgetMixin.$ = function (selector) {
                         return $el.find(selector);
                     };
+                    // set up root el; used by attachWidgets to search for widget declarations
+                    lazoWidgetMixin.el = $el[0];
                     lazoWidgetMixin.attachWidgets({
-                        success: function () {
-                            expect(lazoWidgetMixin.widgetInstances).to.be.Object;
-                            // expect(lazoWidgetMixin.widgetInstances.foo[0]).to.be.Object;
-                            // expect($el.find('[lazo-widget="foo"]')[0]).to.be.equal(lazoWidgetMixin.widgetInstances.foo[0].el);
+                        success: function (parent) {
+                            expect(lazoWidgetMixin.widgets.foo[0]).to.be.instanceof(lazoWidgetMixin.widgetDefinitions.foo);
+                            expect(lazoWidgetMixin.widgets.foo[0].el).to.be.equal($el.find('[lazo-widget="foo"]')[0]);
                             dfd.resolve();
                         },
                         error: function (err) {
                             throw err;
                         }
                     });
+                });
+
+                it('should create a widget instance', function () {
+                    var dfd = this.async();
+                    var $el = $('<div></div>');
+
+                    lazoWidgetMixin.createWidget($el[0], 'foo', {
+                        attributes: {
+                            foo: 1,
+                            bar: true,
+                            baz: 'a string'
+                        },
+                        success: function (widget) {
+                            expect(widget.attributes.foo).to.be.equal(1);
+                            expect(widget.attributes.bar).to.be.true;
+                            expect(widget.attributes.baz).to.be.equal('a string');
+                            expect(widget.el).to.be.equal($el[0]);
+                            expect($el.attr('lazo-widget')).to.be.equal('foo');
+                            expect(lazoWidgetMixin.widgets.foo[0]).to.be.instanceof(lazoWidgetMixin.widgetDefinitions.foo);
+                            expect(lazoWidgetMixin.widgets.foo[0].el).to.be.equal($el[0]);
+                            dfd.resolve();
+                        },
+                        error: function (err) {
+                            throw err;
+                        }
+                    });
+
                 });
             }
 
