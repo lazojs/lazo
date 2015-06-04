@@ -31,7 +31,7 @@ define(['intern/dojo/text!lib/common/resolver/paths.json', 'test/mocks/lazo'], f
         excludeInstrumentation: /^(?:test|node_modules|lib\/vendor)\//,
 
         useLoader: {
-            'host-node': 'requirejs',
+            'host-node': 'requirejs'
         },
 
         loader: {
@@ -45,7 +45,8 @@ define(['intern/dojo/text!lib/common/resolver/paths.json', 'test/mocks/lazo'], f
                     // mocks
                     request: 'test/mocks/server/request',
                     'continuation-local-storage': 'test/mocks/server/continuation-local-storage',
-                    hapi: 'test/mocks/server/hapi'
+                    hapi: 'test/mocks/server/hapi',
+                    bundler: 'lib/public/bundle'
                 }
             }
         }
