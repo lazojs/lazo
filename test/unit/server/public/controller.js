@@ -34,8 +34,9 @@ define([
                     success: function (controller) {
 
                         expect(controller.getHttpStatusCode()).to.equal(200);
-                        controller.setHttpStatusCode(410);
+                        var ctl = controller.setHttpStatusCode(410);
                         expect(controller.getHttpStatusCode()).to.equal(410);
+                        expect(ctl == controller).to.be.true;
 
                         dfd.resolve();
                     },
@@ -51,11 +52,12 @@ define([
                     success: function (controller) {
 
                         expect(controller.getHttpVaryParams().length).to.equal(0);
-                        controller.addHttpVaryParam('user-agent');
+                        var ctl = controller.addHttpVaryParam('user-agent');
 
                         var params = controller.getHttpVaryParams();
                         expect(params.length).to.equal(1);
                         expect(params[0]).to.equal('user-agent');
+                        expect(ctl == controller).to.be.true;
 
                         dfd.resolve();
                     },
@@ -71,13 +73,14 @@ define([
                     success: function (controller) {
 
                         expect(controller.getHttpHeaders().length).to.equal(0);
-                        controller.addHttpHeader('X-Frame-Options', 'deny');
+                        var ctl = controller.addHttpHeader('X-Frame-Options', 'deny');
 
                         var headers = controller.getHttpHeaders();
                         expect(headers.length).to.equal(1);
                         expect(headers[0].name).to.equal('X-Frame-Options');
                         expect(headers[0].value).to.equal('deny');
                         expect(headers[0].options).to.equal(null);
+                        expect(ctl == controller).to.be.true;
 
                         dfd.resolve();
                     },
