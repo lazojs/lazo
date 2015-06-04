@@ -16,11 +16,11 @@ define([
 
                 var lazoApp = new LazoApp({});
                 lazoApp.isServer = true;
-                expect(lazoApp.getHttpVaryParams().length).to.equal(0);
+                var count = lazoApp.getHttpVaryParams().length;
                 var app = lazoApp.addHttpVaryParam('user-agent');
 
                 var params = lazoApp.getHttpVaryParams();
-                expect(params.length).to.equal(1);
+                expect(params.length).to.equal(count + 1);
                 expect(params[0]).to.equal('user-agent');
                 expect(app == lazoApp).to.be.true;
 
@@ -29,11 +29,11 @@ define([
             it('should add http headers', function () {
                 var lazoApp = new LazoApp({});
                 lazoApp.isServer = true;
-                expect(lazoApp.getHttpHeaders().length).to.equal(0);
+                var count = lazoApp.getHttpHeaders().length;
                 var app = lazoApp.addHttpHeader('X-Frame-Options', 'deny');
 
                 var headers = lazoApp.getHttpHeaders();
-                expect(headers.length).to.equal(1);
+                expect(headers.length).to.equal(count + 1);
                 expect(headers[0].name).to.equal('X-Frame-Options');
                 expect(headers[0].value).to.equal('deny');
                 expect(headers[0].options).to.equal(null);

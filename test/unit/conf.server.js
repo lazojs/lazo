@@ -46,7 +46,7 @@ define(['intern/dojo/text!lib/common/resolver/paths.json', 'test/mocks/lazo'], f
                     request: 'test/mocks/server/request',
                     'continuation-local-storage': 'test/mocks/server/continuation-local-storage',
                     hapi: 'test/mocks/server/hapi',
-                    bundler: 'lib/public/bundle'
+                    'bundler': 'lazoBundle'
                 }
             }
         }

@@ -31,17 +31,17 @@ define([
 
             it('can add httpHeader', function () {
 
-                expect(httpResponse.getHttpHeaders().length).to.equal(0);
+                var count = httpResponse.getHttpHeaders().length;
                 httpResponse.addHttpHeader('X-Frame-Options', 'deny');
-                expect(httpResponse.getHttpHeaders().length).to.equal(1);
+                expect(httpResponse.getHttpHeaders().length).to.equal(count + 1);
 
             });
 
             it('can add vary param', function () {
 
-                expect(httpResponse.getHttpVaryParams().length).to.equal(0);
-                httpResponse.addHttpVaryParam('user-agent');
-                expect(httpResponse.getHttpVaryParams().length).to.equal(1);
+                var count = httpResponse.getVaryParams().length;
+                httpResponse.addVaryParam('user-agent');
+                expect(httpResponse.getVaryParams().length).to.equal(count + 1);
 
             });
 
@@ -51,6 +51,8 @@ define([
                 getController({
                     success: function (myController) {
                         var controller = myController;
+                        var headerCount = httpResponse.getHttpHeaders().length;
+                        var varyCount = httpResponse.getVaryParams().length;
 
                         controller.setHttpStatusCode(410);
                         controller.addHttpHeader('X-XSS-Protection', '1; mode=block');
@@ -59,8 +61,8 @@ define([
                         var responseData = httpResponse.mergeHttpResponseData(controller);
                         expect(responseData).to.exist;
                         expect(responseData.statusCode).to.equal(410);
-                        expect(responseData.httpHeaders.length).to.equal(2);
-                        expect(responseData.varyParams.length).to.equal(2);
+                        expect(responseData.httpHeaders.length).to.equal(headerCount + 1);
+                        expect(responseData.varyParams.length).to.equal(varyCount + 1);
 
                         dfd.resolve();
                     },

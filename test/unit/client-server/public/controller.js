@@ -38,7 +38,7 @@ define([
                         expect(controller.getHttpHeaders().length).to.equal(0);
                         dfd.resolve();
                     },
-                    error: function (err) {
+                    error: function () {
                         dfd.reject();
                     }
                 });
@@ -52,7 +52,7 @@ define([
                         expect(controller.getHttpVaryParams().length).to.equal(0);
                         dfd.resolve();
                     },
-                    error: function (err) {
+                    error: function () {
                         dfd.reject();
                     }
                 });

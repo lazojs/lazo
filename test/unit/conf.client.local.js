@@ -57,7 +57,7 @@ define(['intern/dojo/text!lib/common/resolver/paths.json', 'test/mocks/lazo', 'i
                     // testing libs
                     sinon: '../../node_modules/sinon/lib/sinon.js',
                     'sinon-chai': '../../node_modules/sinon-chai/lib/sinon-chai.js',
-                    bundler: '../lib/public/bundle'
+                    'bundler': 'lazoBundle'
                 }
             }
         },
