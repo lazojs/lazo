@@ -554,6 +554,9 @@ Sets the default template engine for lazo application
 LAZO.app.setDefaultTemplateEngine('handlebars');
 ```
 
+> See the hapijs [documentation](http://hapijs.com/api/) for further information on how the
+following values are applied to response objects.
+
 ### <a name="addHttpHeader"></a>`addHttpHeader(name, value, options)`
 
 Adds an application HTTP header to be included with each server route response.
@@ -562,9 +565,6 @@ Adds an application HTTP header to be included with each server route response.
 - `name` *(String)*: The name of the header.
 - `value` *(String)*: The value of the header.
 - `options` *(String)*: The options for the header.
-
-> See the hapijs [documentation](http://hapijs.com/api/) for further information on how the
-following values are applied to response objects.
 
 #### Example
 ```javascript
