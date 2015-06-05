@@ -511,6 +511,81 @@ this.setSharedData('foo', {
 });
 ```
 
+> See the hapijs [documentation](http://hapijs.com/api/) for further information on how the
+following values are applied to response objects.
+
+### <a name="setHttpStatusCode"></a>`setHttpStatusCode(statusCode)`
+
+Sets the status code for route response on the server.
+
+#### Arguments
+
+- `statusCode` *(Number)*: The http status code for a response
+
+#### Example
+
+```javascript
+this.setHttpStatusCode(206);
+```
+
+### <a name="getHttpStatusCode"></a>`getHttpStatusCode()`
+
+Gets the status code for route response on the server.
+
+#### Example
+
+```javascript
+this.getHttpStatusCode();
+```
+
+### <a name="addHttpHeader"></a>`addHttpHeader(name, value, options)`
+
+Adds an HTTP header to be included with the server route response.
+
+#### Arguments
+- `name` *(String)*: The name of the header.
+- `value` *(String)*: The value of the header.
+- `options` *(String)*: The options for the header.
+
+#### Example
+```javascript
+this.addHttpHeader('Expires', 'Thu, 01 Dec 2015 16:00:00 GMT', { override: false });
+```
+
+### <a name="getHttpHeaders"></a>`getHttpHeaders()`
+
+Gets the HTTP headers for a server route response.
+
+#### Example
+```javascript
+this.getHttpHeaders();
+```
+#### Returns
+- *(Array)*: The response HTTP headers
+
+### <a name="addVaryParam"></a>`addVaryParam(value)`
+
+Adds vary header to be included with the server route response.
+
+#### Arguments
+- `value` *(String)*: The name of the vary header.
+
+#### Example
+```javascript
+this.addVaryParam('Accept');
+```
+
+### <a name="getHttpVaryParams"></a>`getHttpVaryParams()`
+
+Gets the  HTTP vary headers to be included with the server route response.
+
+#### Example
+```javascript
+this.getHttpVaryParams();
+```
+#### Returns
+- *(Array)*: The response HTTP vary headers
+
 <!--
 ### `toJSON(rootCtx)`
 
