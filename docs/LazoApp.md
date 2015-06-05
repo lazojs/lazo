@@ -106,7 +106,7 @@ login page.
 
 #### Arguments
 - `regex` *(String)* : Regular expression for the route
-- `func` *(Function)*: Filter function that must implement the interface 
+- `func` *(Function)*: Filter function that must implement the interface
     - `function (path, params, ctx, options)`
         - `[path]` *(String)*:
         - `[params]` *(Object*): The params hash, used in URL substitution
@@ -199,7 +199,7 @@ Loads the lazo model. For more information on models refer to [LazoModel](LazoMo
   - `[params]` *(Object)*: The params hash, used in URL substitution;
   - `[success]` *(Function)*: Called after the model instance has been successfully loaded, it must implement the            `function(model)` interface:
     - `model` *(LazoModel)*: The model instance.
-  - `[ctx]` *(Object)*: The context object 
+  - `[ctx]` *(Object)*: The context object
 
 #### Returns
 
@@ -352,7 +352,7 @@ LAZO.app.addTag('script',
         'type': 'text/javascript',
         'lazo-application': '1'
     }, 'Hello');
-    
+
 // will add <script type="text/javascript" src="/hello.js">Hello</script> in <head> tag
 ```
 
@@ -378,7 +378,7 @@ Sets the class for the body tag in the document
 
 #### Arguments
 - `val` *(String)*: css class for the body tag
- 
+
 #### Returns
 - *(Object)*: The application instance
 
@@ -393,7 +393,7 @@ Sets the title of the DOM
 
 #### Arguments
 - `title` *(String)*: The title to be set
- 
+
 #### Returns
 - *(Object)*: The application instance
 
@@ -405,7 +405,7 @@ LAZO.app.setDefaultTitle('FOO');
 ```
 ### <a name="registerTemplateEngine"></a>`registerTemplateEngine(engineDef, options)`
 
-Registers a new template engine. For more information please refer to [templates](https://github.com/lazojs/lazo/wiki/Templates) 
+Registers a new template engine. For more information please refer to [templates](https://github.com/lazojs/lazo/wiki/Templates)
 
 #### Arguments
 - `engineDef` *(Object)*:Hash for Template Engine Definition
@@ -428,7 +428,7 @@ Registers a new template engine. For more information please refer to [templates
         - `error` *(Error)*: The `Error` instance;
     - `[success]` *(Function)*: Called after template engine is successfully registered, it must implement `function(engine)` interface.
         - `engine` *(Object)*: The instance of newly registered template engine
-        
+
 #### Returns
 
 - *(Object)*: The application instance
@@ -474,9 +474,9 @@ define(['lazoApp', 'l!app/utils/jade'], function (LazoApp, Jade) {
                     console.log("Error while registering jade template engine");
                     callback();
                 }
-                
+
             });
-            
+
         }
     });
 });
@@ -544,7 +544,7 @@ LAZO.app.getDefaultTemplateEngineName()
 Sets the default template engine for lazo application
 
 #### Arguments
-- `engineName` *(String)*: The name of the template engine. 
+- `engineName` *(String)*: The name of the template engine.
 
 #### Exception
 - `Error` *(Exception)*: throws an exception if there exists no engine registered with the name provided
@@ -554,7 +554,53 @@ Sets the default template engine for lazo application
 LAZO.app.setDefaultTemplateEngine('handlebars');
 ```
 
+### <a name="addHttpHeader"></a>`addHttpHeader(name, value, options)`
 
+Adds an application HTTP header to be included with each server route response.
 
+#### Arguments
+- `name` *(String)*: The name of the header.
+- `value` *(String)*: The value of the header.
+- `options` *(String)*: The options for the header.
 
+> See the hapijs [documentation](http://hapijs.com/api/) for further information on how the
+following values are applied to response objects.
 
+#### Example
+```javascript
+LAZO.app.addHttpHeader('Expires', 'Thu, 01 Dec 2015 16:00:00 GMT', { override: false });
+```
+
+### <a name="getHttpHeaders"></a>`getHttpHeaders()`
+
+Gets the application HTTP headers to be included with each server route response.
+
+#### Example
+```javascript
+LAZO.app.getHttpHeaders();
+```
+#### Returns
+- *(Array)*: The application HTTP headers
+
+### <a name="addVaryParam"></a>`addVaryParam(value)`
+
+Adds application vary header to be included with each server route response.
+
+#### Arguments
+- `value` *(String)*: The name of the vary header.
+
+#### Example
+```javascript
+LAZO.app.addVaryParam('Accept');
+```
+
+### <a name="getHttpVaryParams"></a>`getHttpVaryParams()`
+
+Gets the application HTTP vary headers to be included with each server route response.
+
+#### Example
+```javascript
+LAZO.app.getHttpVaryParams();
+```
+#### Returns
+- *(Array)*: The application HTTP vary headers
