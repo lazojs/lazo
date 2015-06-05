@@ -65,7 +65,8 @@
         "handlers": "lib/server/handlers",
         "forbidden": "lib/server/forbidden",
         "appServerSetup": "lib/public/server/server",
-        "lazoServer": "lib/public/server/server"
+        "lazoServer": "lib/public/server/server",
+        "httpResponse": "lib/server/httpResponse"
     },
     "lib": [
         "assetsProvider",
