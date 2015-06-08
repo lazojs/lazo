@@ -577,7 +577,7 @@ this.addVaryParam('Accept');
 
 ### <a name="getHttpVaryParams"></a>`getHttpVaryParams()`
 
-Gets the  HTTP vary headers to be included with the server route response.
+Gets the HTTP vary headers to be included with the server route response.
 
 #### Example
 ```javascript
@@ -585,6 +585,31 @@ this.getHttpVaryParams();
 ```
 #### Returns
 - *(Array)*: The response HTTP vary headers
+
+### <a name="addPageTag"></a>`addPageTag(name, attributes, content)`
+
+Adds tag to the page for a route.
+
+#### Arguments
+- `name` *(String)*: The name of the tag.
+- `attibutes` *(Object)*: The tag attributes.
+- `content` *(String)*: The tag content.
+
+#### Example
+```javascript
+this.addPageTag('meta', { description: 'I am a page.' });
+```
+
+### <a name="getPageTags"></a>`getPageTags()`
+
+Gets the page tags for a route.
+
+#### Example
+```javascript
+this.getPageTags();
+```
+#### Returns
+- *(Array)*: The page tags for a route
 
 <!--
 ### `toJSON(rootCtx)`
