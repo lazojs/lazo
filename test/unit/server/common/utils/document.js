@@ -43,6 +43,18 @@ define([
                 expect(metaTag.attributes.name).to.be.equal('description');
                 expect(metaTag.attributes.content).to.be.equal('the most awesome web page ever');
             });
+
+            it('add, get page tags', function () {
+
+                var ctx = {
+                    _rootCtx: {},
+                    meta: {}
+                };
+
+                expect(doc.getPageTags(ctx, true).length).to.equal(0);
+                doc.addPageTag(ctx, true, 'meta', { description: 'text' });
+                expect(doc.getPageTags(ctx, true).length).to.equal(1);
+            });
         });
     }
 });

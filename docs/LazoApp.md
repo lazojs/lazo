@@ -604,3 +604,32 @@ LAZO.app.getHttpVaryParams();
 ```
 #### Returns
 - *(Array)*: The application HTTP vary headers
+
+### <a name="addPageTag"></a>`addPageTag(ctx, name, attributes, content)`
+
+Adds tag to the page for a route.
+
+#### Arguments
+- `ctx` *(Object)*: The context of a component.
+- `name` *(String)*: The name of the tag.
+- `attibutes` *(Object)*: The tag attributes.
+- `content` *(String)*: The tag content.
+
+#### Example
+```javascript
+this.addPageTag(ctx, 'meta', { description: 'I am a page.' });
+```
+
+### <a name="getPageTags"></a>`getPageTags(ctx)`
+
+Gets the page tags for a route.
+
+#### Arguments
+- `ctx` *(Object)*: The context of a component.
+
+#### Example
+```javascript
+this.getPageTags(ctx);
+```
+#### Returns
+- *(Array)*: The page tags for a route
