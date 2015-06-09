@@ -53,7 +53,7 @@
     "underscore": "1.6.0",
     "jquery": "1.11.1",
     "requirejs-text": "2.0.12",
-    "hermes-conrad": "1.0.0",
+    "hermes-conrad": "1.x.x",
     "jquery.cookie": "1.4.1",
     "requirejs-plugins": "1.0.2",
     "async": "0.6.2",
