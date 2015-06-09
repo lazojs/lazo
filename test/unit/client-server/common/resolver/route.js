@@ -15,14 +15,22 @@ define([
                 var foo = route.transform('foo(/)');
                 var bar = route.transform('bar');
                 var baz = route.transform('');
+                var dynamic = route.transform('foo/*bar');
 
-                expect(foo.routeNoTrailingSlash).to.be.equal('/foo');
-                expect(foo.route).to.be.equal('/foo/');
-                expect(bar.routeNoTrailingSlash).to.be.null;
+                expect(foo.routeTrailingSlash).to.be.equal('/foo/');
+                expect(foo.route).to.be.equal('/foo');
+                expect(bar.routeTrailingSlash).to.be.null;
                 expect(bar.route).to.be.equal('/bar');
-                expect(baz.routeNoTrailingSlash).to.be.null;
+                expect(baz.routeTrailingSlash).to.be.null;
                 expect(baz.route).to.be.equal('/');
 
+                if (LAZO.app.isServer) {
+                    // hapi style splat
+                    expect(dynamic.route).to.be.equal('/foo/{bar*}');
+                } else {
+                    // backbone style splat
+                    expect(dynamic.route).to.be.equal('/foo/*bar');
+                }
             });
         });
     }
