@@ -40,7 +40,8 @@
         "htmlparserToString": "lib/vendor/htmlparser-tostring",
         "lazoWidget": "lib/public/widget",
         "lazoWidgetMixin": "lib/public/views/widget",
-        "uiStateMixin": "lib/public/views/state"
+        "uiStateMixin": "lib/public/views/state",
+        "destroyCmp": "lib/client/destroyCmp"
     },
     "client": {
         "backbone": "lib/vendor/backbone",
@@ -107,6 +108,7 @@
         "lazoWidget",
         "htmlparser",
         "htmlparserToString",
-        "uiStateMixin"
+        "uiStateMixin",
+        "destroyCmp"
     ]
 }
