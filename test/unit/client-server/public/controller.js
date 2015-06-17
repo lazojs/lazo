@@ -44,17 +44,101 @@ define([
                 });
             });
 
-            it('should have empty http vary params', function () {
+            it('should add a child component', function () {
                 var dfd = this.async();
-                getController({
-                    success: function (myController) {
-                        controller = myController;
-                        expect(controller.getHttpVaryParams().length).to.equal(0);
-                        dfd.resolve();
+
+                LazoController.create(LazoController.extend({}), { name: 'parent' }, {
+                    success: function (ctl) {
+                        ctl.ctx = {};
+                        LAZO.require = requirejs;
+                        ctl.addChild('all-my-children', 'foo', {
+                            success: function (childCtl) {
+                                expect(ctl.children['all-my-children'].length).to.equal(1);
+                                if (LAZO.app.isClient) {
+                                    expect(ctl.children['all-my-children'][0]._getEl().html()).to.equal('');
+                                }
+                                dfd.resolve();
+                            },
+                            error: dfd.reject
+                        });
                     },
-                    error: function () {
-                        dfd.reject();
-                    }
+                    error: dfd.reject
+                });
+            });
+
+            it('should remove a child component', function () {
+                var dfd = this.async();
+
+                utils.setUpApp(function () {
+                    utils.createCtlTree(function (_ctl) {
+                        LazoController.create(LazoController.extend({}), { name: 'parent' }, {
+                            success: function (ctl) {
+                                var removeSpy = sinon.spy(ctl, 'onChildRemove');
+                                _.extend(ctl, _ctl);
+
+                                expect(ctl.children.foo.length).to.equal(2);
+                                ctl.removeChild(ctl.children.foo[0], {
+                                    success: function () {
+                                        expect(removeSpy.calledOnce).to.be.true;
+                                        expect(ctl.children.foo.length).to.equal(1);
+                                        dfd.resolve();
+                                    },
+                                    error: dfd.reject
+                                });
+                            },
+                            error: dfd.reject
+                        });
+                    });
+                });
+            });
+
+            it('should remove self', function () {
+                var dfd = this.async();
+
+                utils.setUpApp(function () {
+                    utils.createCtlTree(function (_ctl) {
+                        LazoController.create(LazoController.extend({}), { name: 'parent' }, {
+                            success: function (ctl) {
+                                var removeSpy = sinon.spy(ctl, 'onChildRemove');
+                                _.extend(ctl, _ctl);
+
+                                expect(ctl.children.foo.length).to.equal(2);
+
+                                // convert component mock to component
+                                LazoController.create(LazoController.extend({}), { name: 'foo' }, {
+                                    success: function (childCtl) {
+                                        ctl.children.foo[0] = _.extend(childCtl, ctl.children.foo[0]);
+                                        ctl.children.foo[0].parent = ctl;
+                                        ctl.children.foo[0].remove({
+                                            success: function () {
+                                                expect(removeSpy.calledOnce).to.be.true;
+                                                expect(ctl.children.foo.length).to.equal(1);
+                                                dfd.resolve();
+                                            },
+                                            error: dfd.reject
+                                        });
+                                    },
+                                    error: dfd.reject
+                                });
+                            },
+                            error: dfd.reject
+                        });
+                    });
+                });
+            });
+
+            it('on child remove callback should call success', function () {
+                var dfd = this.async();
+
+                LazoController.create(LazoController.extend({}), { name: 'parent' }, {
+                    success: function (ctl) {
+                        ctl.onChildRemove({}, {
+                            success: function () {
+                                dfd.resolve();
+                            }
+                        });
+                    },
+                    error: dfd.reject
                 });
             });
 
