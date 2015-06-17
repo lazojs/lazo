@@ -10,4 +10,4 @@ lib/vendor
 phantomjsdriver.log
 logs/
 lazo.pid
-lib/optimized/lib.js
+lib/optimized

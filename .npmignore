@@ -1,4 +1,4 @@
-!lib/optimized/lib.js
+!lib/optimized
 !lib/vendor
 .idea
 lib-cov
