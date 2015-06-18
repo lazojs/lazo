@@ -110,7 +110,7 @@ Removes component.
 1. `[options]` *(Object)*: The `options` hash:
   - `[error]` *(Function)*: Called if an error occurs, it must implement the `function(error)` interface:
       - `error` *(Error)*: The `Error` instance;
-  - `[success]` *(Function)*: Called after the  component has been successfully removed the `function(`controller`): The component controller to be removed.)` interface:
+  - `[success]` *(Function)*: Called after the  component has been successfully removed the `function(controller)`: The component controller to be removed.)` interface:
     - `controller` *(Object)*: The controller instance.
 
 #### Example
