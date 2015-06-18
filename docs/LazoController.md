@@ -47,7 +47,7 @@ Adds a child component into the given container.
 1. `[options]` *(Object)*: The `options` hash:
   - `[params]` *(Object)*: The parameters to be passed to the child component;
   - `[render]` *(Boolean)*: If true then the component is rendered.
-  - `[index]` *(Number)*: The insertation location in the container. Default it 0.
+  - `[index]` *(Number)*: The insertation location in the container. Default is 0.
   - `[error]` *(Function)*: Called if an error occurs, it must implement the `function(error)` interface:
       - `error` *(Error)*: The `Error` instance;
   - `[success]` *(Function)*: Called after the child component has been successfully instantiated and added to the current view, it must implement the `function(childController)` interface:
@@ -110,7 +110,7 @@ Removes component.
 1. `[options]` *(Object)*: The `options` hash:
   - `[error]` *(Function)*: Called if an error occurs, it must implement the `function(error)` interface:
       - `error` *(Error)*: The `Error` instance;
-  - `[success]` *(Function)*: Called after the  component has been successfully removed the `function(1. `child` *(Object)*: The component controller to be removed.)` interface:
+  - `[success]` *(Function)*: Called after the  component has been successfully removed the `function(`controller`): The component controller to be removed.)` interface:
     - `controller` *(Object)*: The controller instance.
 
 #### Example
