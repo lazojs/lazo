@@ -40,13 +40,21 @@ define(['test/mocks/lazo'], function (lazo) {
         },
 
         createCtlTree: function (callback) {
+
+            function _getEl() {
+                if (LAZO.app.isClient) {
+                    return this.$el || (this.$el = $('<div lazo-cmp-id="' + this.cid + '">'));
+                }
+            }
+
             requirejs(['lazoView', 'underscore'], function (LazoView, _) {
                 var childCtl;
                 var ctl = {
                     currentView: null,
                     children: {
                         foo: []
-                    }
+                    },
+                    _getEl: _getEl
                 };
 
                 for (var i = 0; i < 3; i++) {
@@ -63,7 +71,8 @@ define(['test/mocks/lazo'], function (lazo) {
                             currentView: null,
                             cid: i,
                             name: 'name' + i,
-                            ctx: {}
+                            ctx: {},
+                            _getEl: _getEl
                         };
                         childCtl.currentView = createView(childCtl, i, LazoView, _);
                         ctl.children.foo.push(childCtl);
