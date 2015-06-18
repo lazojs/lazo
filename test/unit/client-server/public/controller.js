@@ -5,14 +5,16 @@ define([
     'sinon',
     'sinon-chai',
     'test/unit/utils',
-    'lazoCtl'
-], function (bdd, chai, expect, sinon, sinonChai, utils, LazoController) {
+    'lazoCtl',
+    'lazoView'
+], function (bdd, chai, expect, sinon, sinonChai, utils, LazoController, LazoView) {
     chai.use(sinonChai);
 
     with (bdd) {
         describe('Lazo Controller', function () {
 
             var controller;
+            var getTemplate;
 
             var getController = function (options) {
                 var ctlOptions = {
@@ -46,17 +48,28 @@ define([
 
             it('should add a child component', function () {
                 var dfd = this.async();
+                var getTemplate = LazoView.prototype.getTemplate;
+                var renderSpy = sinon.spy(LazoView.prototype, 'render');
+
+                // override so that addChild doesn't try to load the template file
+                LazoView.prototype.getTemplate = function (options) {
+                    options.success('I am the view!');
+                };
 
                 LazoController.create(LazoController.extend({}), { name: 'parent' }, {
                     success: function (ctl) {
                         ctl.ctx = {};
                         LAZO.require = requirejs;
+
                         ctl.addChild('all-my-children', 'foo', {
+                            render: true,
                             success: function (childCtl) {
                                 expect(ctl.children['all-my-children'].length).to.equal(1);
                                 if (LAZO.app.isClient) {
-                                    expect(ctl.children['all-my-children'][0]._getEl().html()).to.equal('');
+                                    expect(renderSpy.calledOnce).to.be.true;
                                 }
+                                LazoView.prototype.getTemplate = getTemplate;
+                                renderSpy.restore();
                                 dfd.resolve();
                             },
                             error: dfd.reject
