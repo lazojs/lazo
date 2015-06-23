@@ -99,7 +99,19 @@ define([
                             bar: true,
                             baz: 'a string'
                         },
-                        success: function (widget) {
+                        success: function (widget) {},
+                        error: function (err) {
+                            throw err;
+                        }
+                    });
+
+                    // link.onload does not fire in phantomjs so success is never called for
+                    // createWidget; check to see if css link node was created then run tests
+                    var interval = setInterval(function () {
+                        var $link = $('link[href="/app/widgets/foo/index.css"]');
+                        if ($link.length) { // css link for created widget was appended to the DOM
+                            var widget = lazoWidgetMixin.widgets.foo[0];
+                            clearInterval(interval);
                             expect(widget.attributes.foo).to.be.equal(1);
                             expect(widget.attributes.bar).to.be.true;
                             expect(widget.attributes.baz).to.be.equal('a string');
@@ -108,12 +120,8 @@ define([
                             expect(lazoWidgetMixin.widgets.foo[0]).to.be.instanceof(lazoWidgetMixin.widgetDefinitions.foo);
                             expect(lazoWidgetMixin.widgets.foo[0].el).to.be.equal($el[0]);
                             dfd.resolve();
-                        },
-                        error: function (err) {
-                            throw err;
                         }
-                    });
-
+                    }, 10);
                 });
             }
 
