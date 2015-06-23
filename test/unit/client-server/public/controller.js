@@ -62,9 +62,12 @@ define([
                         LAZO.require = requirejs;
 
                         ctl.addChild('all-my-children', 'foo', {
+                            params: { foo: true, bar: false },
                             render: true,
                             success: function (childCtl) {
                                 expect(ctl.children['all-my-children'].length).to.equal(1);
+                                expect(ctl.children['all-my-children'][0].ctx.params.foo).to.be.true;
+                                expect(ctl.children['all-my-children'][0].ctx.params.bar).to.be.false;
                                 if (LAZO.app.isClient) {
                                     expect(renderSpy.calledOnce).to.be.true;
                                 }
