@@ -5,8 +5,10 @@ define([
     'sinon',
     'intern/chai!',
     'sinon-chai',
-    'lazoView'
-], function (bdd, expect, utils, sinon, chai, sinonChai, LazoView) {
+    'lazoView',
+    'lazoModel',
+    'lazoCollection'
+], function (bdd, expect, utils, sinon, chai, sinonChai, LazoView, LazoModel, LazoCollection) {
     chai.use(sinonChai);
 
     function loadChild(viewName, options) {
@@ -267,6 +269,44 @@ define([
                         throw err;
                     }
                 });
+            });
+            
+            it('should serialize data with idAttribute set as id', function () {
+                var dfd = this.async();
+                var MyModel = LazoModel.extend({idAttribute: 'bar'});
+                var m = new MyModel(
+                    {
+                        bar: 'baz',
+                        abc: 'xyz'
+                    }, 
+                    {}
+                );
+                var view = new LazoView({
+                    name: 'index',
+                    ctl: {
+                        name: 'foo',
+                        _getPath: function () {},
+                        _getBasePath: function () {},
+                        ctx: {
+                            models: {
+                                foo: m
+                            }
+                            
+                        }
+                    }
+                });
+
+
+                view.serializeData({
+                    success: function (data) {
+                        expect(data.models.foo.id, 'the id should be equal to the attribute bar').to.equal(data.models.foo.bar);
+                        expect(data.models.foo.id, 'the id should be equal to the attribute bar').to.equal('baz');
+                        expect(data.models.foo.abc, 'the other data should still serialize').to.equal('xyz');
+                        return dfd.resolve();    
+                    }
+                    
+                });
+                
             });
 
         });
