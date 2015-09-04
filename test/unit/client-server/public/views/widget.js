@@ -25,6 +25,7 @@ define([
                             options.success('I am a widget.');
                         },
                         css: ['/app/widgets/foo/index.css'],
+                        loadCss: true
                     }),
                 };
 
