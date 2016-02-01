@@ -1,8 +1,10 @@
-define(['intern/dojo/text!lib/common/resolver/paths.json', 'test/mocks/lazo'], function (paths, lazo) {
+define(['intern/dojo/text!lib/common/resolver/paths.json', 'test/mocks/lazo', 'intern/dojo/text!conf.json'],
+    function (paths, lazo, conf) {
 
     'use strict';
 
     paths = JSON.parse(paths);
+    conf = JSON.parse(conf);
 
     try {
         window.LAZO = lazo;
@@ -44,6 +46,7 @@ define(['intern/dojo/text!lib/common/resolver/paths.json', 'test/mocks/lazo'], f
         },
 
         loader: {
+            shim: conf.requirejs.client.shim,
             paths: paths.common,
             map: {
                 intern: {
@@ -53,7 +56,8 @@ define(['intern/dojo/text!lib/common/resolver/paths.json', 'test/mocks/lazo'], f
                 '*': {
                     // testing libs
                     sinon: '../../node_modules/sinon/lib/sinon.js',
-                    'sinon-chai': '../../node_modules/sinon-chai/lib/sinon-chai.js'
+                    'sinon-chai': '../../node_modules/sinon-chai/lib/sinon-chai.js',
+                    'bundler': 'lazoBundle'
                 }
             }
         },

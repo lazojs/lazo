@@ -28,12 +28,19 @@
     },
     "client": {},
     "requirejs": {
-        "shim": {
-            "handlebars": {
-                "exports": "Handlebars"
-            }
-        },
-        "paths": {}
+        "common": {},
+        "server": {},
+        "client": {
+            "shim": {
+                "handlebars": {
+                    "exports": "Handlebars"
+                },
+                "htmlparser": {
+                    "exports": "Tautologistics.NodeHtmlParser"
+                }
+            },
+            "paths": {}
+        }
     },
     "libPath": "/lib/optimized/lib.js"
 }

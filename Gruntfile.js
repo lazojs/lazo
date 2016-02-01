@@ -3,7 +3,7 @@ module.exports = function (grunt) {
     var fs = require('fs');
     var path = require('path');
     var reqConf = grunt.file.readJSON('lib/common/resolver/paths.json');
-    var isSecure = process.env.TRAVIS_SECURE_ENV_VARS === 'false' || !process.env.TRAVIS ? false : true;
+    var lazoReqConf = grunt.file.readJSON('conf.json');
 
     function getPaths(conf, env) {
         var paths = grunt.util._.extend({}, conf.common, (conf[env] || conf.client));
@@ -27,9 +27,10 @@ module.exports = function (grunt) {
         });
         var conf = grunt.config.get('intern');
         conf[this.args[0]].options.suites = specs;
-        if (!isSecure && env === 'client' && this.args[0] !== 'client-local') {
+        if (env === 'client' && this.args[0] !== 'client-local') {
             conf[this.args[0]].options.config = 'test/unit/conf.client.phantomjs';
         }
+
         grunt.config.set('intern', conf);
     });
 
@@ -60,11 +61,7 @@ module.exports = function (grunt) {
                 options: {
                     include: reqConf.lib,
                     paths: getPaths(reqConf),
-                    shim: {
-                        handlebars: {
-                            exports: 'Handlebars'
-                        }
-                    },
+                    shim: lazoReqConf.requirejs.client.shim,
                     map: {
                         '*': {
                             'l': '/lib/client/loader.js',

@@ -34,7 +34,14 @@
         "lazoBundle": "lib/public/bundle",
         "lazoAssets": "lib/public/assets",
         "assets": "lib/public/assets",
-        "viewManager": "lib/client/viewManager"
+        "viewManager": "lib/client/viewManager",
+        "flexo": "lib/vendor/flexo.amd",
+        "lazoViewMixin": "lib/public/views/view",
+        "htmlparserToString": "lib/vendor/htmlparser-tostring",
+        "lazoWidget": "lib/public/widget",
+        "lazoWidgetMixin": "lib/public/views/widget",
+        "uiStateMixin": "lib/public/views/state",
+        "destroyCmp": "lib/client/destroyCmp"
     },
     "client": {
         "backbone": "lib/vendor/backbone",
@@ -45,7 +52,8 @@
         "rehydrate": "lib/client/rehydrate",
         "post": "lib/client/post",
         "execute": "lib/client/execute",
-        "appConf": "app/app.json"
+        "appConf": "app/app.json",
+        "htmlparser": "lib/vendor/htmlparser"
     },
     "server": {
         "backbone": "lib/server/backbone",
@@ -58,7 +66,8 @@
         "handlers": "lib/server/handlers",
         "forbidden": "lib/server/forbidden",
         "appServerSetup": "lib/public/server/server",
-        "lazoServer": "lib/public/server/server"
+        "lazoServer": "lib/public/server/server",
+        "httpResponse": "lib/server/httpResponse"
     },
     "lib": [
         "assetsProvider",
@@ -92,6 +101,14 @@
         "hermes",
         "rehydrate/main",
         "logger",
-        "lazoBundle"
+        "lazoBundle",
+        "flexo",
+        "lazoViewMixin",
+        "lazoWidgetMixin",
+        "lazoWidget",
+        "htmlparser",
+        "htmlparserToString",
+        "uiStateMixin",
+        "destroyCmp"
     ]
 }

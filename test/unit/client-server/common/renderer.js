@@ -11,7 +11,6 @@ define([
 
     with (bdd) {
 
-
         describe('Renderer', function () {
 
             it('should get the index for an markup insertion in a string', function () {
@@ -34,14 +33,16 @@ define([
             it('should render a tree', function () {
                 var dfd = this.async();
 
-                utils.createCtlTree(function (ctl) {
-                    renderer.getTreeHtml(ctl, null, null, function (html) {
-                        var regex = /<div lazo-cmp-name="name[0-9]+" lazo-cmp-id="[0-9]+"><div lazo-view-id="view[0-9]+"><div lazo-cmp-container="foo"><div lazo-cmp-name="name[0-9]+" lazo-cmp-id="[0-9]+"><div lazo-view-id="view[0-9]+">I am a template!<\/div><\/div><div lazo-cmp-name="name[0-9]+" lazo-cmp-id="[0-9]+"><div lazo-view-id="view[0-9]+">I am a template!<\/div><\/div><\/div><\/div><\/div>/;
-                        var match = html.match(regex);
+                utils.setUpApp(function () {
+                    utils.createCtlTree(function (ctl) {
+                        renderer.getTreeHtml(ctl, null, null, function (html) {
+                            var regex = /<div lazo-cmp-name="name[0-9]+" lazo-cmp-id="[0-9]+"><div lazo-view-id="view[0-9]+" class="lazo-detached"><div lazo-cmp-container="foo"><div lazo-cmp-name="name[0-9]+" lazo-cmp-id="[0-9]+"><div lazo-view-id="view[0-9]+" class="lazo-detached">I am a template!<\/div><\/div><div lazo-cmp-name="name[0-9]+" lazo-cmp-id="[0-9]+"><div lazo-view-id="view[0-9]+" class="lazo-detached">I am a template!<\/div><\/div><\/div><\/div><\/div>/;
+                            var match = html.match(regex);
 
-                        expect(match.length).to.be.equal(1);
-                        expect(match.index).to.be.equal(0);
-                        dfd.resolve();
+                            expect(match.length).to.be.equal(1);
+                            expect(match.index).to.be.equal(0);
+                            dfd.resolve();
+                        });
                     });
                 });
             });

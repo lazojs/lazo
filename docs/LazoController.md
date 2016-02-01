@@ -45,7 +45,9 @@ Adds a child component into the given container.
 1. `container` *(String)*: A component container name, it has to match the `lazo-cmp-container` attribute value from an existing tag in the current view;
 1. `cmpName` *(String)*: The name of component to be instantiated and added inside the given container;
 1. `[options]` *(Object)*: The `options` hash:
-  - `[ctx]` *(Object)*: The context object to be passed to the child component;
+  - `[params]` *(Object)*: The parameters to be passed to the child component;
+  - `[render]` *(Boolean)*: If true then the component is rendered.
+  - `[index]` *(Number)*: The insertation location in the container. Default is 0.
   - `[error]` *(Function)*: Called if an error occurs, it must implement the `function(error)` interface:
       - `error` *(Error)*: The `Error` instance;
   - `[success]` *(Function)*: Called after the child component has been successfully instantiated and added to the current view, it must implement the `function(childController)` interface:
@@ -63,9 +65,7 @@ Then, add a child component from the parent controller:
 
 ```javascript
 this.addChild('foo', 'bar', {
-  ctx: {
-    params: this.ctx.params
-  },
+  params: this.ctx.params,
   error: function (error){
     console.log('Oops...');
   },
@@ -74,6 +74,70 @@ this.addChild('foo', 'bar', {
   }
 });
 ```
+
+### `removeChild(child, options)`
+
+Removes a child component.
+
+#### Arguments
+
+1. `child` *(Object)*: The child component controller to be removed.
+1. `[options]` *(Object)*: The `options` hash:
+  - `[error]` *(Function)*: Called if an error occurs, it must implement the `function(error)` interface:
+      - `error` *(Error)*: The `Error` instance;
+  - `[success]` *(Function)*: Called after the child component has been successfully removed, it must implement the `function(childController)` interface:
+    - `childController` *(Object)*: The child controller instance.
+
+#### Example
+
+```javascript
+this.removeChild(this.children.foo[0], {
+  error: function (error){
+    console.log('Oops...');
+  },
+  success: function (fooController){
+    console.log('Yay!'); // foo component has been removed!
+  }
+});
+```
+
+### `remove(options)`
+
+Removes component.
+
+#### Arguments
+
+1. `[options]` *(Object)*: The `options` hash:
+  - `[error]` *(Function)*: Called if an error occurs, it must implement the `function(error)` interface:
+      - `error` *(Error)*: The `Error` instance;
+  - `[success]` *(Function)*: Called after the  component has been successfully removed the `function(controller)` interface:
+    - `controller` *(Object)*: The controller instance.
+
+#### Example
+
+```javascript
+this.remove({
+  error: function (error){
+    console.log('Oops...');
+  },
+  success: function (controller){
+    console.log('Yay!'); // component has been removed!
+  }
+});
+```
+
+### `onChildRemove(child, options)`
+
+Called when a child it removed. Intended to be overriden with custom implementations.
+The default implementation executes `options.success` and so should custom implementations.
+
+#### Arguments
+
+1. `child` *(Object)*: The child component controller that was removed.
+1. `[options]` *(Object)*: The `options` hash:
+  - `[error]` *(Function)*: Called if an error occurs, it must implement the `function(error)` interface:
+      - `error` *(Error)*: The `Error` instance;
+  - `[success]` *(Function)*: Called after the child component has been successfully removed.
 
 <!--
 ### `augmentCssLink(link)`
@@ -334,6 +398,7 @@ Any additional action handlers should implement the same interface. Action handl
 #### Arguments
 
 - `[options]` *(Object)*: The options hash;
+  - `[params]` *(Object)*: The params hash;
   - `[error]` *(Function)*: To be called if an error occurs, it implements the `function(error)` interface:
     - `error` *(Error)*: The `Error` instance;
   - `[success]` *(Function)*: To be called once the action handler is done and ready to return control to the framework, it implements the `function(viewName)` interface:
@@ -509,6 +574,106 @@ this.setSharedData('foo', {
   bar: 'quux'
 });
 ```
+
+> See the hapijs [documentation](http://hapijs.com/api/) for further information on how the
+following values are applied to response objects.
+
+### <a name="setHttpStatusCode"></a>`setHttpStatusCode(statusCode)`
+
+Sets the status code for route response on the server.
+
+#### Arguments
+
+- `statusCode` *(Number)*: The http status code for a response
+
+#### Example
+
+```javascript
+this.setHttpStatusCode(206);
+```
+
+### <a name="getHttpStatusCode"></a>`getHttpStatusCode()`
+
+Gets the status code for route response on the server.
+
+#### Example
+
+```javascript
+this.getHttpStatusCode();
+```
+
+### <a name="addHttpHeader"></a>`addHttpHeader(name, value, options)`
+
+Adds an HTTP header to be included with the server route response.
+
+#### Arguments
+- `name` *(String)*: The name of the header.
+- `value` *(String)*: The value of the header.
+- `options` *(String)*: The options for the header.
+
+#### Example
+```javascript
+this.addHttpHeader('Expires', 'Thu, 01 Dec 2015 16:00:00 GMT', { override: false });
+```
+
+### <a name="getHttpHeaders"></a>`getHttpHeaders()`
+
+Gets the HTTP headers for a server route response.
+
+#### Example
+```javascript
+this.getHttpHeaders();
+```
+#### Returns
+- *(Array)*: The response HTTP headers
+
+### <a name="addVaryParam"></a>`addVaryParam(value)`
+
+Adds vary header to be included with the server route response.
+
+#### Arguments
+- `value` *(String)*: The name of the vary header.
+
+#### Example
+```javascript
+this.addVaryParam('Accept');
+```
+
+### <a name="getHttpVaryParams"></a>`getHttpVaryParams()`
+
+Gets the HTTP vary headers to be included with the server route response.
+
+#### Example
+```javascript
+this.getHttpVaryParams();
+```
+#### Returns
+- *(Array)*: The response HTTP vary headers
+
+### <a name="addPageTag"></a>`addPageTag(name, attributes, content)`
+
+Adds tag to the page for a route.
+
+#### Arguments
+- `name` *(String)*: The name of the tag.
+- `attibutes` *(Object)*: The tag attributes.
+- `content` *(String)*: The tag content.
+
+#### Example
+```javascript
+this.addPageTag('meta', { description: 'I am a page.' });
+```
+
+### <a name="getPageTags"></a>`getPageTags()`
+
+Gets the page tags for a route.
+
+#### Example
+```javascript
+this.getPageTags();
+```
+#### Returns
+- *(Array)*: The page tags for a route
 
 <!--
 ### `toJSON(rootCtx)`
