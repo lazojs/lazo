@@ -56,6 +56,7 @@
         "htmlparser": "lib/vendor/htmlparser"
     },
     "server": {
+        "continuation-local-storage": "lib/server/cls-facade",
         "backbone": "lib/server/backbone",
         "backboneServer": "lib/vendor/backbone",
         "jquery": "lib/server/jquery",

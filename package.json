@@ -39,7 +39,6 @@
   },
   "dependencies": {
     "crumb": "3.1.0",
-    "continuation-local-storage": "3.1.0",
     "request": "2.40.0",
     "forever": "0.10.8",
     "fs-extra": "0.6.3",
